@@ -52,3 +52,17 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'font-awesome-sass'
+gem 'devise'
+# 画像をアップロードして、表示させる
+gem 'carrierwave'
+# 画像ファイルをリサイズできる、carrierwaveのuploaderクラスでリサイズの設定
+gem 'mini_magick'
+# jqueryの準備をする
+gem 'jquery-rails'
+# 外部のストレージを選択しアップロードするのを補助
+gem 'fog-aws'
+# 動作確認用
+gem 'pry-rails'
