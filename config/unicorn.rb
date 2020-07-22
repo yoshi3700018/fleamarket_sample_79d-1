@@ -1,4 +1,4 @@
-config/unicorn.rb(新規作成)
+# config/unicorn.rb(新規作成)
 # ファイルが無いのでconfigフォルダにunicorn.rbを新規作成します
 
 app_path = File.expand_path('../../../', __FILE__)
