@@ -107,15 +107,18 @@ Association
 |column|type|options|validations|
 |------|----|-------|-----------|
 |user_id|references|foreign_key||
-|brand_id|references|foreign_key||
 |name|string|null: false, index: true||
 |price|integer|null: false||
 |explanation|text|null: false||
-|condition|integer|null: false||
+|status|integer|null: false||
+|size_id|integer|null: false||
+|brand_id|integer|||
+|category_id|integer|null: false||
+|shipping_status|integer|null: false||
+|deliver|integer|null: false||
 |prefecture|integer|null: false||
-|size|string|null: false||
-|postage|string|null: false||
-|shipping_date||||
+|shipping_date|integer|null: false||
+
 
 Association
 - belongs_to :user
