@@ -1,0 +1,57 @@
+
+.SingleContainerRegistration {
+  margin: 0 auto;
+  background: #f5f5f5;
+  color: #333333;
+  .Header {
+    display: block;
+
+  }
+  .Main {
+    display: block;
+    margin: 0;
+    padding: 0;
+    .LoginPanels {
+      max-width: 456px;
+      &__NoAccount {
+        padding: 40px 64px;
+        text-align: center;
+        p {
+          font-size: 14px;
+          display: block;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+        }
+      }
+      &__Forms {
+
+      }
+    }
+  }
+  .Footer {
+
+  }
+}
+
+// btns設定（ロゴなど）
+.Btns {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  border: 1px solid transparent;
+  text-align: center;
+  border-radius: 4px;
+  margin: 16px 0 0;
+  &--LogIn {
+    display: block;
+    margin: 8px 0 0;
+    background: #0099e8;
+    color: #fff;
+    line-height: 40px;
+  }
+  &--Google {
+
+  }
+}
