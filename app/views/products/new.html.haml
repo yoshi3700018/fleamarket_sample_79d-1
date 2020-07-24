@@ -1,1 +1,107 @@
-%h1 newのページです　88888888
+!!!
+%html
+  %head
+    %meta{"charset":"UTF-8"}
+    %title fleamarket_sample_79d
+  %body
+    .Wrapper
+      %header
+        -# = link_to image_tag("#", width: '185', alt: "サンプル画像"), products_path
+      .Main
+        .Contents
+          .InputPhoto
+            .InputPhoto__FormLabel
+              %label 出品画像
+              %span.red 必須
+            %p 最大10枚までアップロードできます
+            .InputPhoto__DropArea
+          .InputInfo
+            .InputInfo__NameForm
+              .InputInfo__NameForm__FormLabel 
+                %label 商品名
+                %span.red 必須
+              .InputInfo__NameForm__FormArea
+            .InputInfo__InfoForm
+              .InputInfo__InfoForm__FormLabel
+                %label 商品の説明
+                %span.red 必須
+              %textarea.InputInfo__InfoForm__FormArea
+              %p 0/1000
+          .InputData
+            %p 商品の詳細
+            .InputData__CategoryForm
+              .InputData__CategoryForm__FormLabel
+                %label カテゴリー
+                %span.red 必須
+              %select
+            .InputData__BrandForm
+              .InputData__BrandForm__FormLabel
+                %label ブランド
+                %span.gray 任意
+              .InputData__BrandForm__FormArea
+            .InputData__StatusSelect
+              .InputData__StatusSelect__FormLabel
+                %label 商品の状態
+                %span.red 必須
+              %select
+          .InputSipping
+            %p 配送について
+            .InputSipping__DeliveryFee
+              .InputSipping__DeliveryFee__FormLabel
+                %label 配送料の負担
+                %span.red 必須
+              %select
+            .InputSipping__ShippingOrigin
+              .InputSipping__ShippingOrigin__FormLabel
+                %label 発送元の地域
+                %span.red 必須
+              %select
+            .InputSipping__ShippingDays
+              .InputSipping__ShippingDays__FormLabel
+                %label 発送までの日数
+                %span.red 必須
+              %select
+          .InputPrice__Price
+            %p 価格（¥300〜9,999,999）
+            .InputPrice__LabelBox
+              .InputPrice__LabelBox__Label
+                %label 販売価格
+                %span.red 必須
+              .InputPrice__LabelBox__InputPrice
+            .InputPrice__TaxBox
+              .InputPrice__TaxBox__Tax 販売手数料（10%）
+              %span.Tax ー
+            .InputPrice__ProfitBox 
+              .InputPrice__ProfitBox__Profit 販売利益
+              %span.Profit ー
+          .InputSubmit
+            .InputSubmit__Exhibition__Button 出品する
+            .InputSubmit__Save__Button 下書きに保存
+            %a{href: '#'} もどる
+          %p.Precautions
+            禁止されている
+            %a{href: '#'}<>
+              行為
+            および
+            %a{href: '#'}<>
+              出品物
+            を必ずご確認ください。
+            %a{href: '#'}<>
+              偽ブランド品
+            や
+            %a{href: '#'}<>
+              盗品物
+            などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+            %a{href: '#'}<>
+              加盟店規約
+            に同意したことになります。
+      %footer
+        .Box
+          %a{href: '#'}<>
+            プライバシーポリシー
+          %a.Center{href: '#'}<>
+            メルカリ利用規約
+          %a{href: '#'}<>
+            特定商取引に関する表記
+        -# = link_to image_tag("#", width: '185', alt: "サンプル画像"), products_path
+        %p.Merucal-Inc © Mercari, Inc.
