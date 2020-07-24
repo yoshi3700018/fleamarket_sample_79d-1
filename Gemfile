@@ -66,3 +66,5 @@ gem 'jquery-rails'
 gem 'fog-aws'
 # 動作確認用
 gem 'pry-rails'
+
+gem 'font-awesome-sass'
