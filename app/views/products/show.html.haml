@@ -1,0 +1,76 @@
+.wrapper
+  .itemBox
+    .itemBox__title
+      %h1 商品名
+    .itemBox__image
+      .itemBox__image__top
+      %ul.itemBox__image__bottom
+        %li.img-left
+        %li.img-right
+    .itemBox__price
+      %span ¥1000
+    .itemBox__tax
+      %span (税込) 送料込み
+    .itemBox__detail
+      %span 商品説明、hogehogehoge。
+    .itemBox__table
+      %table
+        %tr
+          %th 出品者
+          %td hoge
+        %tr
+          %th カテゴリー
+          %td hoge
+        %tr
+          %th ブランド
+          %td hoge
+        %tr
+          %th 商品のサイズ
+          %td hoge
+        %tr
+          %th 商品の状態
+          %td hoge
+        %tr
+          %th 配送料の負担
+          %td hoge
+        %tr
+          %th 発送元の地域
+          %td hoge
+        %tr
+          %th 発送日の目安
+          %td hoge
+    .itemBox__optionalArea
+      .favoriteBtn
+        = icon('fas', 'star')
+        お気に入り
+      .ReportBtn
+        = icon('fas', 'flag')
+        = link_to '不適切な商品の報告', '#'
+  .commentBox
+    %form.Form
+      .Form__contents
+        %input.Form__inputContent{type: 'text', placeholder: ''}
+        %span
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = icon('fas', 'comment')
+        %input.Form__submit{type: 'submit', value: 'コメントする'}
+  %ul.links
+    %li.front
+    = link_to '前の商品', '#'
+    %li.back
+    = link_to '後ろの商品', '#'
+  .mottolook
+    .mottolook__link
+    = link_to 'もっと見る', '#'
+    .mottolook__link2
+      = link_to '#', '#'
+      .img-link
+        .productList
+          .name
+          %ul.center
+            %li.price
+            %li.ster
+            = icon('fas', 'star')
+          .tax (税込)
