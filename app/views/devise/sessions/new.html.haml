@@ -1,0 +1,19 @@
+.SingleContainerRegistration
+  .Header
+    メインロゴを呼び出してセンターに配置
+  .Main
+    .LoginPanels
+      .LoginPanels__NoAccount
+        %p アカウントをお持ちでない方はこちら
+        = link_to new_user_registration_path, class: "Btns--LogIn" do
+          新規会員登録
+      .LoginPanels__Forms
+        = link_to "#", class: "Btns--Google" do
+          %i.fab.fa-facebook-f
+          %span<>
+          Googleでログイン
+        = link_to "#" do
+          = icon('far', 'image', class: 'Form__icon')
+          Facebookでログイン
+        = link_to "#" do
+          Appleでログイン

@@ -9,7 +9,6 @@
 - スクラムマスター
 - 商品購入確認ページ作成
 ## 富田
-- デプロイ担当
 - 商品出品ページ作成
 ## 橋本
 - トップページ
@@ -17,6 +16,7 @@
 ## 福元
 - 商品詳細ページ作成
 ## 佐野
+- デプロイ担当
 - DB設計、ER図
 - ReadMe編集
 - ユーザー登録、ログイン、マイページ作成
@@ -62,6 +62,7 @@
 - unicorn
 
 # ER図
+![ER図(暫定)](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
 [DB設計完了後、画像ファイル挿入予定](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
 
 # DB設計（暫定：ビューファイル作成しながら仕上げる）
@@ -75,18 +76,20 @@
 |email|string|null: false, unique: true||
 |password|string|null: false||
 |image|string|||
+|birthday|string|||
 |profile|text|||
 |その他|あれば追加|なければ削除||
 
 Association
 - has_many: products
-- has_one: address (複数設定するならhas_many)
+- has_one: postals (複数設定するならhas_many)
 - has_one: creditcards
-- has_many: comments
-- has_many: iine
+- has_many: orders (購入管理)
+- has_many: comments (応用実装)
+- has_many: likes (応用実装)
 
 
-## addressesテーブル
+## postalsテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
 |user_id|references|foreign_key||
@@ -104,20 +107,24 @@ Association
 |column|type|options|validations|
 |------|----|-------|-----------|
 |user_id|references|foreign_key||
-|brand_id|references|foreign_key||
 |name|string|null: false, index: true||
 |price|integer|null: false||
 |explanation|text|null: false||
-|condition|integer|null: false||
+|status|integer|null: false||
+|size_id|integer|null: false||
+|brand_id|integer|||
+|category_id|integer|null: false||
+|shipping_status|integer|null: false||
+|deliver|integer|null: false||
 |prefecture|integer|null: false||
-|size|string|null: false||
-|postage|string|null: false||
-|shipping_date||||
+|shipping_date|integer|null: false||
+
 
 Association
 - belongs_to :user
-- has_many :comments
-- has_many :iine
+- has_many : orders (購入管理)
+- has_many : comments
+- has_many : likes
 - belongs_to :categories
 
 ## imagesテーブル
@@ -127,7 +134,7 @@ Association
 |image|text|null: false||
 
 Association
-- belongs_to: user
+- belongs_to: products
 
 ## creditcardsテーブル
 |column|type|options|validations|
@@ -147,6 +154,7 @@ Note
 ## categoriesテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
+|products_id|references|foreign_key||
 |category_name|string|||
 |ancestry|string|||
 |その他|あれば追加|なければ削除||
@@ -155,6 +163,17 @@ Association
 - has_many :products
 Note
 - gem 'ancestry'の内容を洗い出してから作成する
+
+## ordersテーブル
+|column|type|options|validations|
+|------|----|-------|-----------|
+|user_id|references|foreign_key||
+|products_id|references|foreign_key||
+
+Association
+- has_many :products
+- has_many :users
+
 
 # 以下、応用実装時検討
 
@@ -186,7 +205,7 @@ Association
 Note
 - コメント機能、商品ーユーザーの間に作る
 
-## iineテーブル
+## likesテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
 |product_id|references|foreign_key||
