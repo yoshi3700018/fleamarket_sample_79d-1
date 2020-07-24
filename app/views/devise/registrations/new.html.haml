@@ -1,0 +1,53 @@
+
+.Header
+  devise registration new.html.haml
+  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+.SingleContainerRegistration
+  .RegistrationNew
+    .RegistrationNew__Wrapper
+      .RegistrationNew__Wrapper__Title
+        %p 会員情報入力
+      .RegistrationNew__Wrapper__Form
+        = form_for(@user, url: user_registration_path) do |f|
+          .Form
+            .Form__Field
+              = f.label :ニックネーム
+              %span.Form__Field__Required 必須
+              = f.text_field :nickname, { placeholder: "例) フリマ太郎", class: 'Form__Field__Input' }
+            .Form__Field
+              = f.label :メールアドレス
+              %span.Form__Field__Required 必須
+              = f.text_field :email, { autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'Form__Field__Input' }
+            .Form__Field
+              = f.label :パスワード
+              %span.Form__Field__Required 必須
+              = f.text_field :password, { autocomplete: "new-password", placeholder: "8文字以上、半角全角を1文字以上含めた英数字", class: 'Form__Field__Input' }
+            .Form__Field
+              = f.label :確認用パスワード
+              %span.Form__Field__Required 必須
+              = f.text_field :password_confirmation, { autocomplete: "new-password", placeholder: "同じパスワードを入力", class: 'Form__Field__Input' }
+            .Form__Field
+              %label.Form__Field__Text 本人確認
+              %p.Form__Field__InfoB 安心・安全にご利用いただくため、お客様本人情報の登録にご協力ください。他のお客様に公開されることはございません。
+            .Form__Field
+              = f.label :"お名前"
+              %span.Form__Field__Required 必須
+              %br/
+              = f.text_field :family_name, { placeholder: "例) 山田", class: 'Form__Field__Half'}
+              = f.text_field :first_name, { placeholder: "例) 太郎", class: 'Form__Field__Half'}
+            .Form__Field
+              = f.label :"生年月日"
+              %span.Form__Field__Required 必須
+              .Form__Field__Birthday
+                = raw sprintf(f.date_select(:birthday, with_css_classes:'XXXXX', use_month_numbers: true, start_year: Time.now.year, end_year: 1900, default: Date.new(2000, 1, 1), date_separator: '%s'),'年', '月') + '日'
+                %p.Form__Field__Info 
+                  ※ 本人情報は正しく入力してください。<br/>会員登録後、修正するにはお時間を頂く場合があります。<br/><br/>
+                  ※ [次へ進む] ボタンを押すことにより、
+                  = link_to "利用規約", "#"
+                  に同意したものとみなします。
+            .Actions
+              = f.submit "次へ進む", class: 'SubmitBtn', url: "address_path"     
+
+
+.Footer
+  ここでrenderを使ってフッターなどを呼び出す

@@ -24,6 +24,6 @@
             .Form__Field
               = f.password_field :password,{autocomplete: "current-password",placeholder: "パスワード",class:'Form__Field__Input',id:"password"}
             .Actions
-              = f.submit "ログイン", class: 'SubmitBtn'         
+              = f.submit "ログイン", class: 'SubmitBtn', url: "root_path"       
 .Footer
   ここでrenderを使ってフッターなどを呼び出す
