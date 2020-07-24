@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
+  has_one :postal
+  has_many :product
   
   validates :nickname, :first_name, :family_name, :birthday, presence: true
   
@@ -17,4 +20,7 @@ class User < ApplicationRecord
             message: "は半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
 
   validates :profile, length: { maximum: 200 }
+
+
+
 end

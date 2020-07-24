@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Basic認証の設定（本番環境）
   before_action :basic_auth, if: :production?
   # ログイン済みユーザーのみにアクセスを許可(サインインが面倒なため常時コメントアウト)
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   private
   def production?
