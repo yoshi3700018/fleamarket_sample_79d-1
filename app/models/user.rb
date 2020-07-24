@@ -16,4 +16,5 @@ class User < ApplicationRecord
             format: { with: VALID_PASSWORD_REGEX,
             message: "は半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
 
+  validates :profile, length: { maximum: 200 }
 end
