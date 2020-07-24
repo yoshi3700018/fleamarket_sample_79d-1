@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_for :users, controllers: {
+    # registrationsコントローラーの参照先を書き換え
+    registrations: 'users/registrations',
+  }
   root to: 'products#index'
 
   resources :users, only: [:show, :edit, :update] do
