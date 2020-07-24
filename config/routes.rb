@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     member do
-      get 'profile'           # profile_user_path         サインアップセッション１
+      get 'profile'           # profile_user_path         
       patch 'profile_update'  # profile_update_user_path  
       get 'logout'            # logout_user_path          
     end
