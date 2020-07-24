@@ -3,38 +3,25 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(sign_up_params)                            #①インスタンス生成
-    unless @user.valid?                                         #②入力された情報のバリデーションチェック
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
-    end
-    session["devise.regist_data"] = {user: @user.attributes}    #③sessionに@userをハッシュオブジェクトにして代入
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]  #④パスワードをsessionに再代入
-    @cellphone = @user.build_cellphone      #⑤ @userに紐付くCellphoneモデルのインスタンスの生成
-    render :new_cellphone
-  end
-
-  protected
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
-
-  # GET /resource/sign_up
+  
+  # # GET /resource/sign_up
   # def new
   #   super
   # end
 
-  # POST /resource
+  # # POST /resource
   # def create
-  #   super
   # end
+
+  def create_address
+    # viewでformを使用するための仮設定
+  end
+
+  def create_creditcard
+    # viewでformを使用するための仮設定
+    # gem 'pay.jp'と合わせて確認していく
+  end
+
 
   # GET /resource/edit
   # def edit
