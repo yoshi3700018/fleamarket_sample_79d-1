@@ -20,14 +20,19 @@ body {
   display: flex;
   align-items: center;
   background-color: rgb(184, 162, 162);
-  &__content {
-    color: red;
-  }
-}
-
-.Introduction__Content {
-  &h2.Introduction__Title{
-    color: red;
-
+  &__Content {
+    color: rgb(255, 255, 255);
+    &--Title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      line-height: 1.2;
+    }
+    &--Text {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.77778;
+      margin: 16px 0 0 0;
+    }
   }
 }
