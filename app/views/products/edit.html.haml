@@ -1,38 +1,70 @@
-!!! %html   %head     %meta{"charset":"UTF-8"}     %title fleamarket_sample_79d   %body 
 .wrapper
   .Introduction
-    .Introduction__content
-      %h2.Introduction__title
+    .Introduction__Content
+      %h2.Introduction__Title
         %br/
         人生を変えるフリマアプリ
-      %p.Introduction__text
+      %p.Introduction__Text
         FURIMAはだれでもかんたんに出品・購入できる
         %br/
         フリマアプリです
       .Introduction__btn
-        = link_to '#',class: "applelButton" 
-        = link_to '#',class: "googleButton"
-        -# %a.appleBtn(href="#")
+        = link_to '#',class: "ApplelButton" 
+        = link_to '#',class: "GoogleButton"
+        -# -# %a.appleBtn(href="#")
         -# %a.googleBtn(href="#")
 
-  %section.Reason
-    %h2.Reason__subtitle
+  .Reason
+    %h2.Reason__Subtitle
       FURIMAが選ばれる3つの理由
-  -#     %after
+    %ul.Reason__Lists
+      %li.Reason__Lists__List
+        .Reason__Lists__List__picture
+        %span.No1
+          1
+        %img(src="#" alt="Exhibition")/
+      %h3.Reason__Lists__Text
+        %span<>
+          3分
+        ですぐに出品
+      %p.Reason__Lists__Explanation
+        スマホで入力するだけで簡単に出品できる！  
+      %li.List
+        .List__picture
+        %span.No1
+          1
+        %img(src="#" alt="Exhibition")/
+      %h3.List__Text
+        %span<>
+          3分
+        ですぐに出品
+      %p.Explanation
+        スマホで入力するだけで簡単に出品できる！  
+      %li.List
+        .List__picture
+        %span.No1
+          1
+        %img(src="#" alt="Exhibition")/
+      %h3.List__Text
+        %span<>
+          3分
+        ですぐに出品
+      %p.Explanation
+        スマホで入力するだけで簡単に出品できる！  
       
 
       
 
-  %section.MemberIntroduction
-    .topMiddleDl__in
-      %h2.MemberIntroduction__subtitle
-      会員数日本一位
-      %p.MemberIntroduction__text
-      FURIMAは、フリマアプリで最も人気。
-      %br/
-      出品・購入回数も業界最多です！
-      %br/
-      ほしかったあの商品に出会えるかもしれません。
+  -# %section.MemberIntroduction
+  -#   .topMiddleDl__in
+  -#     %h2.MemberIntroduction__subtitle
+  -#     会員数日本一位
+  -#     %p.MemberIntroduction__text
+  -#     FURIMAは、フリマアプリで最も人気。
+  -#     %br/
+  -#     出品・購入回数も業界最多です！
+  -#     %br/
+  -#     ほしかったあの商品に出会えるかもしれません。
 
 
   -# %section.Feature
