@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
   body {
     font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
     .wrapper {
@@ -184,6 +185,91 @@
               font-size: 17px;
               font-weight: 200;
               text-align: left;
+            }
+          }
+        }
+      }
+      // ピックアップカテゴリー
+      .PickupCategorys {
+        padding: 80px 0 0;
+        background-color: #f8f8f8;
+        height: 100%;
+        &__SubTitle {
+          text-align: center;
+          font-size: 28px;
+          line-height: 1.4;
+          font-weight: bold;
+        }
+        &__Products {
+          margin: 0;
+          padding: 0;
+          &--Sub {
+            text-align: center;
+            .PickupCategorys__Products--SubName {
+              // text-decoration: none;
+              font-weight: bold;
+              font-size: 24px;
+              color: #3CCACE;
+            }
+          }
+          &--Lists {
+            width: 780px;
+            margin: 26px auto;
+            display: flex;
+            justify-content: space-around;
+            .PickupCategorys__Products--List {
+              width: 220px;
+              display: inline-block;
+              float: left;
+              .PickupCategorys__Products--ListPicture {
+                width: 220px;
+                height: 150px;
+                position: relative;
+                overflow: hidden;
+                margin: 0;
+                z-index: auto;
+                .rice {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  width: 100%;
+                  z-index: auto;
+                  height: 150px;
+                  object-fit: cover;
+                }
+              }
+              .PickupCategorys__Products--ListDetails {
+                background-color: white;
+                color: #333;
+                padding: 16px;
+                .PickupCategorys__Products--ListDetailsName {
+                  overflow: hidden;
+                  line-height: 1.5;
+                  font-size: 16px;
+                  text-align: left;
+                }
+                .PickupCategorys__Products--ListDetailsDetail {
+                  font-size: 16px;
+                }
+                p {
+                  font-size: 10px;
+                  text-align: left;
+                }
+                li {
+                  display: list-item;
+                  text-align: -webkit-match-parent;
+                }
+                i.fa {
+                  display: inline-block;
+                  font: normal normal normal 14px/1 FontAwesome;
+                  font-size: inherit;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  text-align: right;
+                }
+              }
             }
           }
         }
