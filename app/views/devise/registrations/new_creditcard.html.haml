@@ -1,0 +1,38 @@
+.Header
+  devise registration new_creditcard.html.haml<br/>
+  サインアップ時のクレジットカード入力画面です
+  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+.SingleContainerRegistration
+  .RegistrationNew
+    .RegistrationNew__Wrapper
+      .RegistrationNew__Wrapper__Title
+        %p クレジットカード情報の入力
+      .RegistrationNew__Wrapper__Form
+        = form_for "#" do |f|
+          .Form
+            .Form__Field
+              = f.label :カード番号
+              %span.Form__Field__Required 必須
+              = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :カード会社
+              %span.Form__Field__Required 必須
+              = f.select :card_company, Postal.prefectures.keys, {}, {class: 'Form__Field__Input'}
+            .Form__Field
+              = f.label :有効期限
+              %span.Form__Field__Required 必須
+              = f.text_field :city, placeholder: "例)札幌市", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :番地
+              %span.Form__Field__Required 必須
+              = f.text_field :address_line, placeholder: "例)中央区北1条西2-1-7", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :建物名
+              %span.Form__Field__Required 必須
+              = f.text_field :apartment, placeholder: "例)柳ビル103", class: 'Form__Field__Input'
+            .Actions
+              = f.submit "次へ進む", class: 'SubmitBtn', url: "creditcard_path"     
+
+
+.Footer
+  ここでrenderを使ってフッターなどを呼び出す

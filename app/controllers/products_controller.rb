@@ -22,4 +22,7 @@ class ProductsController < ApplicationController
   def destroy
   end
 
+  def top
+  end
+
 end

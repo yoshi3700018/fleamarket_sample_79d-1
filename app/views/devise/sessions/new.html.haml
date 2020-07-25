@@ -1,0 +1,29 @@
+
+.Header
+  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+.SingleContainerRegistration
+  .Main
+    .LoginPanels
+      .LoginPanels__NoAccount
+        %p アカウントをお持ちでない方はこちら
+        = link_to new_user_registration_path, class: "Btns--LogIn" do
+          新規会員登録
+      .LoginPanels__SNS
+        = link_to "#", class: "Btns--Google" do
+          Googleでログイン
+        = link_to "#", class: "Btns--Facebook" do
+          Facebookでログイン
+        = link_to "#", class: "Btns--Apple" do
+          Appleでログイン
+      .LoginPanels__HasAccount
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .Form
+            %p メールアドレスでログイン
+            .Form__Field
+              = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "メールアドレス",class:'Form__Field__Input'}
+            .Form__Field
+              = f.password_field :password,{autocomplete: "current-password",placeholder: "パスワード",class:'Form__Field__Input',id:"password"}
+            .Actions
+              = f.submit "ログイン", class: 'SubmitBtn', url: "root_path"       
+.Footer
+  ここでrenderを使ってフッターなどを呼び出す
