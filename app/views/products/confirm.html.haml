@@ -14,7 +14,7 @@
           .DetailsBox 
             .PhotoItem
               %figure.PhotoItem__Photo
-                %img{ src: "", alt: "画像" }
+                %img{ src: "/assets/suits.jpg", alt: "画像" }
             .DentailsItem
               %p.DentailsItem__ItemName スーツ
               %p.ItemPrice
@@ -29,7 +29,6 @@
             %label.PointBox
               %span.Box
                 %span.Box__InputBox
-                  -# = check_box_tag :check1
               %img.PointBox__logo{ src: "/assets/logo2.png", alt: "ロゴ" }
               %p.PointBox__PointText ポイント
             %p.PointContent__Point 所持ポイント : P0
@@ -54,4 +53,5 @@
       %section.Container
         .Content
           .PurchaseContent
-            %a.PurchaseContent__
+            %p.PurchaseContent__InputText 配送先と支払い方法の入力を完了してください。
+            %button{type: "button", class:'PurchaseContent__BayBtn', url:"#"} 購入する
