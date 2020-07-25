@@ -76,6 +76,9 @@ gem 'pry-rails'
 
 gem 'font-awesome-sass'
 
+# payjpでクレジットカードを紐付けする
+gem 'payjp'
+
 group :production do
   gem 'unicorn'
 end

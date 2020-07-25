@@ -10,10 +10,13 @@
           新規会員登録
       .LoginPanels__SNS
         = link_to "#", class: "Btns--Google" do
+          %i.fab.fa-google
           Googleでログイン
         = link_to "#", class: "Btns--Facebook" do
+          %i.fab.fa-facebook-f
           Facebookでログイン
         = link_to "#", class: "Btns--Apple" do
+          %i.fab.fa-twitter
           Appleでログイン
       .LoginPanels__HasAccount
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

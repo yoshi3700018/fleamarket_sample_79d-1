@@ -11,27 +11,44 @@
         = form_for "#" do |f|
           .Form
             .Form__Field
-              = f.label :カード番号
+              = f.label :カード番号   # ---＊Payjpの導入がまだきっちりみれていないので、テーブルも作成していない＊---
               %span.Form__Field__Required 必須
               = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input'
             .Form__Field
-              = f.label :カード会社
+              = f.label :カード会社   # ---＊FontAwesomeのカード会社のロゴは表示できないので、どこかで素材調達必須
               %span.Form__Field__Required 必須
-              = f.select :card_company, Postal.prefectures.keys, {}, {class: 'Form__Field__Input'}
+              = f.select :card_company, [['VISA', 1], ['MasterCard', 2], ['JCB', 3]], {}, {class: 'Form__Field__Input'}
+              %ul.CardCompanyList
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card       
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card
+                %li.CardCompanyList__Icon--VISA
+                  %i.fa.fa-credit-card                                 
             .Form__Field
               = f.label :有効期限
               %span.Form__Field__Required 必須
-              = f.text_field :city, placeholder: "例)札幌市", class: 'Form__Field__Input'
+              %br/
+              = f.select :card_month, ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"], {}, {class: 'Form__Field__Card'}
+              = f.label :月
+              %span.Form__Field_Required
+              = f.select :card_year, ["20", "21", "22", "23", "24", "25", "26"], {}, {class: 'Form__Field__Card'}
+              = f.label :年
             .Form__Field
-              = f.label :番地
+              = f.label :セキュリティコード
               %span.Form__Field__Required 必須
-              = f.text_field :address_line, placeholder: "例)中央区北1条西2-1-7", class: 'Form__Field__Input'
-            .Form__Field
-              = f.label :建物名
-              %span.Form__Field__Required 必須
-              = f.text_field :apartment, placeholder: "例)柳ビル103", class: 'Form__Field__Input'
+              = f.text_field :card_path, placeholder: "カード背面の４桁もしくは３桁の番号", class: 'Form__Field__Input'
+              .Form__Field__InlineLayoutRight
+                .AddQuestion ? 
+                %p.SecurityCode カード裏面の番号とは?
             .Actions
-              = f.submit "次へ進む", class: 'SubmitBtn', url: "creditcard_path"     
+              = f.submit "登録する", class: 'SubmitBtn', url: "creditcard_path"     
 
 
 .Footer
