@@ -3,6 +3,7 @@
 }
 
 body {
+  ont-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
 }
 
 .wrapper {
@@ -42,6 +43,8 @@ body {
 }
 
 .Reason {
+  display: block;
+  padding: 60px 20px;
   &__SubTitle {
     text-align: center;
     font-size: 26px;
@@ -64,7 +67,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-        .Reason__List--Picture {
+        .Reason__Lists--Picture {
           position: relative;
           margin-bottom: 20px;
           &-No1 {
@@ -82,16 +85,19 @@ body {
           }
         }
         .Reason__Lists--Text {
-          span {
-            color: #3CCACE;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          span.Reason__Lists--Text {
+          color: #3CCACE;
           }
         }
-    }
-    &--Explanation {
-      font-size: 18px;
-      line-height: 1.5;
-      margin: 16px 0 0;
+        .Reason__Lists--Explanation {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
     }
   }
-  
 }
