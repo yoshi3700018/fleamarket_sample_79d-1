@@ -106,7 +106,7 @@
         color: #3CCACE;
         border: 1px solid #ffb340;
       }
-      .ReportBtn{
+      .reportBtn{
         padding: 8px 10px;
         display: inline-block;
         border-radius: 4px;
@@ -139,9 +139,8 @@
         font-size: 14px;
         background-color: #f8f8f8;
         margin: 20px 0;
-        p{}
       }
-      .Form{
+      .form{
         position: relative;
         display: flex;
         justify-content: center;
@@ -168,7 +167,7 @@
   .links{
     display: flex;
     justify-content: space-between;
-    .frontback{
+    .front-back{
       a{
         text-decoration: none;
         color: #3CCACE;
@@ -177,7 +176,7 @@
   }
 }
 
-.mottolook{
+.mottoLook{
   &__link{
     display: block;
     margin: 24px 0;
@@ -191,7 +190,7 @@
   }
 }
 
-.mottolook2{
+.mottoLook2{
   width: 233px;
   .img-link{
     display: flex;

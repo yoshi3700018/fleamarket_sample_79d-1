@@ -48,7 +48,7 @@
         .favoriteBtn
           = icon('fas', 'star')
           お気に入り 0
-        .ReportBtn
+        .reportBtn
           = icon('fas', 'flag')
           = link_to '不適切な商品の通報', '#'
     .commentBox
@@ -60,18 +60,18 @@
           相手のことを考え丁寧なコメントを心がけましょう。
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        .Form
-          %input.Form__submit{type: 'submit', value: '　　コメントする'}
+        .form
+          %input.form__submit{type: 'submit', value: '　　コメントする'}
           = icon('fas', 'comment')
     .links
-      .frontback
+      .front-back
         = link_to '< 前の商品', '#'
-      .frontback
+      .front-back
         = link_to '後ろの商品 >', '#'
-    .mottolook
-      .mottolook__link
+    .mottoLook
+      .mottoLook__link
         = link_to 'もっと見る', '#'
-    .mottolook2
+    .mottoLook2
       .img-link
         img
       .productList
