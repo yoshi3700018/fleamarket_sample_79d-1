@@ -13,8 +13,8 @@
         .Content
           .DetailsBox 
             .PhotoItem
-              %figure.PhotoItem__Photo
-                %img{ src: "/assets/suits.jpg", alt: "画像" }
+              %figure.Photo
+                %img{ src: "/assets/suits.jpg", alt: "画像", class: "Photo__ProductImg" }
             .DentailsItem
               %p.DentailsItem__ItemName スーツ
               %p.ItemPrice
@@ -23,8 +23,8 @@
       %section.Container
         .Content
           .PaymentContent
-            %span.PaymentBox__Payment 支払い金額
-            %span.PaymentBox__PaymentPraice ¥39,800
+            %span.PaymentContent__Payment 支払い金額
+            %span.PaymentContent__PaymentPraice ¥39,800
           %label.PointContent
             %label.PointBox
               %span.Box
@@ -38,7 +38,7 @@
             .MethodBox
               %h3.MethodBox__Method 支払い方法
             = link_to "#", class: "RegisterBox" do
-              .RegisterBox__icon
+              %span.RegisterBox__icon
                 ⊕
               %span.RegisterBox__RegisterText 登録してください
       %section.Container
@@ -47,7 +47,7 @@
             .MethodBox
               %h3.MethodBox__Method 配送先
             = link_to "#", class: "RegisterBox" do
-              .RegisterBox__icon
+              %span.RegisterBox__icon
                 ⊕
               %span.RegisterBox__RegisterText 登録してください
       %section.Container
