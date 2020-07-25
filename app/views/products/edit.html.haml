@@ -1,5 +1,6 @@
 %body
   .wrapper
+    // 人生を変えるフリマアプリ
     .Introduction
       .Introduction__Content
         .Introduction__Content--Title
@@ -10,11 +11,9 @@
           %br/
           フリマアプリです
         .Introduction__Content--Btn
-          -# = link_to '#',class: "ApplelButton" 
           = link_to image_tag("app-store.svg", :size => '180x53', :class => 'Apple'), "#"
           = link_to image_tag("google-play.svg", :size => '180x53', :class => 'Google'), "#"
-
-
+    // FURIMAが選ばれる3つの理由      
     .Reason
       .Reason__SubTitle
         FURIMAが選ばれる3つの理由
@@ -53,21 +52,55 @@
               業界最安
           %p.Reason__Lists--Explanation
             最大3%でお得に出品&購入！  
-        
-        
-    -# %section.MemberIntroduction
-    -#   .topMiddleDl__in
-    -#     %h2.MemberIntroduction__subtitle
-    -#     会員数日本一位
-    -#     %p.MemberIntroduction__text
-    -#     FURIMAは、フリマアプリで最も人気。
-    -#     %br/
-    -#     出品・購入回数も業界最多です！
-    -#     %br/
-    -#     ほしかったあの商品に出会えるかもしれません。
+    // 会員数日本一位
+    .MemberIntroduction
+      .MemberIntroduction__In
+        %h2.MemberIntroduction__In--Subtitle
+          会員数日本一位
+        %p.MemberIntroduction__In--text
+          FURIMAは、フリマアプリで最も人気。
+          %br/
+          出品・購入回数も業界最多です！
+          %br/
+          ほしかったあの商品に出会えるかもしれません。
+        .MemberIntroduction__In--Btn
+          = link_to image_tag("app-store.svg", :size => '180x53', :class => 'Apple'), "#"
+          = link_to image_tag("google-play.svg", :size => '180x53', :class => 'Google'), "#"
+    -# FURIMAの特徴
+    .Feature
+      %h2.Feature__SubTitle
+        FURIMAの特徴
+        %hr.1(size="6px" width="70px" color="#3CCACE")/
+      %ul.Feature__Points
+        %li.Feature__Points--Point
+          .Feature__Points--Picture
+            %img(src="/assets/icon-01.png" alt="PhoneMan" width="219.33" height="337.61")/
+          %h3.Feature__Points--Point-1
+            簡単に売り買いできる
+          %p.Feature__Points--Point-2
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        %li.Feature__Points--Point
+          .Feature__Points--Picture
+            %img(src="/assets/icon-03.png" alt="PhoneWoman" width="219.33" height="337.61")/
+          %h3.Feature__Points--Point-1
+            売上金は即日振込みに対応
+          %p.Feature__Points--Point-2
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        %li.Feature__Points--Point
+          .Feature__Points--Picture
+            %img(src="/assets/icon-04.png" alt="Card" width="219.33" height="337.61")/
+          %h3.Feature__Points--Point-1
+            様々な支払いに対応
+          %p.Feature__Points--Point-2
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
 
-    -# %section.Feature
+
+
+
+
+
+
 
     -# %section.PickupContents
 
