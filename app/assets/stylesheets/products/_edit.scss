@@ -1,106 +1,108 @@
 * {
   box-sizing: border-box;
-}
-
-body {
-  ont-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-}
-
-.wrapper {
-}
-
-
-// 人生を変えるフリマアプリ・人生を変えるフリマアプリ・人生を変えるフリマアプリ・人生を変えるフリマアプリ・
-.Introduction {
-  // width: 100px;
-  height: 560px;
-  background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
-  position: relative;
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  &__Content {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 35px 0 0 0;
-    &--Title {
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 60px;
-      line-height: 1.2;
-      color: #fff;
-    }
-    &--Text {
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 18px;
-      color: #fff;
-      line-height: 1.77778;
-      margin: 16px 0 0 0;
-    }
-  }
-}
-
-
-// FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・
-.Reason {
-  display: block;
-  padding: 60px 20px;
-  &__SubTitle {
-    text-align: center;
-    font-size: 26px;
-    line-height: 1.4;
-    font-weight: bold;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    position: relative;
-  }
-  &__Lists {
-    text-align: center;
-    display: flex;
-    max-width: 1020px;
-    width: 100%;
-    margin: 0 auto;
-    &--List {
-      width: 30%;
-      margin: 16px 5% 0 0;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-        .Reason__Lists--Picture {
-          position: relative;
-          margin-bottom: 20px;
-          &-No1 {
-            display: inline-block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 4%;
-            font-size: 30px;
-            text-align: center;
-            margin: 0 5px 0 0;
-            padding: 10px 20px;
-            background-color: #3CCACE;
+  body {
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    .wrapper {
+      // 人生を変えるフリマアプリ・人生を変えるフリマアプリ・人生を変えるフリマアプリ・人生を変えるフリマアプリ・
+      .Introduction {
+        // width: 100px;
+        height: 560px;
+        background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        position: relative;
+        padding: 0 60px;
+        display: flex;
+        align-items: center;
+        &__Content {
+          max-width: 1280px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 35px 0 0 0;
+          &--Title {
+            text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            font-size: 60px;
+            line-height: 1.2;
             color: #fff;
           }
-        }
-        .Reason__Lists--Text {
-          font-weight: bold;
-          font-size: 24px;
-          line-height: 50px;
-          margin: 0 0 0 2px;
-          span.Reason__Lists--Text {
-          color: #3CCACE;
+          &--Text {
+            text-shadow: 0 0 5px rgba(0,0,0,0.4);
+            font-size: 18px;
+            color: #fff;
+            line-height: 1.77778;
+            margin: 16px 0 0 0;
+          }
+          &--Btn {
+            width: 180px;
+            display: flex;
+            margin: 24px 0 0 0;
+            .Google {
+              margin-left: 9px;
+            }
           }
         }
-        .Reason__Lists--Explanation {
-          font-size: 18px;
-          line-height: 1.5;
-          margin: 16px 0 0;
+      }
+      // FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・FURIMAが選ばれる3つの理由・
+      .Reason {
+        display: block;
+        padding: 60px 20px;
+        &__SubTitle {
+          text-align: center;
+          font-size: 26px;
+          line-height: 1.4;
+          font-weight: bold;
+          margin-bottom: 25px;
+          padding-bottom: 15px;
+          position: relative;
         }
+        &__Lists {
+          text-align: center;
+          display: flex;
+          max-width: 1020px;
+          width: 100%;
+          margin: 0 auto;
+          &--List {
+            width: 30%;
+            margin: 0 5% 0 0;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .Reason__Lists--Picture {
+              position: relative;
+              margin-bottom: 20px;
+              &-No1 {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 4%;
+                font-size: 30px;
+                text-align: center;
+                margin: 0 5px 0 0;
+                padding: 10px 20px;
+                background-color: #3CCACE;
+                color: #fff;
+              }
+            }
+            .Reason__Lists--Text {
+              font-weight: bold;
+              font-size: 24px;
+              line-height: 50px;
+              margin: 0 0 0 2px;
+              span.Reason__Lists--Text {
+                color: #3CCACE;
+              }
+            }
+            .Reason__Lists--Explanation {
+              font-size: 18px;
+              line-height: 1.5;
+              margin: 16px 0 0;
+            }
+          }
+        }
+      }
     }
   }
 }

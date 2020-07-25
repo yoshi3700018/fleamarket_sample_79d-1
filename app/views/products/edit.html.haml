@@ -10,8 +10,9 @@
           %br/
           フリマアプリです
         .Introduction__Content--Btn
-          = link_to '#',class: "ApplelButton" 
-          = link_to '#',class: "GoogleButton"
+          -# = link_to '#',class: "ApplelButton" 
+          = link_to image_tag("app-store.svg", :size => '180x53', :class =>'Apple'), "#"
+          = link_to image_tag("google-play.svg", :size => '180x53', :class =>'Google'), "#"
 
 
     .Reason
@@ -53,9 +54,7 @@
           %p.Reason__Lists--Explanation
             最大3%でお得に出品&購入！  
         
-
         
-
     -# %section.MemberIntroduction
     -#   .topMiddleDl__in
     -#     %h2.MemberIntroduction__subtitle
