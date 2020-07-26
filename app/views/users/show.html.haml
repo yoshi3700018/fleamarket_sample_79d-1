@@ -1,5 +1,109 @@
-%p これはshow.html.haml<br/>登録済みの情報を確認する画面です、俗に言うマイページ
-%p ここにrenderでヘッダーなどを表示させます。
-%p サイドバーをrenderで呼び出します。
-%p メインコンテンツを書きます。
-%p ここにrenderでフッターを表示させます。
+%header
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      .Sidebar
+        .Sidebar__Menu
+          .Sidebar__Menu__Box--MyPage マイページ
+          .Sidebar__Menu__Box お知らせ
+          .Sidebar__Menu__Box やることリスト
+          .Sidebar__Menu__Box いいね！一覧
+          .Sidebar__Menu__Box 出品する
+          .Sidebar__Menu__Box 下書き一覧
+          .Sidebar__Menu__Box 出品した商品 - 出品中
+          .Sidebar__Menu__Box 出品した商品 - 取引中
+          .Sidebar__Menu__Box 出品した商品 - 売却済み
+          .Sidebar__Menu__Box 購入した商品 - 取引中
+          .Sidebar__Menu__Box 購入した商品 - 過去の取引
+          .Sidebar__Menu__Box ニュース一覧
+          .Sidebar__Menu__Box 評価一覧
+          .Sidebar__Menu__Box ガイド
+          .Sidebar__Menu__Box お問い合わせ
+        .Sidebar__Merupay
+          %h3.nav メルペイ
+          .Sidebar__Merupay__Box 売上・振込申請
+          .Sidebar__Merupay__Box ポイント
+        .Sidebar__Edit
+          %h3.nav 設定
+          .Sidebar__Edit__Box プロフィール
+          .Sidebar__Edit__Box 発送元・お届け住所変更
+          .Sidebar__Edit__Box 支払い方法
+          .Sidebar__Edit__Box メール/パスワード
+          .Sidebar__Edit__Box 本人情報
+          .Sidebar__Edit__Box 電話番号の確認
+          .Sidebar__Edit__Box ログアウト
+      .MainContents
+        .Contents__Notice
+          .UserImage
+            .UserImage__Icon
+            .UserImage__Name 名前
+            .UserImage__Numbers
+              .UserImage__Numbers__Evaluation
+                評価
+                %span.count 0
+              .UserImage__Numbers__ExhibitionCount
+                出品数
+                %span.count 0
+          .UserNotice
+            .NoticeButtons
+              .NoticeButtons__Notice お知らせ
+              .NoticeButtons__Do やることリスト
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .MypageButton
+              .GoButton 一覧を見る
+        .Contents__Products
+          .ProductsButtons
+            .ProductsButtons__Doing 取引中
+            .ProductsButtons__After 過去の取引
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+          .ProductsButton
+            .GoButton 一覧を見る
+        -# レスポンス時に使用
+        -# .Contents__Menu
+        -# .Contents__Merupay
+        -# .Contents__Edit
+%footer
