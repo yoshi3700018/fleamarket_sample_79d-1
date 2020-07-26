@@ -1,10 +1,219 @@
 .wrapper{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
 }
 
-.itemBox{
-  &__title{
+.showMain{
+  padding: 40px;
+  .itemBox{
+    background-color: #fff;
+    padding: 24px 40px 40px 40px;
+    width: 700px;
+    height: 1200px;
+    &__title{
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    &__image{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &__top{
+        display: flex;
+        justify-content: center;
+        .img1{
+          display: flex;
+          justify-content: center;
+          width: 560px;
+          height: 346px;
+          background-color: #ff7900;
+        }
+      }
+      &__bottom{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        height: 87px;
+        .img-left{
+          display: flex;
+          justify-content: center;
+          margin-right: 10px;
+          width: 140px;
+          background-color: #77ff99;
+        }
+        .img-right{
+          display: flex;
+          justify-content: center;
+          width: 140px;
+          background-color: #0000ff;
+        }
+      }
+    }
+    &__price{
+      display: block;
+      text-align: center;
+      font-size: 46px;
+      font-weight: bold;
+      margin: 24px 10px 0 0;
+    }
+    &__tax{
+      display: block;
+      text-align: center;
+    }
+    &__detail{
+      display:block;
+      font-size: 18px;
+      margin: 30px 0;
+    }
+    &__table{
+      table{
+        width: 100%;
+        height: 375px;
+        margin-bottom: 20px;
+        tr{
+          border: 1px solid #dedede;
+          th{
+            width: 20%;
+            background-color: #eee;
+            font-weight: 400;
+            padding: 8px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+            text-align: center;
+          }
+          td{
+            width: 61%;
+            padding: 15px 15px;
+            border: 1px solid #dedede;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    &__optionalArea{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      .favoriteBtn{
+        margin-right: auto;
+        padding: 6px 10px;
+        border-radius: 40px;
+        color: #3CCACE;
+        border: 1px solid #ffb340;
+      }
+      .reportBtn{
+        padding: 8px 10px;
+        display: inline-block;
+        border-radius: 4px;
+        border: 1px solid #333;
+        font-size: 14px;
+        a{
+        color: #333;
+        text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .commentBox{
+    background-color: #fff;
+    padding: 24px;
+    margin: 10px 0;
+    &__contents{
+      .textarea{
+        display: flex;
+        justify-content: center;
+        textarea{
+          width: 100%;
+          height: 94px;
+          padding: 10px;
+        }
+      }
+      .note{
+        padding: 8px;
+        font-size: 14px;
+        background-color: #f8f8f8;
+        margin: 20px 0;
+      }
+      .form{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        &__submit{
+          font-size: 18px;
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          color: #fff;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+        }
+        .fas{
+          position: absolute;
+          top: 16px;
+          right: 365px;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .links{
+    display: flex;
+    justify-content: space-between;
+    .front-back{
+      a{
+        text-decoration: none;
+        color: #3CCACE;
+      }
+    }
+  }
+}
+
+.mottoLook{
+  &__link{
     display: block;
-    text-align: center;
-    font-size: 24px;
+    margin: 24px 0;
+    font-weight: bold;
+    font-size: 22px;
+    position: relative;
+    a{
+      color: #3CCACE;
+      text-decoration: none;
+    }
+  }
+}
+
+.mottoLook2{
+  width: 233px;
+  .img-link{
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    background-color: pink;
+  }
+  .productList{
+    background-color: #fff;
+    height: 95px;
+    padding: 16px;
+    .name{
+    }
+    .center{
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      .price{}
+      .ster{}
+    }
+    .tax{
+      font-size: 10px;
+      font-weight: bold;
+    }
   }
 }

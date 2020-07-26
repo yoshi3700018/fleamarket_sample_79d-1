@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'products#index'
+  resources :products do
+    collection do
+      get 'confirm'
+    end
+  end
 
   resources :users, only: [:show, :edit, :update] do
     member do
@@ -22,8 +27,6 @@ Rails.application.routes.draw do
   end
   
   resources :registration, only: [:index]
-
-  resources :products
 
 
 end
