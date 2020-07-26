@@ -1,0 +1,38 @@
+.Header
+  devise registration new_address.html.haml<br/>
+  サインアップ時の住所入力画面です。
+  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+.SingleContainerRegistration
+  .RegistrationNew
+    .RegistrationNew__Wrapper
+      .RegistrationNew__Wrapper__Title
+        %p お届け先住所入力
+      .RegistrationNew__Wrapper__Form
+        = form_for "#" do |f|
+          .Form
+            .Form__Field
+              = f.label :郵便番号
+              %span.Form__Field__Required 必須
+              = f.text_field :postal_code, placeholder: "例)123-4567 もしくは 1234567", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :都道府県
+              %span.Form__Field__Required 必須
+              = f.select :prefecture, Postal.prefectures.keys, {}, {class: 'Form__Field__Input'}
+            .Form__Field
+              = f.label :市町村
+              %span.Form__Field__Required 必須
+              = f.text_field :city, placeholder: "例)札幌市", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :番地
+              %span.Form__Field__Required 必須
+              = f.text_field :address_line, placeholder: "例)中央区北1条西2-1-7", class: 'Form__Field__Input'
+            .Form__Field
+              = f.label :建物名
+              %span.Form__Field__Required 必須
+              = f.text_field :apartment, placeholder: "例)柳ビル103", class: 'Form__Field__Input'
+            .Actions
+              = f.submit "次へ進む", class: 'SubmitBtn', url: "creditcard_path"     
+
+
+.Footer
+  ここでrenderを使ってフッターなどを呼び出す

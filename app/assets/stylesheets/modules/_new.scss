@@ -1,0 +1,375 @@
+// @media (min-width: 768px){
+// <style>
+//  {
+//   height: 128px;
+// }
+// }
+* {
+  box-sizing: border-box;
+}
+.Wrapper {
+  // height: 100vh;
+  // width: 100vw;
+// -----↓ヘッダー-----
+  header {
+    height: 128px;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+  }
+// -----↑ヘッダー-----
+  .Main {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    .Contents {
+      background-color: white;
+      width: 700px;
+      height: 2210px;
+      label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .red {
+        color: rgb(255, 255, 255);
+        background-color: rgb(255, 2, 17);
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+        border-radius: 2px;
+        line-height: 1.4em;
+        padding: 0 4px;
+        margin-left: 8px;
+      }
+      .InputPhoto {
+        height: 300px;
+        padding: 40px;
+        border-bottom: 1px solid rgb(245, 245, 245);
+        p {
+          margin-top: 16px;
+          color: #333333;
+          font-weight: 400;
+          line-height: 1.4em;
+        }
+        &__DropArea {
+          width: 620px;
+          height: 150px;
+          background-color: #f5f5f5;
+          margin-top: 8px;
+          border: 1px dashed rgb(204,204,204);
+          // margin: -8px -4px 0;
+        }
+      }
+      .InputInfo {
+        height: 416px;
+        padding: 40px;
+        border-bottom: 1px solid rgb(245, 245, 245);
+        display:flex;
+        flex-flow: column;
+        justify-content:space-between;
+        &__NameForm {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          &__FormLabel {
+
+          }
+          &__FormArea {
+            width: 620px;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+        &__InfoForm {
+          
+          &__FormLabel {
+
+          }
+          &__FormArea {
+            width: 620px;
+            height: 154px;
+            margin-top: 16px;
+            padding: 13px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+          p {
+            color: #888888;
+            width: 620px;
+            height: 16px;
+            font-weight: 400;
+            margin-top: 10px;
+            text-align: right;
+            line-height: 1.4em;
+          }
+        }
+      }
+      .InputData {
+        height: 444px;
+        padding: 40px;
+        border-bottom: 1px solid rgb(245, 245, 245);
+        display:flex;
+        flex-flow: column;
+        justify-content:space-between;
+        p {
+          color: #888888;
+          font-size: 14px;
+        }
+        .InputData__CategoryForm {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          .InputData__CategoryForm__FormLabel { 
+          }
+          select {
+            width: 620px;
+            height: 48px;
+            padding: 0 56px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+        .InputData__BrandForm {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          .InputData__BrandForm__FormLabel {
+            .gray {
+              background-color: #bfbfbf;
+            }
+          }
+          .InputData__BrandForm__FormArea {
+            width: 620px;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+        .InputData__StatusSelect {
+          .InputData__StatusSelect__FormLabel {
+
+          }
+          select {
+            width: 620px;
+            height: 48px;
+            padding: 0 56px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+      }
+      .InputSipping {
+        height: 444px;
+        padding: 40px;
+        border-bottom: 1px solid rgb(245, 245, 245);
+        display:flex;
+        flex-flow: column;
+        justify-content:space-between;
+        P {
+          color: #888888;
+          font-size: 14px;
+          
+        }
+        .InputSipping__DeliveryFee {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          .InputSipping__DeliveryFee__FormLabel {
+          }
+          select {
+            width: 620px;
+            height: 48px;
+            padding: 0 56px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+        .InputSipping__ShippingOrigin {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          .InputSipping__ShippingOrigin__FormLabel {           
+          }
+          select {
+            width: 620px;
+            height: 48px;
+            padding: 0 56px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+          }
+        }
+        .InputSipping__ShippingDays {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          .InputSipping__ShippingDays__FormLabel {
+          }
+          select {
+            width: 620px;
+            height: 48px;
+            padding: 0 56px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+          }
+        }
+      }
+      .InputPrice__Price{
+        height: 270px;
+        padding: 40px 40px 0;
+        p {
+          height: 19px;
+          font-size: 14px;
+          color: #888888;
+          margin-bottom: 24px;
+        }
+        .InputPrice__LabelBox {
+          width: 620px;
+          height: 58px;
+          padding-bottom: 12px;
+          display: flex;
+          justify-content: space-between;
+          &__Label {
+            line-height: 48px;
+          }
+          .InputPrice__LabelBox__InputPrice {
+            width: 285px;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+          }
+        }
+        .InputPrice__TaxBox {
+          width: 620px;
+          height: 70px;
+          padding: 12px 0;
+          color: #333333;
+          display: flex;
+          justify-content: space-between;
+          &__Tax {
+            color: #333333;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 46px;
+          }
+          .Tax {
+            line-height: 46px;
+          }
+        }
+        .InputPrice__ProfitBox {
+          width: 620px;
+          height: 58px;
+          padding-top: 12px;
+          border-top: 1px solid rgb(245, 245, 245);
+          display: flex;
+          justify-content: space-between;
+          &__Profit {
+            color: #333333;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 46px;
+          }
+          .Profit {
+            line-height: 46px;
+          }
+        }
+      }
+      .InputSubmit {
+        width: 360px;
+        height: 164px;
+        margin: 32px 170px;
+        text-align:center;
+        display:flex;
+        flex-flow: column;
+        justify-content:space-between;
+        .InputSubmit__Exhibition__Button {
+          width: 360px;
+          height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          background-color: #ea352d;
+          color: #ffffff;
+          font-size: 17px;
+          line-height: 48px;
+        }
+        .InputSubmit__Save__Button {
+          width: 360px;
+          height: 48px;
+          padding: 0 24px;
+          margin-top: 24px;
+          border-radius: 4px;
+          background-color: #cccccc;
+          color: #222222;
+          font-size: 17px;
+          line-height: 48px;
+        }
+        a {
+          font-size: 14px;
+          display: block;
+          text-decoration: none;
+          color: #0095ee;
+        }
+      }
+      .Precautions {
+        display: inline-block;
+        width: 620px;
+        height: 32px;
+        margin: 0 40px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #333333;
+        a {
+          text-decoration: none;
+          color: #0095ee;
+        }
+      }
+    }
+  }
+// -----↓フッター-----
+  footer {
+    height: 220px;
+    width: 100vw;
+    padding: 40px 0 41px;
+    background-color: rgb(245, 245, 245);
+    .Box {
+      width: 100vw;
+      height: 54px;
+      display: flex;
+      justify-content: center;
+      a {
+        font-size: 12px;
+        color: #cccccc;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .Center {
+        margin: 0 16px;
+      }
+    } 
+    .Merucal-Inc {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      color: #333333;
+    }  
+  }
+// -----↑フッター-----
+}
