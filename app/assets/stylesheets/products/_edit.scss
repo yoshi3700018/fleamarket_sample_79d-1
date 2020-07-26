@@ -2,7 +2,10 @@
   box-sizing: border-box;
   text-decoration: none;
   body {
+    margin: 0;
+    padding: 0;
     font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+    background: #f8f8f8;
     .wrapper {
       background: #f8f8f8;
       // 人生を変えるフリマアプリ
@@ -278,6 +281,7 @@
       // ピックアップブランド
       .PickupBrands {
         padding: 80px 0 0;
+        padding-bottom: 80px;
         background-color: #f8f8f8;
         height: 100%;
         &__SubTitle {
@@ -359,6 +363,16 @@
             }
           }
         }
+      }
+    }
+    .Banner {
+      background-image: url(/assets/bg-appBanner-pict.jpg);
+      padding: 100px 40px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      &__Center {
+
       }
     }
   }
