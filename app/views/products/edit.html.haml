@@ -11,8 +11,8 @@
           %br/
           フリマアプリです
         .Introduction__Content--Btn
-          = link_to image_tag("app-store.svg", :size => '180x53', :class => 'Apple'), "#"
-          = link_to image_tag("google-play.svg", :size => '180x53', :class => 'Google'), "#"
+          = link_to image_tag("app-store.svg", :class => 'Apple'), "#"
+          = link_to image_tag("google-play.svg", :class => 'Google'), "#"
     // FURIMAが選ばれる3つの理由      
     .Reason
       .Reason__SubTitle
@@ -64,8 +64,8 @@
           %br/
           ほしかったあの商品に出会えるかもしれません。
         .MemberIntroduction__In--Btn
-          = link_to image_tag("app-store.svg", :size => '180x53', :class => 'Apple'), "#"
-          = link_to image_tag("google-play.svg", :size => '180x53', :class => 'Google'), "#"
+          = link_to image_tag("app-store.svg", :class => 'Apple'), "#"
+          = link_to image_tag("google-play.svg", :class => 'Google'), "#"
     -# FURIMAの特徴
     .Feature
       %h2.Feature__SubTitle
@@ -99,73 +99,73 @@
         ピックアップカテゴリー
       .PickupCategorys__Products
         .PickupCategorys__Products--Sub
-          %a(href="#")
+          =link_to '#' do
             %h3.PickupCategorys__Products--SubName
               新規投稿商品
         .PickupCategorys__Products--Lists
           .PickupCategorys__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
                 %img(src="/assets/Img.png" alt="Product1" width="219.33" height="150" class="rice")/
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   ee
                 .PickupCategorys__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       1000円
-                    %li
-                      %i.fa
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupCategorys__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
                 %img(src="/assets/a007.png" alt="Product2" width="219.33" height="170")/
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product3
                 .PickupCategorys__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       30000円
-                    %li
-                      %i.fa 
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupCategorys__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
                 %img(src="/assets/a004.png" alt="Product3" width="219.33" height="150")/
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product2
                 .PickupCategorys__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       20000円
-                    %li
-                      %i.fa 
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupCategorys__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
                 %img(src="/assets/a001.png" alt="Product4" width="219.33" height="150")/
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product1
                 .PickupCategorys__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       10000円
-                    %li
-                      %i.fa 
-                        ★ 1
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      1
+                  %p.Tax
                     (税込)
     -# ピックアップブランド
     .PickupBrands
@@ -173,80 +173,80 @@
         ピックアップブランド
       .PickupBrands__Products
         .PickupBrands__Products--Sub
-          %a(href="#")
+          =link_to '#' do
             %h3.PickupBrands__Products--SubName
               アーカイバ
         .PickupBrands__Products--Lists
           .PickupBrands__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
                 %img(src="/assets/Img.png" alt="Product1" width="219.33" height="150" class="rice")/
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   ee
                 .PickupBrands__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       1000円
-                    %li
-                      %i.fa
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupBrands__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
                 %img(src="/assets/a007.png" alt="Product2" width="219.33" height="170")/
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product3
                 .PickupBrands__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       30000円
-                    %li
-                      %i.fa 
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupBrands__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
                 %img(src="/assets/a004.png" alt="Product3" width="219.33" height="150")/
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product2
                 .PickupvBrands__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       20000円
-                    %li
-                      %i.fa 
-                        ★ 0
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      0
+                  %p.Tax
                     (税込)
           .PickupBrands__Products--List
-            %a(href="#")
+            =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
                 %img(src="/assets/a001.png" alt="Product4" width="219.33" height="150")/
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product1
                 .PickupBrands__Products--ListDetailsDetail
-                  %ul
-                    %li
+                  %ul.Summary
+                    %li.Price
                       10000円
-                    %li
-                      %i.fa 
-                        ★ 1
-                  %p
+                    %li.Star
+                      = icon('fas', 'star')
+                      1
+                  %p.Tax
                     (税込)
   -# 今すぐ無料ダウンロード！                
   %aside.Banner
     .Banner__Center
-      %h2.Banner__Center--Text
+      %h2.Banner__Center--SubTitle
         だれでもかんたん、人生を変えるフリマアプリ
-      %p.Banner__Center--SubTitle
+      %p.Banner__Center--Text
         今すぐ無料ダウンロード！
       .Banner__Center--Btn
         = link_to image_tag("app-store.svg", :size => '180x53', :class => 'Apple'), "#"
