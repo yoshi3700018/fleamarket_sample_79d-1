@@ -169,8 +169,12 @@
           }
         }
         .InputData__StatusSelect {
+          width: 620px;
+          height: 83px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
           .InputData__StatusSelect__FormLabel {
-
           }
           select {
             width: 620px;
