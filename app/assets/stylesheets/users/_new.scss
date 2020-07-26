@@ -1,3 +1,4 @@
+// user sign_in前に描画されるregistration & sessionのcssmをこのファイルにまとめる
 
 // ---------------- session & registration COMMON ------------------------
 .Form {
@@ -125,10 +126,9 @@
       padding: 5px 150px;
     }
   }
-  .Main {
+  .SessionDo {
     width: 100%;
     display: block;
-    margin: 0 auto;
     padding-bottom: 30px;
     .LoginPanels {
       background: white;
@@ -227,3 +227,4 @@
     line-height: 35px;
   }
 }
+
