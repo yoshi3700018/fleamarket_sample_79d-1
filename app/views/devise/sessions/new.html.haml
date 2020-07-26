@@ -2,6 +2,9 @@
 .Header
   ここでrenderを使ってメインヘッダーかロゴを呼び出す
 .SingleContainerRegistration
+  .SingleContainerRegistration__Logo
+    = link_to "root", class: 'LogoImage' do
+      = image_tag "/logo/logo.png"
   .Main
     .LoginPanels
       .LoginPanels__NoAccount

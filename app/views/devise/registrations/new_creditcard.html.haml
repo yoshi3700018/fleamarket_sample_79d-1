@@ -3,6 +3,9 @@
   サインアップ時のクレジットカード入力画面です
   ここでrenderを使ってメインヘッダーかロゴを呼び出す
 .SingleContainerRegistration
+  .SingleContainerRegistration__Logo
+    = link_to "root", class: 'LogoImage' do
+      = image_tag "/logo/logo.png"
   .RegistrationNew
     .RegistrationNew__Wrapper
       .RegistrationNew__Wrapper__Title
@@ -19,18 +22,8 @@
               %span.Form__Field__Required 必須
               = f.select :card_company, [['VISA', 1], ['MasterCard', 2], ['JCB', 3]], {}, {class: 'Form__Field__Input'}
               %ul.CardCompanyList
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card       
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card
-                %li.CardCompanyList__Icon--VISA
-                  %i.fa.fa-credit-card                                 
+                %li.CardCompanyList__Icon
+                  = image_tag "/logo/card_all.gif"                                
             .Form__Field
               = f.label :有効期限
               %span.Form__Field__Required 必須
@@ -46,7 +39,7 @@
               = f.text_field :card_path, placeholder: "カード背面の４桁もしくは３桁の番号", class: 'Form__Field__Input'
               .Form__Field__InlineLayoutRight
                 .AddQuestion ? 
-                %p.SecurityCode カード裏面の番号とは?
+                %p.SecurityCode カード裏面の番号とは
             .Actions
               = f.submit "登録する", class: 'SubmitBtn', url: "creditcard_path"     
 
