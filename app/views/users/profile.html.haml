@@ -1,5 +1,20 @@
-%p これはprofile.html.haml<br/>プロフィールを編集するところです。<br/>イメージ（画像）も挿入できる様にします
-%p ここにrenderでヘッダーなどを表示させます。
-%p サイドバーをrenderで呼び出します。
-%p メインコンテンツを書きます。
-%p ここにrenderでフッターを表示させます。
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      = render 'sidebar'
+      .MainContents
+        .MainContents__Profile
+          .MainContents__Profile__Title
+            %h1 プロフィール
+          .MainContents__Profile__Detail
+            = form_for "#" do |f|
+              .Setting
+                .SettingIcon
+                  = image_tag "/icon/member_photo_noimage_thumb.png"
+                  .SettingIcon__NameForm
+                    = f.text_field :nickname, class: 'SettingIcon__NameForm__MyName', placeholder: 'userのニックネームを呼び出す'
+              .InputForm
+                = f.text_area :profile, class: 'InputForm__Profile', placeholder: '例)こんにちは☆ご覧いただきありがとうございます。かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'
+              .Actions
+                = f.submit "変更する", class: 'SubmitBtn', url: "profile_update_user_path"
