@@ -80,207 +80,6 @@ header {
         width: 700vw;
         height: 1300px;
         margin: 0 40px 0 40px;
-        .Contents__Notice {
-          width: 700px;
-          height: 760px;
-          background-color: #ffffff;
-          .UserImage {
-            width: 700px;
-            height: 200px;
-            background-color: gray;
-            padding: 44px 20px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            &__Icon {
-              width: 60px;
-              height: 60px;
-              background-color: black;
-            }
-            &__Name {
-              width: 700px;
-              height: 19px;
-              font-size: 14px;
-              font-weight: bold;
-              margin-top: 8px;
-              line-height: 19px;
-              text-align: center;
-            }
-            .UserImage__Numbers {
-              margin-top: 8px;
-              width: 700px;
-              height: 16px;
-              display: flex;
-              justify-content: center;
-              font-size: 14px;
-              &__Evaluation {
-              }
-              &__ExhibitionCount {
-                margin-left: 16px;
-              }
-              .count {
-                font-size: 16px;
-                font-weight: bold;
-                margin-left: 8px;
-              }
-            }
-          }
-          .UserNotice {
-            .NoticeButtons {
-              display: flex;
-              text-align: center;
-              font-weight: bold;
-              &__Notice {
-                width: 350px;
-                height: 74px;
-                display: inline-block;
-                line-height: 72px;
-                border-top: 2px solid red;
-              }
-              &__Do {
-                width: 350px;
-                height: 74px;
-                display: inline-block;
-                line-height: 74px;
-                background-color: #eeeeee;
-              }
-            }
-            .NoticeBox {
-              width: 700px;
-              height: 80px;
-              padding: 16px;
-              display: flex;
-              border-bottom: 1px solid #eeeeee;
-              &__Image{
-                width: 48px;
-                height: 48px;
-                display: inline-block;
-                background-color:#eeeeee;
-              }
-              &__MassegeBox {
-                width: 620px;
-                height: 48px;
-                padding: 0 40px 0 20px;
-                font-size: 14px;
-                &__Text {
-
-                }
-                &__Icon {
-                  color: #888888;
-                }
-                &__Days {
-                  color: #888888;
-                }
-              }
-            }
-            .MypageButton {
-              width: 700px;
-              height: 88px;
-              padding: 16px;
-              .GoButton {
-                width: 668px;
-                height: 52px;
-                background-color: #eeeeee;
-                font-size: 14px;
-                text-align: center;
-                line-height: 52px;
-              }
-            }
-          }
-        }
-        .Contents__Products {
-          background-color: #ffffff;
-          margin-top: 40px;
-          .ProductsButtons {
-            display: flex;
-            text-align: center;
-            font-weight: bold;
-            &__Doing {
-              width: 350px;
-              height: 74px;
-              display: inline-block;
-              line-height: 72px;
-              border-top: 2px solid red;
-            }
-            &__After {
-              width: 350px;
-              height: 74px;
-              display: inline-block;
-              line-height: 74px;
-              background-color: #eeeeee;
-            }
-          }
-          .ProductsBox {
-            width: 700px;
-            height: 80px;
-            padding: 16px;
-            display: flex;
-            border-bottom: 1px solid #eeeeee;
-            &__Image{
-              width: 48px;
-              height: 48px;
-              display: inline-block;
-              background-color:#eeeeee;
-            }
-            &__MassegeBox {
-              width: 620px;
-              height: 48px;
-              padding: 0 40px 0 20px;
-              font-size: 14px;
-              display:flex;
-              flex-flow: column;
-              justify-content:space-between;
-              &__Text {
-
-              }
-              &__Icon {
-                width: 60px;
-                height: 22px;
-                text-align: center;
-                line-height: 22px;
-                color: #fff;
-                font-size: 12px;
-                font-weight: bold;
-                border-radius: 2px;
-                background-color: red;
-              }
-            }
-          }
-          .ProductsButton {
-            width: 700px;
-            height: 88px;
-            padding: 16px;
-            .GoButton {
-              width: 668px;
-              height: 52px;
-              background-color: #eeeeee;
-              font-size: 14px;
-              text-align: center;
-              line-height: 52px;
-            }
-          }
-        }
-        // レスポンス時に使用
-        // .Contents__Menu {
-        //   width: 700px;
-        //   height: 720px;
-        //   background-color: #ffffff;
-        //   margin-top: 40px;
-        // }
-        // .Contents__Merupay {
-        //   width: 700px;
-        //   height: 116px;
-        //   background-color: #ffffff;
-        //   margin-top: 40px;
-        // }
-        // .Contents__Edit {
-        //   width: 700px;
-        //   height: 356px;
-        //   background-color: #ffffff;
-        //   margin-top: 40px;
-        // }
-
-        // ------------- MainContents プロフィール ---------
         &__Profile{
           background: white;
           min-width: 375px;
@@ -331,9 +130,40 @@ header {
                     padding-left: 8px;
                     margin: 5px 10px 0;
                   }
+                  .YourRating {
+                    display: flex;
+                    margin-top: 8px;
+                    width: 700px;
+                    height: 16px;
+                    font-size: 14px;
+                    &__Evaluation {
+                    }
+                    &__ExhibitionCount {
+                      margin-left: 16px;
+                    }
+                    .count {
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: 8px;
+                    }
+                  }
+                }
+                &__Mypage {
+                  display: block;
+                  .YourRating {
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 8px;
+                    .count {
+                      font-weight:bold;
+                      font-size: 0.9em;
+                      margin-right: 15px;
+                    }
+                  }
                 }
               }
             }
+            // ------- Profile ------------------------
             .InputForm {
               margin: 20px 15px 0;
               width: 100%;
@@ -366,7 +196,133 @@ header {
               }
             }
           }
+
+          .UserNotice {
+            .NoticeButtons {
+              display: flex;
+              text-align: center;
+              font-weight: bold;
+              &__Notice {
+                width: 50%;
+                height: 74px;
+                display: inline-block;
+                line-height: 72px;
+                border-top: 2px solid red;
+              }
+              &__Do {
+                width: 50%;
+                height: 74px;
+                display: inline-block;
+                line-height: 74px;
+                background-color: #eeeeee;
+              }
+            }
+            .NoticeBox {
+              width: 100%;
+              height: 80px;
+              padding: 16px;
+              display: flex;
+              border-bottom: 1px solid #eeeeee;
+              &__Image{
+                width: 48px;
+                height: 48px;
+                display: inline-block;
+                background-color:#eeeeee;
+              }
+              &__MassegeBox {
+                width: 620px;
+                height: 48px;
+                padding: 0 40px 0 20px;
+                font-size: 14px;
+                &__Text {
+          
+                }
+                &__Icon {
+                  color: #888888;
+                }
+                &__Days {
+                  color: #888888;
+                }
+              }
+            }
+          }          
         }
+        .Contents__Products {
+          background-color: #ffffff;
+          margin-top: 40px;
+          .ProductsButtons {
+            display: flex;
+            text-align: center;
+            font-weight: bold;
+            &__Doing {
+              width: 350px;
+              height: 74px;
+              display: inline-block;
+              line-height: 72px;
+              border-top: 2px solid red;
+            }
+            &__After {
+              width: 350px;
+              height: 74px;
+              display: inline-block;
+              line-height: 74px;
+              background-color: #eeeeee;
+            }
+          }
+          .ProductsBox {
+            width: 700px;
+            height: 80px;
+            padding: 16px;
+            display: flex;
+            border-bottom: 1px solid #eeeeee;
+            &__Image{
+              width: 48px;
+              height: 48px;
+              display: inline-block;
+              background-color:#eeeeee;
+            }
+            &__MassegeBox {
+              width: 620px;
+              height: 48px;
+              padding: 0 40px 0 20px;
+              font-size: 14px;
+              display:flex;
+              flex-flow: column;
+              justify-content:space-between;
+              &__Icon {
+                width: 60px;
+                height: 22px;
+                text-align: center;
+                line-height: 22px;
+                color: #fff;
+                font-size: 12px;
+                font-weight: bold;
+                border-radius: 2px;
+                background-color: red;
+              }
+            }
+          }
+        }
+
+        // レスポンス時に使用
+        // .Contents__Menu {
+        //   width: 700px;
+        //   height: 720px;
+        //   background-color: #ffffff;
+        //   margin-top: 40px;
+        // }
+        // .Contents__Merupay {
+        //   width: 700px;
+        //   height: 116px;
+        //   background-color: #ffffff;
+        //   margin-top: 40px;
+        // }
+        // .Contents__Edit {
+        //   width: 700px;
+        //   height: 356px;
+        //   background-color: #ffffff;
+        //   margin-top: 40px;
+        // }
         // ------------- MainContents ログアウト -----------
         &__Logout {
           display: flex;
@@ -399,4 +355,29 @@ footer {
   width: 100vw;
   height: 954px;
   background-color: black;
+}
+
+// ------------- submitBtn -----------
+.NextActions {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .NextBtn {
+    color: #fff;
+    font-weight: bold;
+    background-color: #ea352d;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    padding: 0 174px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+  }
 }
