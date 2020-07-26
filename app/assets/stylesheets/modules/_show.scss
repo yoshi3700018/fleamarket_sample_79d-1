@@ -1,5 +1,118 @@
-.wrapper{
+* {
+  box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.headerPc{
+  padding: 0 60px;
+  .headerInner{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0 0;
+    .headerMain{
+      width: 1040px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      .furimaImg{
+      }
+      .searchBox{
+        width: 1180px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 0 5px 0;
+        &__input{
+          .search{
+            width: 835px;
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+        }
+        &__button{
+          .form-submit{
+            width: 36px;
+            height: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+          }
+          .icon-search{
+            position: absolute;
+            right: 8px;
+            top: 13px;
+          }
+        }
+      }
+    }
+  }
+  .navigation{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+    &__left{
+      display: flex;
+      .catBtn{
+        line-height: 32px;
+        background-size: 18px;
+        padding: 0 30px 0 0;
+        a{
+          color: #333;
+          text-decoration: none;
+        }
+        a:hover{
+          color: orange;
+        }
+      }
+      .brandBtn{
+        line-height: 32px;
+        background-size: 18px;
+        padding: 0 30px 0 16px;
+        a{
+          color: #333;
+          text-decoration: none;
+        }
+        a:hover{
+          color: orange;
+        }
+      }
+    }
+    &__right{
+      display: flex;
+      .logBtn{
+        line-height: 32px;
+        background-size: 18px;
+        padding: 0 0 0 16px;
+        a{
+          color: #333;
+          text-decoration: none;
+        }
+      }
+      .newBtn{
+        line-height: 32px;
+        background-size: 18px;
+        padding: 0 0 0 16px;
+        a{
+          color: #333;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+// ここからがshowファイルの記述です。
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.wrapper{
   background-color: #f8f8f8;
   display: flex;
   justify-content: center;
@@ -215,5 +328,48 @@
       font-size: 10px;
       font-weight: bold;
     }
+  }
+}
+// ここまでがshowファイルの記述です。
+
+
+.footerPc {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  .contents{
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content{
+      width: 263px;
+      height: 172px;
+      margin: 0 2% 0 0;
+      &__head{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__box{
+        li{
+          font-size: 12px;
+          line-height: 32px;
+          a{
+            color: #fff;
+            text-decoration: none;
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .footer-logo{
+    height: 46px;
+  }
+  .copy{
+    font-size: 14px;
   }
 }
