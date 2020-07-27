@@ -1,7 +1,6 @@
 .Wrapper
   %header
-    .header__logo
-    = link_to image_tag("/logo/logo.png", width: '185px', class: "haeder__image"), products_path
+    = render 'header'
   .Main
     .Contents
       .InputPhoto
@@ -91,10 +90,4 @@
           = link_to "加盟店規約", "#"
         に同意したことになります。
   %footer
-    .Box
-      %a= link_to "プライバシーポリシー", "#"
-      %a= link_to "フリマ利用規約", "#", class: "Center"
-      %a= link_to "特定商取引に関する表記", "#"
-    .footer__logo
-      = image_tag "/logo/logo-white.png", width: '180px'
-    %p.Merucal-Inc © FURIMA, Inc.
+    = render 'footer'
