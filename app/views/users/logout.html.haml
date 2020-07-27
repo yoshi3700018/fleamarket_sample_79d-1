@@ -1,5 +1,10 @@
-%p これはlogout.html.haml<br/>ログアウトボタンがあるだけの画面です<br/>
-%p ここにrenderでヘッダーなどを表示させます。
-%p サイドバーをrenderで呼び出します。
-%p メインコンテンツを書きます。
-%p ここにrenderでフッターを表示させます。
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      = render 'sidebar'
+      .MainContents
+        .MainContents__Logout
+          = link_to destroy_user_session_path, method: :delete, class: 'LogoutBtn' do
+            ログアウト
+            

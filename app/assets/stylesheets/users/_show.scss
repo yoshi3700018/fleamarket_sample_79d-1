@@ -1,3 +1,5 @@
+// user sign_in後に描画されるデータのCSSをこのファイルにまとめる(show/edit/logout/profileなど）
+
 * {
   box-sizing: border-box;
 }
@@ -13,20 +15,22 @@ header {
   border: 1px solid rgb(245, 245,245);
 }
 .Main {
+  background-color: rgb(245, 245,245);
+  width: 100vw;
   .Wrapper {
-    background-color: rgb(245, 245,245);
-    width: 100vw;
-    height: 100%;
     display: flex;
     justify-content: center;
     color: #333333;
     .Container {
-      width: 1020px;
+      width: 100%;
       height: 1341px;
       margin-top: 40px;
       display: flex;
       justify-content: space-between;
+      
+      //---------------- sidebar ---------------------
       .Sidebar {
+        margin-left: 25px;
         .nav {
           font-weight: bold;
           margin: 40px 0 5px;
@@ -70,68 +74,143 @@ header {
           }
         }
       }
+
+      // ------------MainContents マイページ -----------
       .MainContents {
-        width: 700px;
+        width: 700vw;
         height: 1300px;
-        .Contents__Notice {
-          width: 700px;
-          height: 760px;
-          background-color: #ffffff;
-          .UserImage {
-            width: 700px;
-            height: 200px;
-            background-color: gray;
-            padding: 44px 20px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            &__Icon {
-              width: 60px;
-              height: 60px;
-              background-color: black;
-            }
-            &__Name {
-              width: 700px;
-              height: 19px;
-              font-size: 14px;
+        margin: 0 40px 0 40px;
+        &__Profile{
+          background: white;
+          min-width: 375px;
+          margin: 0 auto;
+          display: block;
+          &__Title {
+            background-color: white;
+            display: block;
+            text-align: center;
+            height: 48px;
+            font-size: 1.6em;
+            line-height: 48px;
+            vertical-align: center;
+            h1 {
               font-weight: bold;
-              margin-top: 8px;
-              line-height: 19px;
-              text-align: center;
             }
-            .UserImage__Numbers {
-              margin-top: 8px;
-              width: 700px;
-              height: 16px;
+          }
+          &__Detail {
+            display: block;
+            .Setting {
+              background: #c7e0fe;
+              background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.5, #E7F8FC), color-stop(.5, transparent),color-stop(.5, transparent), color-stop(.5, #E7F8FC),color-stop(.75, #E7F8FC), color-stop(.75, transparent),to(transparent));
+              -webkit-background-size: 18px 18px;
+              padding: 120px 16px 48px;
+              position: relative;
+              .SettingIcon {
+                position: absolute;
+                top: 60%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: center;
+                img {
+                  overflow: hidden;
+                  width: 60px;
+                  height: 60px;
+                  line-height: 60px;
+                  border-radius: 50%;
+                  vertical-align: middle;
+                }
+                &__NameForm {
+                  &__MyName{         
+                    height: 50px;
+                    line-height: 50px;
+                    width: 250px;
+                    padding-left: 8px;
+                    margin: 5px 10px 0;
+                  }
+                  .YourRating {
+                    display: flex;
+                    margin-top: 8px;
+                    width: 700px;
+                    height: 16px;
+                    font-size: 14px;
+                    &__Evaluation {
+                    }
+                    &__ExhibitionCount {
+                      margin-left: 16px;
+                    }
+                    .count {
+                      font-size: 16px;
+                      font-weight: bold;
+                      margin-left: 8px;
+                    }
+                  }
+                }
+                &__Mypage {
+                  display: block;
+                  .YourRating {
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 8px;
+                    .count {
+                      font-weight:bold;
+                      font-size: 0.9em;
+                      margin-right: 15px;
+                    }
+                  }
+                }
+              }
+            }
+            // ------- Profile ------------------------
+            .InputForm {
+              margin: 20px 15px 0;
+              width: 100%;
+              &__Profile {
+                padding: 20px 15px 0;
+                width: 96%;
+                height: 200px;
+                line-height: 1.7em;
+              }
+            }
+            .Actions {
+              margin: 30px auto;
               display: flex;
               justify-content: center;
-              font-size: 14px;
-              &__Evaluation {
-              }
-              &__ExhibitionCount {
-                margin-left: 16px;
-              }
-              .count {
-                font-size: 16px;
+              .SubmitBtn{
+                color: #fff;
                 font-weight: bold;
-                margin-left: 8px;
+                background-color: #ea352d;
+                display: inline-block;
+                text-align: center;
+                height: 50px;
+                padding: 0 174px;
+                line-height: 50px;
+                letter-spacing: 1px;
+                text-align: center;
+                border: none;
+                border-radius: 2px;
+                text-decoration: none;
+                margin-bottom: 30px;
               }
             }
           }
+
           .UserNotice {
             .NoticeButtons {
               display: flex;
               text-align: center;
               font-weight: bold;
               &__Notice {
-                width: 350px;
+                width: 50%;
                 height: 74px;
                 display: inline-block;
                 line-height: 72px;
                 border-top: 2px solid red;
               }
               &__Do {
-                width: 350px;
+                width: 50%;
                 height: 74px;
                 display: inline-block;
                 line-height: 74px;
@@ -139,7 +218,7 @@ header {
               }
             }
             .NoticeBox {
-              width: 700px;
+              width: 100%;
               height: 80px;
               padding: 16px;
               display: flex;
@@ -155,6 +234,9 @@ header {
                 height: 48px;
                 padding: 0 40px 0 20px;
                 font-size: 14px;
+                &__Text {
+          
+                }
                 &__Icon {
                   color: #888888;
                 }
@@ -163,20 +245,7 @@ header {
                 }
               }
             }
-            .MypageButton {
-              width: 700px;
-              height: 88px;
-              padding: 16px;
-              .GoButton {
-                width: 668px;
-                height: 52px;
-                background-color: #eeeeee;
-                font-size: 14px;
-                text-align: center;
-                line-height: 52px;
-              }
-            }
-          }
+          }          
         }
         .Contents__Products {
           background-color: #ffffff;
@@ -233,20 +302,8 @@ header {
               }
             }
           }
-          .ProductsButton {
-            width: 700px;
-            height: 88px;
-            padding: 16px;
-            .GoButton {
-              width: 668px;
-              height: 52px;
-              background-color: #eeeeee;
-              font-size: 14px;
-              text-align: center;
-              line-height: 52px;
-            }
-          }
         }
+
         // レスポンス時に使用
         // .Contents__Menu {
         //   width: 700px;
@@ -266,6 +323,30 @@ header {
         //   background-color: #ffffff;
         //   margin-top: 40px;
         // }
+        // ------------- MainContents ログアウト -----------
+        &__Logout {
+          display: flex;
+          justify-content: center;
+          background: white;
+          border-radius: 8px;
+          padding-top: 60px;
+          padding-bottom: 60px;
+          .LogoutBtn {
+            color: #fff;
+            font-weight: bold;
+            background-color: #ea352d;
+            display: inline-block;
+            text-align: center;
+            height: 50px;
+            padding: 0 174px;
+            line-height: 50px;
+            letter-spacing: 1px;
+            text-align: center;
+            border: none;
+            border-radius: 2px;
+            text-decoration: none;
+          }
+        }
       }
     }
   }
@@ -274,4 +355,29 @@ footer {
   width: 100vw;
   height: 954px;
   background-color: black;
+}
+
+// ------------- submitBtn -----------
+.NextActions {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .NextBtn {
+    color: #fff;
+    font-weight: bold;
+    background-color: #ea352d;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    padding: 0 174px;
+    line-height: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+  }
 }

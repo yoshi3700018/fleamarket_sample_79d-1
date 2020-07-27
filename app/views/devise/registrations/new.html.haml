@@ -3,6 +3,9 @@
   devise registration new.html.haml
   ここでrenderを使ってメインヘッダーかロゴを呼び出す
 .SingleContainerRegistration
+  .SingleContainerRegistration__Logo
+    = link_to "root", class: 'LogoImage' do
+      = image_tag "/logo/logo.png"
   .RegistrationNew
     .RegistrationNew__Wrapper
       .RegistrationNew__Wrapper__Title
