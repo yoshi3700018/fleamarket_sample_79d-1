@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.footerPc {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  .contents{
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content{
+      width: 263px;
+      height: 172px;
+      margin: 0 2% 0 0;
+      &__head{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__box{
+        li{
+          font-size: 12px;
+          line-height: 32px;
+          a{
+            color: #fff;
+            text-decoration: none;
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .footer-logo{
+    height: 46px;
+  }
+  .copy{
+    font-size: 14px;
+  }
+}
