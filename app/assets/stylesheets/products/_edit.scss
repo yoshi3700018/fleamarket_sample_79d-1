@@ -2,15 +2,14 @@
   box-sizing: border-box;
   text-decoration: none;
   body {
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
     margin: 0;
     padding: 0;
-    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
     background: #f8f8f8;
     .wrapper {
       background: #f8f8f8;
       // 人生を変えるフリマアプリ
       .Introduction {
-        // width: 100px;
         height: 560px;
         padding: 0 60px;
         background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
@@ -142,9 +141,9 @@
             font-size: 27px;
           }
           &--text {
-            font-size: 18px;
-            margin: 20px 0 30px;
             line-height: 1.5;
+            margin: 20px 0 30px;
+            font-size: 18px;
           }
           &--Btn {
             width: 180px;
@@ -172,9 +171,9 @@
         background-color: #fff;
         display: block;
         &__SubTitle {
+          margin: 0 0 20px;
           font-size: 27px;
           text-align: center;
-          margin: 0 0 20px;
           font-weight: bold;
           position: relative;
         }
@@ -185,15 +184,15 @@
           display: flex;
           flex-wrap: wrap;
           &--Point {
+            width: calc(1 / 3 * 100%);
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            width: calc(1 / 3 * 100%);
             text-align: center;
-            padding: 0 20px;
             .Feature__Points--Point-1 {
               margin: 35px 0 10px;
-              font-size: 19px;
               font-weight: bold;
+              font-size: 19px;
             }
             .Feature__Points--Point-2 {
               margin: 0 0 40px;
@@ -206,14 +205,14 @@
       }
       // ピックアップカテゴリー
       .PickupCategorys {
+        height: 100%;
         padding: 80px 0 0;
         background-color: #f8f8f8;
-        height: 100%;
         &__SubTitle {
-          text-align: center;
-          font-size: 28px;
           line-height: 1.4;
           font-weight: bold;
+          text-align: center;
+          font-size: 28px;
         }
         &__Products {
           margin: 0;
@@ -221,7 +220,6 @@
           &--Sub {
             text-align: center;
             .PickupCategorys__Products--SubName {
-              // text-decoration: none;
               font-weight: bold;
               font-size: 24px;
               color: #3CCACE;
@@ -239,9 +237,9 @@
               .PickupCategorys__Products--ListPicture {
                 width: 220px;
                 height: 150px;
+                margin: 0;
                 position: relative;
                 overflow: hidden;
-                margin: 0;
                 z-index: auto;
                 .rice {
                   position: absolute;
@@ -300,7 +298,6 @@
       // ピックアップブランド
       .PickupBrands {
         padding: 80px 0 ;
-        // padding-bottom: 80px;
         background-color: #f8f8f8;
         height: 100%;
         &__SubTitle {
@@ -315,7 +312,6 @@
           &--Sub {
             text-align: center;
             .PickupBrands__Products--SubName {
-              // text-decoration: none;
               font-weight: bold;
               font-size: 24px;
               color: #3CCACE;
@@ -375,14 +371,6 @@
                   display: list-item;
                   text-align: -webkit-match-parent;
                 }
-                i.fa {
-                  display: inline-block;
-                  font: normal normal normal 14px/1 FontAwesome;
-                  font-size: inherit;
-                  text-rendering: auto;
-                  -webkit-font-smoothing: antialiased;
-                  text-align: right;
-                }
               }
             }
             .PickupBrands__Products--List:hover {
@@ -403,19 +391,19 @@
         color: #fff;
         text-align: center;
         &--SubTitle {
+          line-height: 1.4;
+          font-weight: bold;
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           font-size: 24px;
-          font-weight: bold;
-          line-height: 1.4;
         }
         &--Text {
           font-size: 35px;
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
         }
         &--Btn {
+          margin: 20px auto 0;
           display: flex;
           justify-content: center;
-          margin: 20px auto 0;
           .Apple {
             width: 180px;
             height: 53.33px;
