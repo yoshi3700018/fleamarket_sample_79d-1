@@ -1,0 +1,10 @@
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      = render 'sidebar'
+      .MainContents
+        .MainContents__Logout
+          = link_to destroy_user_session_path, method: :delete, class: 'LogoutBtn' do
+            ログアウト
+            

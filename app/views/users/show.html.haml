@@ -1,0 +1,86 @@
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      = render 'sidebar'
+      .MainContents
+        .MainContents__Profile
+          .MainContents__Profile__Detail
+            = form_for "#" do |f|
+              .Setting
+                .SettingIcon
+                  = image_tag "/icon/member_photo_noimage_thumb.png"
+                  .SettingIcon__Mypage
+                    = f.text_field :nickname, class: 'SettingIcon__NameForm__MyName', placeholder: 'userのニックネームを呼び出す'
+                    %div.YourRating  
+                      %br/
+                      .YourRating__Evaluation
+                        評価
+                        %span.count 0
+                      .YourRating__ExhibitionCount
+                        出品数
+                        %span.count 0
+          .UserNotice
+            .NoticeButtons
+              .NoticeButtons__Notice お知らせ
+              .NoticeButtons__Do やることリスト
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+            .NoticeBox
+              .NoticeBox__Image
+              .NoticeBox__MassegeBox
+                .NoticeBox__MassegeBox__Text メッセージが入ります
+                .NoticeBox__MassegeBox__Icon
+                .NoticeBox__MassegeBox__Days １日前
+          .NextActions
+            = link_to "#" , class: 'NextBtn' do
+              一覧を表示する
+        .Contents__Products
+          .ProductsButtons
+            .ProductsButtons__Doing 取引中
+            .ProductsButtons__After 過去の取引
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+          .ProductsBox
+            .ProductsBox__Image
+            .ProductsBox__MassegeBox
+              .ProductsBox__MassegeBox__Text メッセージが入ります
+              .ProductsBox__MassegeBox__Icon 取引中
+        .NextActions
+          = link_to "#" , class: 'NextBtn' do
+            一覧を表示する
+
+        -# レスポンス時に使用
+        -# .Contents__Menu
+        -# .Contents__Merupay
+        -# .Contents__Edit
