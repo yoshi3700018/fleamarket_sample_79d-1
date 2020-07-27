@@ -1,17 +1,17 @@
-// // -----↓ヘッダー-----
-// header {
-//   height: 128px;
-//   width: 100%;
-//   background-color: rgb(245, 245, 245);
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-// // -----↑ヘッダー-----
+// -----↓ヘッダー-----
+header {
+  height: 128px;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// -----↑ヘッダー-----
 .Main {
   background-color: rgb(245, 245, 245);
 }
-.Container {
+.Container-1 {
   max-width: 700px;
   margin: 0px auto;
   background-color: white;
@@ -169,37 +169,37 @@
     }
   }
 }
-// // -----↓フッター-----
-// footer {
-//   height: 220px;
-//   width: 100vw;
-//   padding: 40px 0 41px;
-//   background-color: rgb(245, 245, 245);
-//   .Box {
-//     width: 100vw;
-//     height: 40px;
-//     display: flex;
-//     justify-content: center;
-//     a {
-//       font-size: 12px;
-//       color: #cccccc;
-//       text-decoration: none;
-//       display: inline-block;
-//     }
-//     .Center {
-//       margin: 0 16px;
-//     }
-//   } 
-//   .footer__logo {
-//     display: flex;
-//     justify-content: center;
-//     margin-bottom: 10px;
-//   }
-//   .Merucal-Inc {
-//     display: block;
-//     text-align: center;
-//     font-size: 12px;
-//     color: #333333;
-//   }  
-// }
-// // -----↑フッター-----
+// -----↓フッター-----
+footer {
+  height: 220px;
+  width: 100vw;
+  padding: 40px 0 41px;
+  background-color: rgb(245, 245, 245);
+  .Box {
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    a {
+      font-size: 12px;
+      color: #cccccc;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .Center {
+      margin: 0 16px;
+    }
+  } 
+  .footer__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .Merucal-Inc {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+  }  
+}
+// -----↑フッター-----
