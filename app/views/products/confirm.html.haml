@@ -4,6 +4,8 @@
     %meta{"charset":"UTF-8"}
     %title fleamaket_sample_79d
   %body
+    %header
+      = render 'header'
     .Main
       %section.Container
         .Content
@@ -55,3 +57,5 @@
           .PurchaseContent
             %p.PurchaseContent__InputText 配送先と支払い方法の入力を完了してください。
             %button{type: "button", class:'PurchaseContent__BayBtn', url:"#"} 購入する
+    %footer
+      = render 'footer'
