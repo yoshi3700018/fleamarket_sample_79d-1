@@ -34,5 +34,13 @@ class UsersController < ApplicationController
   def logout
   end
 
-
+  private
+  def address_params
+    params.require(:address).permit(:postal_code,
+                                    :prefecture,
+                                    :city,
+                                    :address_line,
+                                    :apartment
+    )
+  end
 end
