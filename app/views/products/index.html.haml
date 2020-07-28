@@ -1,5 +1,5 @@
 %body
-  -# = render "header" ヘッダー作成後実装
+  = render "header"
   .wrapper-2
     // 人生を変えるフリマアプリ
     .Introduction
@@ -107,7 +107,7 @@
           .PickupCategorys__Products--List
             =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
-                = link_to image_tag("/assets/Img.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/Img.png", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   ee
@@ -123,7 +123,7 @@
           .PickupCategorys__Products--List
             =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
-                = link_to image_tag("/assets/a007", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a007", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product3
@@ -139,7 +139,7 @@
           .PickupCategorys__Products--List
             =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
-                = link_to image_tag("/assets/a004.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a004.png", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product2
@@ -155,7 +155,7 @@
           .PickupCategorys__Products--List
             =link_to '#' do
               %figure.PickupCategorys__Products--ListPicture
-                = link_to image_tag("/assets/a001.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a001.png", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupCategorys__Products--ListDetails
                 %h3.PickupCategorys__Products--ListDetailsName
                   product1
@@ -181,7 +181,7 @@
           .PickupBrands__Products--List
             =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
-                = link_to image_tag("/assets/Img.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/Img.png", width: "219.33px", height: "150px", alt: "Product"), products_path(key: "product")
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   ee
@@ -197,7 +197,7 @@
           .PickupBrands__Products--List
             =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
-                = link_to image_tag("/assets/a007", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a007", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product3
@@ -213,7 +213,7 @@
           .PickupBrands__Products--List
             =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
-                = link_to image_tag("/assets/a004.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a004.png", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product2
@@ -229,7 +229,7 @@
           .PickupBrands__Products--List
             =link_to '#' do
               %figure.PickupBrands__Products--ListPicture
-                = link_to image_tag("/assets/a001.png", width: "219.33px", height: "150px", alt: "Product"), "#"
+                = link_to image_tag("/assets/a001.png", width: "219.33px", height: "150px", alt: "Product"), "/products/show"
               .PickupBrands__Products--ListDetails
                 %h3.PickupBrands__Products--ListDetailsName
                   product1
@@ -252,4 +252,4 @@
       .Banner__Center--Btn
         = link_to image_tag("app-store.svg", class: 'Apple'), "#"
         = link_to image_tag("google-play.svg", class: 'Google'), "#"
-  -# = render "footer" フッター作成後実装
+  = render "footer"
