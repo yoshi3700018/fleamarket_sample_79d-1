@@ -1,5 +1,5 @@
 %body
-  -# = render "header" ヘッダー作成後実装
+  = render "layouts/header"
   .wrapper-2
     // 人生を変えるフリマアプリ
     .Introduction
@@ -252,4 +252,4 @@
       .Banner__Center--Btn
         = link_to image_tag("app-store.svg", class: 'Apple'), "#"
         = link_to image_tag("google-play.svg", class: 'Google'), "#"
-  -# = render "footer" フッター作成後実装
+  = render "layouts/footer"
