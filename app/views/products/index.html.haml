@@ -1,5 +1,5 @@
 %body
-  = render "header"
+  = render "layouts/header"
   .wrapper-2
     // 人生を変えるフリマアプリ
     .Introduction
@@ -24,7 +24,7 @@
           .Reason__Lists--Picture
             %span.Reason__Lists--Picture-No1
               1
-            = link_to image_tag("/assets/pict-reason-01.jpg", width: "306px", height: "306px", alt: "Exhibition"), "#"
+            = image_tag "/assets/pict-reason-01.jpg", width: "306px", height: "306px", alt: "Exhibition" 
           %h3.Reason__Lists--Text
             %span.Reason__Lists--Text
               3分
@@ -35,7 +35,7 @@
           .Reason__Lists--Picture
             %span.Reason__Lists--Picture-No1
               2
-            = link_to image_tag("/assets/pict-reason-02.jpg", width: "306px", height: "306px", alt: "Exhibition"), "#"
+            = image_tag"/assets/pict-reason-02.jpg", width: "306px", height: "306px", alt: "Exhibition"
           %h3.Reason__Lists--Text
             %span.Reason__Lists--Text
               シンプル
@@ -46,7 +46,7 @@
           .Reason__Lists--Picture
             %span.Reason__Lists--Picture-No1
               3
-            = link_to image_tag("/assets/pict-reason-03.jpg", width: "306px", height: "306px", alt: "Exhibition"), "#"
+            = image_tag"/assets/pict-reason-03.jpg", width: "306px", height: "306px", alt: "Exhibition"
           %h3.Reason__Lists--Text
             手数料
             %span.Reason__Lists--Text
@@ -75,21 +75,21 @@
       %ul.Feature__Points
         %li.Feature__Points--Point
           .Feature__Points--Picture
-            = link_to image_tag("/assets/icon-01.png", width: "219.33px", height: "337.61px", alt: "Product"), "#"
+            = image_tag"/assets/icon-01.png", width: "219.33px", height: "337.61px", alt: "Product"
           %h3.Feature__Points--Point-1
             簡単に売り買いできる
           %p.Feature__Points--Point-2
             スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
         %li.Feature__Points--Point
           .Feature__Points--Picture
-            = link_to image_tag("/assets/icon-03.png", width: "219.33px", height: "337.61px", alt: "Product"), "#"
+            = image_tag"/assets/icon-03.png", width: "219.33px", height: "337.61px", alt: "Product"
           %h3.Feature__Points--Point-1
             売上金は即日振込みに対応
           %p.Feature__Points--Point-2
             午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
         %li.Feature__Points--Point
           .Feature__Points--Picture
-            = link_to image_tag("/assets/icon-04.png", width: "219.33px", height: "337.61px", alt: "Product"), "#"
+            = image_tag"/assets/icon-04.png", width: "219.33px", height: "337.61px", alt: "Product"
           %h3.Feature__Points--Point-1
             様々な支払いに対応
           %p.Feature__Points--Point-2
@@ -252,4 +252,4 @@
       .Banner__Center--Btn
         = link_to image_tag("app-store.svg", class: 'Apple'), "#"
         = link_to image_tag("google-play.svg", class: 'Google'), "#"
-  = render "footer"
+  = render "layouts/footer"
