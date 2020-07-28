@@ -3,7 +3,7 @@ class Postal < ApplicationRecord
 
   validates :postal_code, :prefecture, :city, :address_line, presence: true
   
-  VALID_POSTAL_REGEX = /\A\d{3}-?d{4}\z/
+  VALID_POSTAL_REGEX = /\A\d{3}-?\d{4}\z/
   validates :postal_code,
             format: { with: VALID_POSTAL_REGEX }
 

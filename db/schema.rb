@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_065638) do
+ActiveRecord::Schema.define(version: 2020_07_24_072601) do
 
   create_table "postals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 2020_07_28_065638) do
     t.integer "deliver"
     t.integer "prefecture"
     t.integer "shipping_dates"
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pname"], name: "index_products_on_pname"
-    t.index ["users_id"], name: "index_products_on_users_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,5 +63,5 @@ ActiveRecord::Schema.define(version: 2020_07_28_065638) do
   end
 
   add_foreign_key "postals", "users"
-  add_foreign_key "products", "users", column: "users_id"
+  add_foreign_key "products", "users"
 end

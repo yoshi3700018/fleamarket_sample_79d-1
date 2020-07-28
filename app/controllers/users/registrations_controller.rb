@@ -29,8 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
-    binding.pry
-    @user.build_address(@address.attributes)
+    @user.build_postal(@address.attributes)
     # ひとまずカード登録しない場合、カード登録時にスキップ機能を入れるかどうかは後で検討する
     @user.save
     sign_in(:user, @user)

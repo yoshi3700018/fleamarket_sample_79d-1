@@ -1,5 +1,8 @@
 %body
-  = render "layouts/header"
+  -if user_signed_in?
+    = render 'layouts/loginheader'
+  - else
+    = render 'layouts/header'  
   .wrapper-2
     // 人生を変えるフリマアプリ
     .Introduction
