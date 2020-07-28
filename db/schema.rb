@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_072601) do
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_name_kana", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "image"

@@ -2,7 +2,8 @@
   .headerInner
     .headerMain
       .furimaImg
-        = image_tag '/logo/logo.png', alt: 'FURIMA', height: '40px', width: '140px'
+        = link_to root_path, class: 'LogoImage' do
+          = image_tag '/logo/logo.png', alt: 'FURIMA', height: '40px', width: '140px'
       .searchBox
         .searchBox__input
           %input.search{type: 'search', placeholder: 'キーワードから探す'}
