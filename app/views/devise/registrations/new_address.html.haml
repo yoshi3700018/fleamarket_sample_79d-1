@@ -9,7 +9,7 @@
       .RegistrationNew__Wrapper__Title
         %p お届け先住所入力
       .RegistrationNew__Wrapper__Form
-        = form_for (@address, url: addresses_path, method: :post) do |f|
+        = form_for(@address, url: address_path, method: :post) do |f|
           =render "devise/shared/error_messages", resource: @address
           .Form
             .Form__Field
