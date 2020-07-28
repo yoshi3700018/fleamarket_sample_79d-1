@@ -9,7 +9,8 @@
       .RegistrationNew__Wrapper__Title
         %p お届け先住所入力
       .RegistrationNew__Wrapper__Form
-        = form_for "#" do |f|
+        = form_for (@address, url: addresses_path, method: :post) do |f|
+          =render "devise/shared/error_messages", resource: @address
           .Form
             .Form__Field
               = f.label :郵便番号
@@ -33,7 +34,5 @@
               = f.text_field :apartment, placeholder: "例)柳ビル103", class: 'Form__Field__Input'
             .Actions
               = f.submit "次へ進む", class: 'SubmitBtn', url: "creditcard_path"     
-
-
 .Footer
   = render 'layouts/footer'

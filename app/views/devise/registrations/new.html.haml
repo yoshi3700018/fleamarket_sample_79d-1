@@ -11,6 +11,7 @@
         %p 会員情報入力
       .RegistrationNew__Wrapper__Form
         = form_for(@user, url: user_registration_path) do |f|
+          = render "devise/shared/error_messages", resource: @user
           .Form
             .Form__Field
               = f.label :ニックネーム
@@ -49,7 +50,5 @@
                   に同意したものとみなします。
             .Actions
               = f.submit "次へ進む", class: 'SubmitBtn', url: "address_path"     
-
-
 .Footer
   = render 'layouts/footer'
