@@ -1,7 +1,5 @@
 .Header
-  devise registration new_address.html.haml<br/>
-  サインアップ時の住所入力画面です。
-  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+  = render 'layouts/header'
 .SingleContainerRegistration
   .SingleContainerRegistration__Logo
     = link_to "root", class: 'LogoImage' do
@@ -38,4 +36,4 @@
 
 
 .Footer
-  ここでrenderを使ってフッターなどを呼び出す
+  = render 'layouts/footer'
