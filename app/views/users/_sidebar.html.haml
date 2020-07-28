@@ -1,6 +1,8 @@
 .Sidebar
   .Sidebar__Menu
-    .Sidebar__Menu__Box--MyPage マイページ
+    .Sidebar__Menu__Box--MyPage
+    = link_to user_path(current_user.id) do
+      マイページ
     .Sidebar__Menu__Box お知らせ
     .Sidebar__Menu__Box やることリスト
     .Sidebar__Menu__Box いいね！一覧
@@ -21,10 +23,14 @@
     .Sidebar__Merupay__Box ポイント
   .Sidebar__Edit
     %h3.nav 設定
-    .Sidebar__Edit__Box プロフィール
+    .Sidebar__Edit__Box
+    = link_to profile_user_path(current_user.id) do
+      プロフィール
     .Sidebar__Edit__Box 発送元・お届け住所変更
     .Sidebar__Edit__Box 支払い方法
     .Sidebar__Edit__Box メール/パスワード
     .Sidebar__Edit__Box 本人情報
     .Sidebar__Edit__Box 電話番号の確認
-    .Sidebar__Edit__Box ログアウト
+    .Sidebar__Edit__Box
+    = link_to logout_user_path  do
+      ログアウト

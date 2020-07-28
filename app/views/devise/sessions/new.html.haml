@@ -1,9 +1,9 @@
 
 .Header
-  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+  = render 'layouts/header'
 .SingleContainerRegistration
   .SingleContainerRegistration__Logo
-    = link_to "root", class: 'LogoImage' do
+    = link_to root_path, class: 'LogoImage' do
       = image_tag "/logo/logo.png"
   .SessionDo
     .LoginPanels
@@ -32,4 +32,4 @@
             .Actions
               = f.submit "ログイン", class: 'SubmitBtn', url: "root_path"       
 .Footer
-  ここでrenderを使ってフッターなどを呼び出す
+  = render 'layouts/footer'

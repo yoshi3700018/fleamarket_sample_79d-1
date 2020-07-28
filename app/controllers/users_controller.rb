@@ -35,21 +35,12 @@ class UsersController < ApplicationController
   end
 
   private
-  
-  def user_params
-    params.require(:user).permit(:nickname)
+  def address_params
+    params.require(:address).permit(:postal_code,
+                                    :prefecture,
+                                    :city,
+                                    :address_line,
+                                    :apartment
+    )
   end
-
-  def set_user
-    @user.User.find(params[:id])
-  end
-
-  # postalテーブルが必要
-  # def address_params
-  #   params.require(:address).permit(:postal_code, :prefecture, :city, :address, :apartment)
-  # end
-
-
-
-
 end
