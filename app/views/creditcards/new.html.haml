@@ -1,0 +1,42 @@
+.Header
+  = render 'layouts/header'
+.SingleContainerRegistration
+  .SingleContainerRegistration__Logo
+    = link_to root_path, class: 'LogoImage' do
+      = image_tag "/logo/logo.png"
+  .RegistrationNew
+    .RegistrationNew__Wrapper
+      .RegistrationNew__Wrapper__Title
+        %p クレジットカード情報の入力
+      .RegistrationNew__Wrapper__Form
+        = form_for "#" do |f|
+          .Form
+            .Form__Field
+              = f.label :カード番号   # ---＊Payjpの導入がまだきっちりみれていないので、テーブルも作成していない＊---
+              %span.Form__Field__Required 必須
+              = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input'
+            .Form__Field-1
+              %li.CardCompanyList__Icon
+                = image_tag "/logo/card_all.gif"                             
+            .Form__Field
+              = f.label :有効期限
+              %span.Form__Field__Required 必須
+              %br/
+              = f.select :card_month, ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"], {}, {class: 'Form__Field__Card'}
+              = f.label :月
+              %span.Form__Field_Required
+              = f.select :card_year, ["20", "21", "22", "23", "24", "25", "26"], {}, {class: 'Form__Field__Card'}
+              = f.label :年
+            .Form__Field
+              = f.label :セキュリティコード
+              %span.Form__Field__Required 必須
+              = f.text_field :card_path, placeholder: "カード背面の４桁もしくは３桁の番号", class: 'Form__Field__Input'
+              .Form__Field__InlineLayoutRight
+                .AddQuestion ? 
+                %p.SecurityCode カード裏面の番号とは
+            .Actions
+              = f.submit "登録する", class: 'SubmitBtn', url: "creditcard_path"     
+
+
+.Footer
+  = render 'layouts/footer'

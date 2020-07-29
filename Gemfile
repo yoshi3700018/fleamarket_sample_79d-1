@@ -78,6 +78,7 @@ gem 'font-awesome-sass'
 
 # payjpでクレジットカードを紐付けする
 gem 'payjp'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn'
