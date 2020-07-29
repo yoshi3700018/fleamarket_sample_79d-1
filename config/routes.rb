@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   
   resources :registration, only: [:index]
 
+  resources :creditcards
 
 end
