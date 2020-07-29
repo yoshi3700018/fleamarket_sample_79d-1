@@ -15,13 +15,13 @@
               = f.label :カード番号   # ---＊Payjpの導入がまだきっちりみれていないので、テーブルも作成していない＊---
               %span.Form__Field__Required 必須
               = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input'
-            .Form__Field
-              = f.label :カード会社   # ---＊FontAwesomeのカード会社のロゴは表示できないので、どこかで素材調達必須
-              %span.Form__Field__Required 必須
-              = f.select :card_company, [['VISA', 1], ['MasterCard', 2], ['JCB', 3]], {}, {class: 'Form__Field__Input'}
-              %ul.CardCompanyList
-                %li.CardCompanyList__Icon
-                  = image_tag "/logo/card_all.gif"                                
+            .Form__Field-1
+              %li.CardCompanyList__Icon
+                = image_tag "/logo/card_all.gif"  
+              -# = f.label :カード会社   # ---＊FontAwesomeのカード会社のロゴは表示できないので、どこかで素材調達必須
+              -# %span.Form__Field__Required 必須
+              -# = f.select :card_company, [['VISA', 1], ['MasterCard', 2], ['JCB', 3]], {}, {class: 'Form__Field__Input'}
+              -# %ul.CardCompanyList                              
             .Form__Field
               = f.label :有効期限
               %span.Form__Field__Required 必須
