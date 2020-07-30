@@ -14,7 +14,7 @@
             .Form__Field
               = f.label :カード番号   # ---＊Payjpの導入がまだきっちりみれていないので、テーブルも作成していない＊---
               %span.Form__Field__Required 必須
-              = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input'
+              = f.text_field :card_number, placeholder: "半角数字のみ", class: 'Form__Field__Input', id:"card_number"
             .Form__Field-1
               %li.CardCompanyList__Icon
                 = image_tag "/logo/card_all.gif"                             
@@ -35,7 +35,7 @@
                 .AddQuestion ? 
                 %p.SecurityCode カード裏面の番号とは
             .Actions
-              = f.submit "登録する", class: 'SubmitBtn', url: "creditcard_path"     
+              = f.submit "登録する", class: 'SubmitBtn', id: "charge-form"
 
 
 .Footer
