@@ -6,6 +6,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   has_one :postal
   has_many :product
+  has_many :cards, dependent: :destroy
   
   validates :nickname, :first_name, :family_name, :birthday, presence: true
   

@@ -28,7 +28,16 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :registration, only: [:index]
-
+  resources :card, only: [:new,:show] do
+    collection do
+      post 'delete', to: 'card#delete'
+      post 'create', to: 'card#create'
+      post 'show', to:'card#show'
+    end
+    member do
+      get 'confirmation'
+      get 'new', to: 'card#new'
+    end
+  end 
 
 end
