@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
+    # @user.image = "/icon/member_photo_noimage_thumb.png"
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -46,11 +47,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     # デフォルトで入っているemailとpasswordは改めて書く必要がない。deviseが処理する。
     # 追加したカラムのデータのみをパラムスに収めるように記述する
+    # imageにデフォルト画像を設定してデータに格納、呼び出す
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       :nickname,
       :first_name,
       :family_name,
-      :birthday
+      :birthday,
+      # :image
     ])
   end
 
