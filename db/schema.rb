@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2020_07_30_065129) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "payjp_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
+  end
+
   create_table "postals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.integer "prefecture", null: false
@@ -74,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_30_065129) do
   end
 
   add_foreign_key "cards", "users"
+  add_foreign_key "creditcards", "users"
   add_foreign_key "postals", "users"
   add_foreign_key "products", "users"
 end
