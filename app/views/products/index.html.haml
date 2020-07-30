@@ -109,10 +109,12 @@
               新規投稿商品
         .PickupCategorys__Products--Lists
           - @product.each do |product|
+            -# - image.each do |images|
             = link_to "/products/show" do
               .PickupCategorys__Products--List
                 %figure.PickupCategorys__Products--ListPicture
-                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
+                  = product.images[0].image
+                  -# = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
                 .PickupCategorys__Products--ListDetails
                   %h3.PickupCategorys__Products--ListDetailsName
                     = product.pname
@@ -188,7 +190,8 @@
             = link_to "/products/show" do
               .PickupBrands__Products--List
                 %figure.PickupBrands__Products--ListPicture
-                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product" 
+                  = product.images[0].image
+                  -# = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
                 .PickupBrands__Products--ListDetails
                   %h3.PickupBrands__Products--ListDetailsName
                     = product.pname
