@@ -13,13 +13,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     # ここがうまく動かない、、パスワードの入力無しにしてくれない
     if params[:sns_auth] == 'true'
-      pass = Devise.firendly_token
+      pass = Devise.friendly_token
       params[:user][:password] = pass
       params[:user][:password_confirmation] = pass
     end
-
     @user = User.new(sign_up_params)
-    # @user.image = "/icon/member_photo_noimage_thumb.png"
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return

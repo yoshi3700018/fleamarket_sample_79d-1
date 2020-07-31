@@ -14,10 +14,10 @@ class User < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX }
 
 
-  VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{7,12}\z/
+  VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])\w{8,12}\z/
   validates :password, presence: true,
             format: { with: VALID_PASSWORD_REGEX,
-            message: "は半角7~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
+            message: "は半角8~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります"}
 
   validates :profile, length: { maximum: 300 }
   
@@ -43,7 +43,7 @@ class User < ApplicationRecord
     # userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
     if user.persisted?
       sns.user = user
-      sns.save
+      sns.save(validate: false)
     end
     { user: user, sns: sns }
   end
