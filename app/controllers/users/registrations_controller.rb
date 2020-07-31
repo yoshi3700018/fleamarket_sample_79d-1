@@ -11,12 +11,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    # ここがうまく動かない、、パスワードの入力無しにしてくれない
+    if params[:sns_auth] == 'true'
+      pass = Devise.firendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
+
     @user = User.new(sign_up_params)
     # @user.image = "/icon/member_photo_noimage_thumb.png"
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
+
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_postal
@@ -38,8 +46,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_creditcard
-    # viewでformを使用するための仮設定
-    # gem 'pay.jp'と合わせて確認していく
+    # サインアップ認証画面では登録しないことに
+    # あっても任意、設定はcardコントローラーで行う
   end
 
   protected

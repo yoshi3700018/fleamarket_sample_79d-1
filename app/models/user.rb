@@ -1,12 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-:recoverable, :rememberable, :validatable,
+  # :confirmable, :lockable, :timeoutable, :trackable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   has_one :postal
   has_many :product
-  has_one :sns_credential, dependent: :destroy
+  has_many :sns_credential, dependent: :destroy
   
   validates :nickname, :first_name, :family_name, :birthday, presence: true
   
@@ -34,7 +33,7 @@ class User < ApplicationRecord
             message: "は全角で入力する必要があります"}          
 
   def self.from_omniauth(auth)
-    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_initialize
     # sns認証したことがあればアソシエーションで取得
     # 無ければemailでユーザー検索して取得orビルド(保存はしない)
     user = sns.user || User.where(email: auth.info.email).first_or_initialize(

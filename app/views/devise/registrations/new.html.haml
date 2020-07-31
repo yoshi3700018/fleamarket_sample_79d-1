@@ -13,6 +13,18 @@
         = form_for(@user, url: user_registration_path) do |f|
           = render "devise/shared/error_messages", resource: @user
           .Form
+            .SessionDo
+              .LoginPanels
+                .LoginPanels__SNS
+                  = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "Btns--Google" do
+                    %i.fab.fa-google
+                    Googleでログイン
+                  = link_to user_facebook_omniauth_authorize_path, method: :post, class: "Btns--Facebook" do
+                    %i.fab.fa-facebook-f
+                    Facebookでログイン
+                  = link_to "#", class: "Btns--Apple" do
+                    %i.fab.fa-apple
+                    Appleでログイン
             .Form__Field
               = f.label :ニックネーム
               %span.Form__Field__Required 必須
@@ -21,14 +33,17 @@
               = f.label :メールアドレス
               %span.Form__Field__Required 必須
               = f.text_field :email, { autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'Form__Field__Input' }
-            .Form__Field
-              = f.label :パスワード
-              %span.Form__Field__Required 必須
-              = f.text_field :password, { autocomplete: "new-password", placeholder: "8文字以上、半角全角を1文字以上含めた英数字", class: 'Form__Field__Input' }
-            .Form__Field
-              = f.label :確認用パスワード
-              %span.Form__Field__Required 必須
-              = f.text_field :password_confirmation, { autocomplete: "new-password", placeholder: "同じパスワードを入力", class: 'Form__Field__Input' }
+            - if @sns_id.present?
+              = hidden_field_tag :sns_auth, true
+            - else
+              .Form__Field
+                = f.label :パスワード
+                %span.Form__Field__Required 必須
+                = f.text_field :password, { autocomplete: "new-password", placeholder: "8文字以上、半角全角を1文字以上含めた英数字", class: 'Form__Field__Input' }
+              .Form__Field
+                = f.label :確認用パスワード
+                %span.Form__Field__Required 必須
+                = f.text_field :password_confirmation, { autocomplete: "new-password", placeholder: "同じパスワードを入力", class: 'Form__Field__Input' }
             .Form__Field
               %label.Form__Field__Text 本人確認
               %p.Form__Field__InfoB 安心・安全にご利用いただくため、お客様本人情報の登録にご協力ください。他のお客様に公開されることはございません。

@@ -25,6 +25,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-apple'
+gem "omniauth-rails_csrf_protection"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
