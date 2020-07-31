@@ -139,17 +139,14 @@ Association
 ## creditcardsテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
-|card_company|string|null: false||
-|card_number|string|null: false||
-|card_year|integer|null: false||
-|card_month|integer|null: false||
-|card_pass|integer|null: false||
-|その他|あれば追加|なければ削除||
+|user_id|references|foreign_key||
+|customer_id|string|null: false||
+|card_id|string|null: false||
 
 Association
 - belongs_to :user
 Note
-- gem 'pay.jp'の内容を洗い出してから作成する
+- gem 'pay.jp'を使用する
 
 ## categoriesテーブル
 |column|type|options|validations|

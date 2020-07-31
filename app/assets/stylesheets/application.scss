@@ -7,8 +7,9 @@
 @import "users/new";
 @import "products/index";
 @import "users/show";
-@import "layouts/_header";
-@import "layouts/_footer";
+@import "layouts/header";
+@import "layouts/footer";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

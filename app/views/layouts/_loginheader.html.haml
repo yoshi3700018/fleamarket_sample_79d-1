@@ -1,0 +1,22 @@
+.headerPc
+  .headerInner
+    .headerMain
+      .furimaImg
+        = link_to root_path, class: 'LogoImage' do
+          = image_tag '/logo/logo.png', alt: 'FURIMA', height: '40px', width: '140px'
+      .searchBox
+        .searchBox__input
+          %input.search{type: 'search', placeholder: 'キーワードから探す'}
+        .searchBox__button
+          %input.form-submit{type: 'submit', value: ' '}
+            = image_tag '/icon/icon-search 1.png', height: '20px', width: '20px', class: 'icon-search'
+    .navigation
+      .navigation__left
+        .catBtn
+          = link_to 'カテゴリー', '#'
+        .brandBtn
+          = link_to 'ブランド', '#'
+      .navigation__right
+        .logBtn
+        = link_to user_path(current_user.id) do
+          マイページ
