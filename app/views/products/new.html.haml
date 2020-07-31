@@ -1,3 +1,5 @@
+-# = javascript_include_tag 'product_new'
+
 .Wrapper
   %header
     = render 'header'
@@ -13,7 +15,6 @@
           -# 画像挿入時用
           .InputPhoto__DropArea
             = f.fields_for :images do |c|
-              -# = c.label :image
               = c.file_field :image, multiple: true
         .InputInfo
           .InputInfo__NameForm
@@ -33,8 +34,8 @@
             .InputData__CategoryForm__FormLabel
               %label カテゴリー
               %span.red 必須
-            = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
-            -# = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+            -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
+            = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
           .InputData__BrandForm
             .InputData__BrandForm__FormLabel
               %label ブランド
