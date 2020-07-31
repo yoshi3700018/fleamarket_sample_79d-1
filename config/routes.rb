@@ -28,5 +28,11 @@ Rails.application.routes.draw do
   
   resources :registration, only: [:index]
 
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
 
 end
