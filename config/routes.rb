@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'buyers/index'
+  get 'buyers/done'
   devise_for :users, controllers: {
     # registrationsコントローラーの参照先を書き換えてウィザード形式の登録画面を作成する
     registrations: 'users/registrations',
