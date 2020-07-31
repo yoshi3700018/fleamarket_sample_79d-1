@@ -32,5 +32,4 @@ Rails.application.routes.draw do
   
   resources :registration, only: [:index]
 
-
 end

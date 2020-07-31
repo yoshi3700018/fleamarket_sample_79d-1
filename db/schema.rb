@@ -12,6 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2020_07_30_102849) do
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
   create_table "postals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.integer "prefecture", null: false
@@ -76,4 +92,6 @@ ActiveRecord::Schema.define(version: 2020_07_30_102849) do
   add_foreign_key "postals", "users"
   add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "image", "products"
+
 end
