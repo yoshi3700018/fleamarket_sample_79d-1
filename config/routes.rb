@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     # registrationsコントローラーの参照先を書き換えてウィザード形式の登録画面を作成する
     registrations: 'users/registrations',
+    # SNS Credentials設定
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
     get   'address',        to: 'users/registrations#new_address'
