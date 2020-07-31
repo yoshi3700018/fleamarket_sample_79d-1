@@ -12,15 +12,16 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.build
-    @parents = Category.all.order("id ASC").limit(13)
+    @product.images.new
+    # @parents = Category.all.order("id ASC").limit()
   end
 
   def create
-    @product = Product.create(product_params)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
     else
+      binding.pry
       render :new
     end
   end
@@ -53,7 +54,7 @@ private
       :category_id, :brand_id, 
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
-      :price, :users_id, 
-      images_attributes: {image: []}).merge(user_id: current_user.id)
+      :price, 
+      images_attributes: [:id,:image]).merge(user_id: current_user.id)
   end
 end
