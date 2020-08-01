@@ -15,10 +15,8 @@
           %br/
           フリマアプリです
         .Introduction__Content--Btn
-          = link_to "#", class: "Apple" do
-            = image_tag "/app-store.svg", class: "Apple"
-          = link_to "#", class: "Google" do
-            = image_tag "/google-play.svg", class: "Google"
+          = link_to image_tag("/icon/app-store.svg", class: 'Apple'), "#"
+          = link_to image_tag("/icon/google-play.svg", class: 'Google'), "#"
     // FURIMAが選ばれる3つの理由      
     .Reason
       .Reason__SubTitle
@@ -70,10 +68,8 @@
           %br/
           ほしかったあの商品に出会えるかもしれません。
         .MemberIntroduction__In--Btn
-          = link_to "#", class: "Apple" do
-            = image_tag "/app-store.svg", class: "Apple"
-          = link_to "#", class: "Google" do
-            = image_tag "/google-play.svg", class: "Google"
+          = link_to image_tag("/icon/app-store.svg", class: 'Apple'), "#"
+          = link_to image_tag("/icon/google-play.svg", class: 'Google'), "#"
     -# FURIMAの特徴
     .Feature
       %h2.Feature__SubTitle
@@ -117,7 +113,6 @@
               .PickupCategorys__Products--List
                 %figure.PickupCategorys__Products--ListPicture
                   = product.images[0].image
-                  -# = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
                 .PickupCategorys__Products--ListDetails
                   %h3.PickupCategorys__Products--ListDetailsName
                     = product.pname
@@ -193,7 +188,7 @@
             = link_to "/products/show" do
               .PickupBrands__Products--List
                 %figure.PickupBrands__Products--ListPicture
-                  = product.images[0].image
+                  -# = product.images[0].image
                   -# = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
                 .PickupBrands__Products--ListDetails
                   %h3.PickupBrands__Products--ListDetailsName
