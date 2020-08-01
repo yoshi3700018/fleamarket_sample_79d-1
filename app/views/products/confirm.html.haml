@@ -38,7 +38,7 @@
         .Content
           .RegisterContent
             .MethodBox
-              -if @default_card_information
+              - if @default_card_information
                 クレジットカード情報
                 .form-content
                   %br
@@ -50,11 +50,12 @@
                   = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
                     %input{ type: "hidden", name: "card_id", value: "" }
                     %button.delete-btn 削除する
-            -#   %h3.MethodBox__Method 支払い方法
-            -# = link_to "#", class: "RegisterBox" do
-            -#   %span.RegisterBox__icon
-            -#     ⊕
-            -#   %span.RegisterBox__RegisterText 登録してください
+              - else
+                %h3.MethodBox__Method 支払い方法
+                = link_to "#", class: "RegisterBox" do
+                  %span.RegisterBox__icon
+                    ⊕
+                  %span.RegisterBox__RegisterText 登録してください
       %section.Container-1
         .Content
           .RegisterContent

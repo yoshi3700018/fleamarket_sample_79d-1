@@ -130,10 +130,11 @@ header {
       }
     }
     .MethodBox {
-      display: flex;
+      // display: flex;
       -webkit-box-pack: justify;
-      justify-content: space-between;
+      // justify-content: space-between;
       margin-bottom: 16px;
+      display: table;
       &__Method {
         font-size: 14px;
         font-weight: 600;
