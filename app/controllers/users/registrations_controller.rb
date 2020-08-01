@@ -12,7 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     if params[:sns_auth] == 'true'
-      pass = Devise.friendly_token
+      pass = Devise.friendly_token[15,25]
+      pass += "1Az"
       params[:user][:password] = pass
       params[:user][:password_confirmation] = pass
     end
@@ -21,7 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
     end
-
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_postal
