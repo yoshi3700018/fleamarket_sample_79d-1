@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     # @product = Product.all.includes(:images)
     # @product = Product.includes(:images)
-    @product = Product.all
+    @product = Product.all.limit(4).order(created_at: :desc)
     # @product = Product.find_by(id: 1)
     # @image = Image.includes(:product)
     # binding.pry
