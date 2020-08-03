@@ -112,12 +112,12 @@
             -if product.shipping_status.present?
               = link_to "/products/show" do
                 .PickupCategorys__Products--List
-                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product", class: "img"
-                  -# = product.images[0]
                   %figure.PickupCategorys__Products--ListPicture
                     .sold
                       .sold--in
                         SOLD
+                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  -# = product.images[0]
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
@@ -135,7 +135,8 @@
               = link_to "/products/show" do
                 .PickupCategorys__Products--List
                   %figure.PickupCategorys__Products--ListPicture
-                    = product.images[0]
+                    -# = product.images[0]
+                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
