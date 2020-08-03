@@ -22,12 +22,16 @@
                 = @product.pname
               %p.ItemPrice
                 %span.ItemPrice__Tax 送料込み (税込)
-                %span.ItemPrice__Price ¥39,800
+                %span.ItemPrice__Price 
+                  ¥
+                  = @product.price
       %section.Container-1
         .Content
           .PaymentContent
             %span.PaymentContent__Payment 支払い金額
-            %span.PaymentContent__PaymentPraice ¥39,800
+            %span.PaymentContent__PaymentPraice 
+              ¥
+              = @product.price
           %label.PointContent
             %label.PointBox
               %span.Box
@@ -71,6 +75,8 @@
         .Content
           .PurchaseContent
             %p.PurchaseContent__InputText 配送先と支払い方法の入力を完了してください。
-            %button{type: "button", class:'PurchaseContent__BayBtn', url:"#"} 購入する
+            = form_tag(action: :pay, method: :post) do
+              %button.PurchaseContent__BayBtn{type:"submit"} 購入する
+            -# = link_to "購入する", buyers_done_path, class: 'PurchaseContent__BayBtn', type: "button"
     %footer
       = render 'products/footer'
