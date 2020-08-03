@@ -1,2 +1,76 @@
-%h1 Buyers#index
-%p Find me in app/views/buyers/index.html.haml
+!!!
+%html
+  %head
+    %meta{"charset":"UTF-8"}
+    %title fleamaket_sample_79d
+  %body
+    %header
+      = render 'products/header'
+    .Main
+      %section.Container-1
+        .Content
+          .Content__Title 
+            %h1.Heading 購入内容の確認
+      %section.Container-1
+        .Content
+          .DetailsBox 
+            .PhotoItem
+              %figure.Photo
+                %img{ src: "/assets/suits.jpg", alt: "画像", class: "Photo__ProductImg" }
+            .DentailsItem
+              %p.DentailsItem__ItemName 
+                = @product.pname
+              %p.ItemPrice
+                %span.ItemPrice__Tax 送料込み (税込)
+                %span.ItemPrice__Price ¥39,800
+      %section.Container-1
+        .Content
+          .PaymentContent
+            %span.PaymentContent__Payment 支払い金額
+            %span.PaymentContent__PaymentPraice ¥39,800
+          %label.PointContent
+            %label.PointBox
+              %span.Box
+                %span.Box__InputBox
+              %img.PointBox__logo{ src: "/assets/logo2.png", alt: "ロゴ" }
+              %p.PointBox__PointText ポイント
+            %p.PointContent__Point 所持ポイント : P0
+      %section.Container-1
+        .Content
+          .RegisterContent
+            .MethodBox
+              - if @default_card_information
+                %h3.MethodBox__CardDataText
+                  クレジットカード情報
+                .form-content
+                  %br
+                  = "**** **** **** " + @default_card_information.last4
+                  %br
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+                  = form_tag(card_path(current_user.id), method: :delete, id: 'charge-form',  name: "inputForm") do
+                    %input{ type: "hidden", name: "card_id", value: "" }
+                    %button.delete-btn 削除する
+              - else
+                %h3.MethodBox__Method 支払い方法
+                = link_to new_card_path, class: "RegisterBox" do
+                  %span.RegisterBox__icon
+                    ⊕
+                  %span.RegisterBox__RegisterText 登録してください
+      %section.Container-1
+        .Content
+          .RegisterContent
+            .MethodBox
+              %h3.MethodBox__Method 配送先
+            = link_to "#", class: "RegisterBox" do
+              %span.RegisterBox__icon
+                ⊕
+              %span.RegisterBox__RegisterText 登録してください
+      %section.Container-1
+        .Content
+          .PurchaseContent
+            %p.PurchaseContent__InputText 配送先と支払い方法の入力を完了してください。
+            %button{type: "button", class:'PurchaseContent__BayBtn', url:"#"} 購入する
+    %footer
+      = render 'products/footer'
