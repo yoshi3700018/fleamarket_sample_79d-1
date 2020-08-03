@@ -112,9 +112,10 @@
             = link_to "/products/show" do
               .PickupCategorys__Products--List
                 %figure.PickupCategorys__Products--ListPicture
-                  = product.images[0]
                   .sold
-                    sold
+                    .sold--in
+                      SOLD
+                  = product.images[0]
                 .PickupCategorys__Products--ListDetails
                   %h3.PickupCategorys__Products--ListDetailsName
                     = product.pname
