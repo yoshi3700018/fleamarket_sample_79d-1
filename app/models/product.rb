@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+
   belongs_to :user, optional: true
   belongs_to :category
   has_many :images, inverse_of: :product

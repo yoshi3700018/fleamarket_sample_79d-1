@@ -1,49 +1,65 @@
+.post__header
+  = render partial: 'layouts/header'
+
 .wrapper
   .showMain
     .itemBox
       .itemBox__title
-        %span 商品名
+        = @product.pname
       .itemBox__image
         .itemBox__image__top
           .img1
-            (img1)
+            = @product.images[0].image
         %ul.itemBox__image__bottom
           %li.img-left
             (img2)
           %li.img-right
             (img3)
       .itemBox__price
-        %span ¥1000
+        ¥
+        = @product.price
       .itemBox__tax
         %span (税込) 送料込み
       .itemBox__detail
-        %span 商品説明、この商品は見本です。hogehogehoge、fugafugafuga、食べることができません。
+        = @product.explanation
       .itemBox__table
         %table
           %tr
             %th 出品者
-            %td hoge
+            %td 
+              = link_to '出品者ページ', '#'
           %tr
             %th カテゴリー
-            %td hoge
+            %td
+              = @product.category_id
+              %br
+              = @product.category_id
+              %br
+              = @product.category_id
           %tr
             %th ブランド
-            %td hoge
+            %td
+              = @product.brand_id
           %tr
             %th 商品のサイズ
-            %td hoge
+            %td
+              = @product.size_id
           %tr
             %th 商品の状態
-            %td hoge
+            %td
+              = @product.status
           %tr
             %th 配送料の負担
-            %td hoge
+            %td
+              = @product.deliver
           %tr
             %th 発送元の地域
-            %td hoge
+            %td
+              = @product.prefecture
           %tr
             %th 発送日の目安
-            %td hoge
+            %td
+              = @product.shipping_dates
       .itemBox__optionalArea
         .favoriteBtn
           = icon('fas', 'star')
@@ -71,16 +87,20 @@
     .mottoLook
       .mottoLook__link
         = link_to 'もっと見る', '#'
-    .mottoLook2
-      .img-link
-        img
-      .productList
-        .name
-          ポップコーン
-        .center
-          .price
-            800円
-          .ster
-            = icon('fas', 'star')
-            0
-        .tax (税込)
+      .mottoLook2
+        = link_to '#' do
+          .img-link
+            = @product.images[0].image
+          .productList
+            .name
+              = @product.pname
+            .center
+              .price
+                = @product.price
+              .ster
+                = icon('fas', 'star')
+                0
+            .tax (税込)
+
+.post__footer
+  = render partial: 'layouts/footer'
