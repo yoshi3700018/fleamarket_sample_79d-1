@@ -26,47 +26,41 @@
       
       //---------------- sidebar ---------------------
       .Sidebar {
-        margin-left: 25px;
-        .nav {
-          font-weight: bold;
-          margin: 40px 0 5px;
-        }
+        display: block;
+        width: 280px;
+        margin-left: 35px;
         .Sidebar__Menu {
-          &__Box--MyPage {
+          .MyPageList, .PaymentList {
             width: 280px;
-            height: 48px;
-            padding: 16px;
-            font-size: 14px;
-            font-weight: bold;
-            background-color: #eeeeee;
+            &__Item {
+              margin: auto 0px;
+              display: inline-block;
+              background: #cdcdcd;
+              width: 280px;
+              height: 58px;
+              line-height: 58px;
+              vertical-align: center;
+              border: 1px solid #eeeeee;
+              border-radius: 3px;
+              color: #777777;
+              font-weight: 200;
+              font-size: 18px;
+              transition: all 0.6s ease-in-out;
+            }
+            &__Item:hover {
+              color: #e3ae57;
+              background: #cacaca;
+            }
+            .fa-angle-right  {
+              width: 9px;
+            }
           }
-          &__Box {
-            width: 280px;
-            height: 48px;
-            padding: 16px;
-            font-size: 14px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
-          }
-        }
-        .Sidebar__Merupay {
-          &__Box {
-            width: 280px;
-            height: 48px;
-            padding: 16px;
-            font-size: 14px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
-          }
-        }
-        .Sidebar__Edit {
-          &__Box {
-            width: 280px;
-            height: 48px;
-            padding: 16px;
-            font-size: 14px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eeeeee;
+          .SidebarTitle {
+            margin-top: 20px;
+            font-weight: 200;
+            font-size: 1.4em;
+            color: #333;
+            text-shadow: 2px 2px white;
           }
         }
       }
@@ -96,14 +90,14 @@
           &__Detail {
             display: block;
             .Setting {
-              background: #c7e0fe;
-              background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.5, #E7F8FC), color-stop(.5, transparent),color-stop(.5, transparent), color-stop(.5, #E7F8FC),color-stop(.75, #E7F8FC), color-stop(.75, transparent),to(transparent));
+              background: #4ba8c7;
+              background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.5, #c7e0fe), color-stop(.5, transparent),color-stop(.5, transparent), color-stop(.5, #c7e0fe),color-stop(.75, #c7e0fe), color-stop(.75, transparent),to(transparent));
               -webkit-background-size: 18px 18px;
-              padding: 120px 16px 48px;
+              padding: 200px 16px 48px;
               position: relative;
               .SettingIcon {
                 position: absolute;
-                top: 60%;
+                top: 40%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 -webkit-transform: translate(-50%, -50%);
@@ -112,44 +106,30 @@
                 justify-content: center;
                 img {
                   overflow: hidden;
-                  width: 60px;
-                  height: 60px;
-                  line-height: 60px;
+                  width: 120px;
+                  height: 120px;
+                  line-height: 120px;
                   border-radius: 50%;
                   vertical-align: middle;
                 }
-                &__NameForm {
-                  &__MyName{         
-                    height: 50px;
-                    line-height: 50px;
-                    width: 250px;
-                    padding-left: 8px;
-                    margin: 5px 10px 0;
-                  }
+                &__Mypage {
+                  display: block;
+                  text-align: center;
+                  height: 48px;
+                  color: #333333;
+                  font-weight: bold;
+                  font-size: 1.6em;
+                  text-shadow: 1.5px 1.5px white;
                   .YourRating {
                     display: flex;
-                    margin-top: 8px;
-                    width: 700px;
                     height: 16px;
                     font-size: 14px;
+                    justify-content: center;
+                    padding-top: 8px;
                     &__Evaluation {
                     }
                     &__ExhibitionCount {
-                      margin-left: 16px;
                     }
-                    .count {
-                      font-size: 16px;
-                      font-weight: bold;
-                      margin-left: 8px;
-                    }
-                  }
-                }
-                &__Mypage {
-                  display: block;
-                  .YourRating {
-                    display: flex;
-                    justify-content: center;
-                    padding-top: 8px;
                     .count {
                       font-weight:bold;
                       font-size: 0.9em;

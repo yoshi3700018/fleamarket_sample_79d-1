@@ -16,7 +16,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer     :shipping_dates
 
       #外部キー
-      t.references  :users,           foreign_key: true
+      t.references  :user,           foreign_key: true
       t.timestamps
 
     end

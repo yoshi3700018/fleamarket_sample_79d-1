@@ -1,10 +1,8 @@
 .Header
-  devise registration new_creditcard.html.haml<br/>
-  サインアップ時のクレジットカード入力画面です
-  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+  = render 'layouts/header'
 .SingleContainerRegistration
   .SingleContainerRegistration__Logo
-    = link_to "root", class: 'LogoImage' do
+    = link_to root_path, class: 'LogoImage' do
       = image_tag "/logo/logo.png"
   .RegistrationNew
     .RegistrationNew__Wrapper
@@ -45,4 +43,4 @@
 
 
 .Footer
-  ここでrenderを使ってフッターなどを呼び出す
+  = render 'layouts/footer'

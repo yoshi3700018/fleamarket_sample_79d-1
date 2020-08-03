@@ -1,10 +1,9 @@
 
 .Header
-  devise registration new.html.haml
-  ここでrenderを使ってメインヘッダーかロゴを呼び出す
+  = render 'layouts/header'
 .SingleContainerRegistration
   .SingleContainerRegistration__Logo
-    = link_to "root", class: 'LogoImage' do
+    = link_to root_path, class: 'LogoImage' do
       = image_tag "/logo/logo.png"
   .RegistrationNew
     .RegistrationNew__Wrapper
@@ -12,7 +11,20 @@
         %p 会員情報入力
       .RegistrationNew__Wrapper__Form
         = form_for(@user, url: user_registration_path) do |f|
+          = render "devise/shared/error_messages", resource: @user
           .Form
+            .SessionDo
+              .LoginPanels
+                .LoginPanels__SNS
+                  = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "Btns--Google" do
+                    %i.fab.fa-google
+                    Googleでログイン
+                  = link_to user_facebook_omniauth_authorize_path, method: :post, class: "Btns--Facebook" do
+                    %i.fab.fa-facebook-f
+                    Facebookでログイン
+                  = link_to "#", class: "Btns--Apple" do
+                    %i.fab.fa-apple
+                    Appleでログイン
             .Form__Field
               = f.label :ニックネーム
               %span.Form__Field__Required 必須
@@ -21,14 +33,17 @@
               = f.label :メールアドレス
               %span.Form__Field__Required 必須
               = f.text_field :email, { autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: 'Form__Field__Input' }
-            .Form__Field
-              = f.label :パスワード
-              %span.Form__Field__Required 必須
-              = f.text_field :password, { autocomplete: "new-password", placeholder: "8文字以上、半角全角を1文字以上含めた英数字", class: 'Form__Field__Input' }
-            .Form__Field
-              = f.label :確認用パスワード
-              %span.Form__Field__Required 必須
-              = f.text_field :password_confirmation, { autocomplete: "new-password", placeholder: "同じパスワードを入力", class: 'Form__Field__Input' }
+            - if @sns_id.present?
+              = hidden_field_tag :sns_auth, true
+            - else
+              .Form__Field
+                = f.label :パスワード
+                %span.Form__Field__Required 必須
+                = f.text_field :password, { autocomplete: "new-password", placeholder: "8文字以上、半角全角を1文字以上含めた英数字", class: 'Form__Field__Input' }
+              .Form__Field
+                = f.label :確認用パスワード
+                %span.Form__Field__Required 必須
+                = f.text_field :password_confirmation, { autocomplete: "new-password", placeholder: "同じパスワードを入力", class: 'Form__Field__Input' }
             .Form__Field
               %label.Form__Field__Text 本人確認
               %p.Form__Field__InfoB 安心・安全にご利用いただくため、お客様本人情報の登録にご協力ください。他のお客様に公開されることはございません。
@@ -38,6 +53,12 @@
               %br/
               = f.text_field :family_name, { placeholder: "例) 山田", class: 'Form__Field__Half'}
               = f.text_field :first_name, { placeholder: "例) 太郎", class: 'Form__Field__Half'}
+            .Form__Field
+              = f.label :"お名前（カナ）"
+              %span.Form__Field__Required 必須
+              %br/
+              = f.text_field :family_name_kana, { placeholder: "例) ヤマダ", class: 'Form__Field__Half'}
+              = f.text_field :first_name_kana, { placeholder: "例) タロウ", class: 'Form__Field__Half'}
             .Form__Field
               = f.label :"生年月日"
               %span.Form__Field__Required 必須
@@ -50,7 +71,5 @@
                   に同意したものとみなします。
             .Actions
               = f.submit "次へ進む", class: 'SubmitBtn', url: "address_path"     
-
-
 .Footer
-  ここでrenderを使ってフッターなどを呼び出す
+  = render 'layouts/footer'

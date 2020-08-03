@@ -54,13 +54,17 @@
           color: #333333;
           font-weight: 400;
           line-height: 1.4em;
+          text-align: left;
         }
         &__DropArea {
-          width: 620px;
+          width: 100%;
           height: 150px;
           background-color: #f5f5f5;
           margin-top: 8px;
           border: 1px dashed rgb(204,204,204);
+          cursor: pointer;
+          .Hidden {
+          }
         }
       }
       .InputInfo {
@@ -118,6 +122,7 @@
         p {
           color: #888888;
           font-size: 14px;
+          text-align: left;
         }
         .InputData__CategoryForm {
           width: 620px;
@@ -189,7 +194,7 @@
         P {
           color: #888888;
           font-size: 14px;
-          
+          text-align: left;
         }
         .InputSipping__DeliveryFee {
           width: 620px;
@@ -248,6 +253,7 @@
           font-size: 14px;
           color: #888888;
           margin-bottom: 24px;
+          text-align: left;
         }
         .InputPrice__LabelBox {
           width: 620px;
@@ -259,11 +265,21 @@
             line-height: 48px;
           }
           .InputPrice__LabelBox__InputPrice {
-            width: 285px;
+            width: 307px;
             height: 48px;
-            padding: 0 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px; 
+            .YenLabel {
+              font-size: 14px;
+              line-height: 48px;
+              text-align: right;
+            }
+            .InputPrice__LabelBox__InputPrice--fild {
+              width: 285px;
+              height: 48px;
+              padding: 0 16px;
+              border: 1px solid #ccc;
+              border-radius: 4px; 
+              text-align: right;
+            }
           }
         }
         .InputPrice__TaxBox {
@@ -318,6 +334,12 @@
           color: #ffffff;
           font-size: 17px;
           line-height: 48px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
         }
         .InputSubmit__Save__Button {
           width: 360px;
@@ -329,6 +351,12 @@
           color: #222222;
           font-size: 17px;
           line-height: 48px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
         }
         a {
           font-size: 14px;
@@ -345,6 +373,7 @@
         font-size: 12px;
         font-weight: 400;
         color: #333333;
+        text-align: left;
         a {
           text-decoration: none;
           color: #0095ee;
