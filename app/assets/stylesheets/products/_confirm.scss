@@ -130,14 +130,20 @@ header {
       }
     }
     .MethodBox {
-      // display: flex;
+      display: flex;
       -webkit-box-pack: justify;
-      // justify-content: space-between;
+      justify-content: space-between;
       margin-bottom: 16px;
-      display: table;
+      // display: table;
+      display: inline;
       &__Method {
         font-size: 14px;
         font-weight: 600;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+      &__CardDataText, .form-content {
+        text-align: left;
       }
     }
     .RegisterBox {
