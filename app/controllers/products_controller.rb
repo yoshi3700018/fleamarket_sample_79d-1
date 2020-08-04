@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    # @product = product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def destroy

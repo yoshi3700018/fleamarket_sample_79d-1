@@ -196,6 +196,7 @@
 
 .mottoLook2{
   width: 233px;
+  cursor: pointer;
   .img-link{
     display: flex;
     justify-content: center;
@@ -206,14 +207,10 @@
     background-color: #fff;
     height: 95px;
     padding: 16px;
-    .name{
-    }
     .center{
       display: flex;
       justify-content: space-between;
       font-weight: bold;
-      .price{}
-      .ster{}
     }
     .tax{
       font-size: 10px;
