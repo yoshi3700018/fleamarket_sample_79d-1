@@ -2,11 +2,12 @@
   .showMain
     .itemBox
       .itemBox__title
-        %span 商品名
+        %span
+          = @product.pname
       .itemBox__image
         .itemBox__image__top
           .img1
-            (img1)
+
         %ul.itemBox__image__bottom
           %li.img-left
             (img2)
@@ -22,28 +23,37 @@
         %table
           %tr
             %th 出品者
-            %td hoge
+            %td
+              = @product.user.nickname
           %tr
             %th カテゴリー
-            %td hoge
+            %td 
+              = @product.category.name
+            
           %tr
             %th ブランド
-            %td hoge
+            %td
+              = @product.brand_id
           %tr
             %th 商品のサイズ
-            %td hoge
+            %td
+              = @product.size_id
           %tr
             %th 商品の状態
-            %td hoge
+            %td
+              = @product.status
           %tr
             %th 配送料の負担
-            %td hoge
+            %td
+              = @product.deliver
           %tr
             %th 発送元の地域
-            %td hoge
+            %td
+              = @product.prefecture
           %tr
             %th 発送日の目安
-            %td hoge
+            %td
+              = @product.shipping_dates
       .itemBox__optionalArea
         .favoriteBtn
           = icon('fas', 'star')
