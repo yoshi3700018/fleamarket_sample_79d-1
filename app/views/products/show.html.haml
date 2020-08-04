@@ -5,11 +5,11 @@
   .showMain
     .itemBox
       .itemBox__title
-        = @product.pname
+        %span
+          = @product.pname
       .itemBox__image
         .itemBox__image__top
           .img1
-            = @product.images[0].image
         %ul.itemBox__image__bottom
           %li.img-left
             (img2)
@@ -26,16 +26,13 @@
         %table
           %tr
             %th 出品者
-            %td 
+            %td
+              = @product.user.nickname
               = link_to '出品者ページ', '#'
           %tr
             %th カテゴリー
-            %td
-              = @product.category_id
-              %br
-              = @product.category_id
-              %br
-              = @product.category_id
+            %td 
+              = @product.category.name
           %tr
             %th ブランド
             %td

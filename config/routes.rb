@@ -15,15 +15,24 @@ Rails.application.routes.draw do
   end
 
   root to: 'products#index'
+
   resources :products do
+
     collection do
       get 'confirm'
+      get 'search_level2', defaults: { format: 'json'}
+      get 'search_level3', defaults: { format: 'json'}
     end
+    # edit, update, destroy用後で実装
+    # member do
+    #   get 'search_level2', defaults: { format: 'json' }
+    #   get 'search_level3', defaults: { format: 'json' }
+    # end
   end
 
   resources :users, only: [:show, :edit, :update] do
     member do
-      get   'profile'               # プロフィール作成様、rofile_user_path
+      get   'profile'               # プロフィール作成様、profile_user_path
       patch 'profile_update'        # プロフィール編集用、profile_update_user_path
       get   'logout'                # ログアウトボタン表示用、logout_user_path
       get   'building_construction' # ページがまだ用意できていないところにパスを通す、building_construction_user_path

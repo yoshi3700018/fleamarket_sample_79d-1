@@ -15,8 +15,9 @@
         = link_to building_construction_user_path(current_user.id), class: 'MyPageList__Item'  do
           %i.fas.fa-radiation &ensp;いいね一覧
       %li
-        = link_to building_construction_user_path(current_user.id), class: 'MyPageList__Item'  do
-          %i.fas.fa-radiation &ensp;出品する
+        = link_to new_product_path, class: 'MyPageList__Item'  do
+          出品する
+          %i.fas.fa-angle-right
       %li
         = link_to building_construction_user_path(current_user.id), class: 'MyPageList__Item'  do
           %i.fas.fa-radiation &ensp;下書き一覧
