@@ -3,6 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
+  # 開発とテストはローカルに保存し、それ以外は
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
   else
