@@ -108,7 +108,6 @@
               新規投稿商品
         .PickupCategorys__Products--Lists
           - @product.each do |product|
-            -# - image.each do |images|
             -if product.shipping_status.present?
               = link_to "/products/show" do
                 .PickupCategorys__Products--List
@@ -116,8 +115,7 @@
                     .sold
                       .sold--in
                         SOLD
-                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product", class: "img"
-                  -# = product.images[0]
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
@@ -135,8 +133,7 @@
               = link_to "/products/show" do
                 .PickupCategorys__Products--List
                   %figure.PickupCategorys__Products--ListPicture
-                    -# = product.images[0]
-                  = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
@@ -161,24 +158,46 @@
               アーカイバ
         .PickupBrands__Products--Lists
           - @product.each do |product|
-            = link_to "/products/show" do
-              .PickupBrands__Products--List
-                %figure.PickupBrands__Products--ListPicture
-                  = product.images[0]
-                  -# = image_tag "/Img.png", width: "219.33px", height: "150px", alt: "Product"
-                .PickupBrands__Products--ListDetails
-                  %h3.PickupBrands__Products--ListDetailsName
-                    = product.pname
-                  .PickupBrands__Products--ListDetailsDetail
-                    %ul.Summary
-                      %li.Price
-                        = product.price
-                        円
-                      %li.Star
-                        = icon('fas', 'star')
-                        0
-                    %p.Tax
-                      (税込)
+            -if product.shipping_status.present?
+              = link_to "/products/show" do
+                .PickupBrands__Products--List
+                  %figure.PickupBrands__Products--ListPicture
+                    .sold2
+                      .sold2--in2
+                        SOLD
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  .PickupBrands__Products--ListDetails
+                    %h3.PickupBrands__Products--ListDetailsName
+                      = product.pname
+                    .PickupBrands__Products--ListDetailsDetail
+                      %ul.Summary
+                        %li.Price
+                          = product.price
+                          円
+                        %li.Star
+                          = icon('fas', 'star')
+                          0
+                      %p.Tax
+                        (税込)
+            -else
+              = link_to "/products/show" do
+                .PickupBrands__Products--List
+                  %figure.PickupBrands__Products--ListPicture
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  -# = product.images[0]
+                  .PickupBrands__Products--ListDetails
+                    %h3.PickupBrands__Products--ListDetailsName
+                      = product.pname
+                    .PickupBrands__Products--ListDetailsDetail
+                      %ul.Summary
+                        %li.Price
+                          = product.price
+                          円
+                        %li.Star
+                          = icon('fas', 'star')
+                          0
+                      %p.Tax
+                        (税込)
   -# 今すぐ無料ダウンロード！                 
   %aside.Banner
     .Banner__Center
