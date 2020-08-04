@@ -32,7 +32,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # @product = Product.all
     @product = Product.find(params[:id])
+    @products = Product.all.limit(3)
   end
 
   def destroy

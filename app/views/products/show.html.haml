@@ -9,12 +9,10 @@
       .itemBox__image
         .itemBox__image__top
           .img1
-            = @product.images[0].image
+            -# = @product.images[0].image
         %ul.itemBox__image__bottom
           %li.img-left
-            (img2)
           %li.img-right
-            (img3)
       .itemBox__price
         ¥
         = @product.price
@@ -27,7 +25,6 @@
           %tr
             %th 出品者
             %td 
-              = link_to '出品者ページ', '#'
           %tr
             %th カテゴリー
             %td
@@ -88,19 +85,38 @@
       .mottoLook__link
         = link_to 'もっと見る', '#'
       .mottoLook2
-        = link_to '#' do
-          .img-link
-            = @product.images[0].image
-          .productList
-            .name
-              = @product.pname
-            .center
-              .price
-                = @product.price
-              .ster
-                = icon('fas', 'star')
-                0
-            .tax (税込)
+        - @products.each do |product|
+          - if product.shipping_status.present?
+            = link_to '#' do
+              .mottoSold
+                .mottoSold__in
+                  SOLD
+              .img-link
+                -# = product.images[0].image
+              .productList
+                .name
+                  = product.pname
+                .center
+                  .price
+                    = product.price
+                  .ster
+                    = icon('fas', 'star')
+                    0
+                .tax (税込)
+          - else
+            = link_to '#' do
+              .img-link
+                -# = product.images[0].image
+              .productList
+                .name
+                  = product.pname
+                .center
+                  .price
+                    = product.price
+                  .ster
+                    = icon('fas', 'star')
+                    0
+                .tax (税込)
 
 .post__footer
   = render partial: 'layouts/footer'
