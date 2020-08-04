@@ -18,14 +18,16 @@ class BuyersController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials.development[:PAYJP_PRIVATE_KEY]
     Payjp::Charge.create(
-      :amount => @item.price, #支払金額を引っ張ってくる
+      :amount => @product.price, #支払金額を引っ張ってくる
       :customer => @card.customer_id,  #顧客ID
       :currency => 'jpy',              #日本円
     )
-    redirect_to done_item_buyers_path #完了画面に移動
+    redirect_to done_product_buyers_path #完了画面に移動
   end
 
   def done
+    @product_buyers= Product.find(params[:product_id])   
+    @product_buyers.update(shipping_status: 1)
   end
 
   private

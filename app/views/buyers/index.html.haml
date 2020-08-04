@@ -77,6 +77,5 @@
             %p.PurchaseContent__InputText 配送先と支払い方法の入力を完了してください。
             = form_tag(action: :pay, method: :post) do
               %button.PurchaseContent__BayBtn{type:"submit"} 購入する
-            -# = link_to "購入する", buyers_done_path, class: 'PurchaseContent__BayBtn', type: "button"
     %footer
       = render 'products/footer'

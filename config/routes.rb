@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'buyers/index'
-  get 'buyers/done'
   devise_for :users, controllers: {
     # registrationsコントローラーの参照先を書き換えてウィザード形式の登録画面を作成する
     registrations: 'users/registrations',
@@ -15,6 +13,12 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
   resources :products do
+    resources :buyers, only: [:index] do
+      collection do
+        post 'pay', to: 'buyers#pay'
+        get 'done', to: 'buyers#done'       
+      end
+    end
     collection do
       get 'confirm'
     end
@@ -35,15 +39,5 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-
-  resources :products do
-    resources :buyers, only: [:index] do
-      collection do
-        get 'done', to: 'buyers#done'
-        post 'pay', to: 'buyers#pay'
-      end
-    end
-  end
-
 
 end
