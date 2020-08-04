@@ -33,7 +33,6 @@ $(function() {
   // カテゴリーグループ２層を表示する発火条件を定義
   $("#Level1_Form").on("change", function() {
     var value1 = $("#Level1_Form").val();
-    console.log(value1);
     if (value1 != "") {
       $.ajax({
         type  : 'GET',
@@ -44,7 +43,6 @@ $(function() {
         dataType: 'json'
       })
       .done(function(level2) {
-        console.log(level2)
         $("#Level2").empty();
         $("#Level3").empty();
         // サイズ表示領域を追加する場合の定義を追加するか？ Active_Hashを使うか?
@@ -65,7 +63,6 @@ $(function() {
   });
   // カテゴリーグループ3層を表示する発火条件を定義
   $(".InputData__CategoryForm").on("change", "#Level2_Form", function() {
-    console.log("checker1")
     var value2 = $("#Level2_Form option:selected").data("category");
     console.log(value2);
     if (value2 != "") {
