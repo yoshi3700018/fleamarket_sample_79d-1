@@ -82,7 +82,7 @@ class ProductsController < ApplicationController
       :category_id, :brand_id, 
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
-      :price, :users_id, 
+      :price,
       images_attributes: {image: []}).merge(user_id: current_user.id)
   end
 
