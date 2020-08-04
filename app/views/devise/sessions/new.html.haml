@@ -12,14 +12,14 @@
         = link_to new_user_registration_path, class: "Btns--LogIn" do
           新規会員登録
       .LoginPanels__SNS
-        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "Btns--Google" do
+        = link_to "#", class: "Btns--Google" do
           %i.fab.fa-google
           Googleでログイン
-        = link_to user_facebook_omniauth_authorize_path, method: :post, class: "Btns--Facebook" do
+        = link_to "#", class: "Btns--Facebook" do
           %i.fab.fa-facebook-f
           Facebookでログイン
         = link_to "#", class: "Btns--Apple" do
-          %i.fab.fa-apple
+          %i.fab.fa-twitter
           Appleでログイン
       .LoginPanels__HasAccount
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -33,5 +33,3 @@
               = f.submit "ログイン", class: 'SubmitBtn', url: "root_path"       
 .Footer
   = render 'layouts/footer'
-
-

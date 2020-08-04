@@ -16,17 +16,14 @@
     padding-left:10%;
     p {
       text-align: start;
-      padding-left: 5%;
+      padding-left:5%;
       font-size: .8em;
       word-spacing: .5em;
     }
     &__Required {
       background-color: red;
       color: white;
-      padding: .1em .4em;
-    }
-    &__NotRequired {
-      color: black;
+      padding: .2em .8em;
     }
     &__Input {
       width: 100%;

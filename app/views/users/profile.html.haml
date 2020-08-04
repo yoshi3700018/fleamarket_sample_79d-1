@@ -16,8 +16,8 @@
               .Setting
                 .SettingIcon
                   = image_tag "/icon/member_photo_noimage_thumb.png"
-                .SettingIcon__Mypage
-                  = @user.nickname
+                  .SettingIcon__NameForm
+                    = f.text_field :nickname, class: 'SettingIcon__NameForm__MyName', placeholder: 'userのニックネームを呼び出す'
               .InputForm
                 = f.text_area :profile, class: 'InputForm__Profile', placeholder: '例)こんにちは☆ご覧いただきありがとうございます。かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'
               .Actions
