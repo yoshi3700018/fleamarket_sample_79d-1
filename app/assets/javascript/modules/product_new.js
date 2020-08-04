@@ -64,7 +64,6 @@ $(function() {
   // カテゴリーグループ3層を表示する発火条件を定義
   $(".InputData__CategoryForm").on("change", "#Level2_Form", function() {
     var value2 = $("#Level2_Form option:selected").data("category");
-    console.log(value2);
     if (value2 != "") {
       $.ajax({
         type  : 'GET',
