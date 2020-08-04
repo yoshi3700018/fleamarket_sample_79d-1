@@ -11,6 +11,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token[15,25]
+      pass += "1Az"
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -37,8 +43,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_creditcard
-    # viewでformを使用するための仮設定
-    # gem 'pay.jp'と合わせて確認していく
+    # サインアップ認証画面では登録しないことに
+    # あっても任意、設定はcardコントローラーで行う
   end
 
   protected
@@ -46,11 +52,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     # デフォルトで入っているemailとpasswordは改めて書く必要がない。deviseが処理する。
     # 追加したカラムのデータのみをパラムスに収めるように記述する
+    # imageにデフォルト画像を設定してデータに格納、呼び出す
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       :nickname,
       :first_name,
       :family_name,
-      :birthday
+      :birthday,
+      # :image
     ])
   end
 

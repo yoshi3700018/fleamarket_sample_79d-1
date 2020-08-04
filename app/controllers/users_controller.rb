@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   # デバイスで処理できない登録部分などをまとめていく
-
-  # 他テーブルとの兼ね合いもあり、ルーティングとアソシエーションネスト完成後に有効にしていく
-  # before_action :set_user, only: [:show, :edit, :profile, :profile_update, :logout]
+  before_action :set_user, only: [:show, :edit, :profile, :profile_update, :logout]
   # before_action :set_address, only: [:edit, :update]
 
-  def show
+  
+  def building_construction
+  end
+
+  def show 
   end
 
   def edit
@@ -42,5 +44,9 @@ class UsersController < ApplicationController
                                     :address_line,
                                     :apartment
     )
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

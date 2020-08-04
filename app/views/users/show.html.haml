@@ -10,20 +10,19 @@
       .MainContents
         .MainContents__Profile
           .MainContents__Profile__Detail
-            = form_for "#" do |f|
-              .Setting
-                .SettingIcon
-                  = image_tag "/icon/member_photo_noimage_thumb.png"
-                  .SettingIcon__Mypage
-                    = f.text_field :nickname, class: 'SettingIcon__NameForm__MyName', placeholder: 'userのニックネームを呼び出す'
-                    %div.YourRating  
-                      %br/
-                      .YourRating__Evaluation
-                        評価
-                        %span.count 0
-                      .YourRating__ExhibitionCount
-                        出品数
-                        %span.count 0
+            .Setting
+              .SettingIcon
+                = image_tag "/icon/member_photo_noimage_thumb.png"
+              .SettingIcon__Mypage
+                = @user.nickname
+                %div.YourRating  
+                  %br/
+                  .YourRating__Evaluation
+                    評価
+                    %span.count 0
+                  .YourRating__ExhibitionCount
+                    出品数
+                    %span.count 0
           .UserNotice
             .NoticeButtons
               .NoticeButtons__Notice お知らせ
