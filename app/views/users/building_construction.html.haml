@@ -1,0 +1,11 @@
+-if user_signed_in?
+  = render 'layouts/loginheader'
+- else
+  = render 'layouts/header'  
+.Pankuzu
+.Main
+  .Wrapper
+    .Container
+      = render 'sidebar'
+      .MainContents
+        %p このページは未だ作成中となります。ブラウザバックでお戻りください。
