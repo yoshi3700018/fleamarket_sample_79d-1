@@ -4,5 +4,3 @@
 import { createConsumer } from "@rails/actioncable"
 
 export default createConsumer()
-
-console.log("AbA")
