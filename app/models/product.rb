@@ -4,7 +4,6 @@ class Product < ApplicationRecord
   belongs_to :category
   # ↓のinverse_ofの表現は削除、Rails4.1からはデフォルトで設定されているため
   # productレコード削除時に、一緒に削除したいテーブルに対して、dependent: :destroyが必要
-  # categoryの管理はGEMのため、どうやら例外らしい
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   validates :pname, :price, :explanation, :status, presence: true
