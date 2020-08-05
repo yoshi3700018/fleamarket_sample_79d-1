@@ -29,10 +29,10 @@ Rails.application.routes.draw do
       get 'search_level3', defaults: { format: 'json'}
     end
     # edit, update, destroy用後で実装
-    # member do
-    #   get 'search_level2', defaults: { format: 'json' }
-    #   get 'search_level3', defaults: { format: 'json' }
-    # end
+    member do
+      get 'search_level2', defaults: { format: 'json' }
+      get 'search_level3', defaults: { format: 'json' }
+    end
   end
 
   resources :users, only: [:show, :edit, :update] do

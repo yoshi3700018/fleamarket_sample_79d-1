@@ -1,0 +1,18 @@
+- case params.values_at :controller, :action
+
+  -# -------- ホーム -------------------------------
+- when ['products', 'index']
+  - breadcrumb :root
+
+  -# -------- ホーム > マイページ --------------------
+- when ['users', 'show']
+  - breadcrumb :mypage
+  -# -------- ホーム > マイページ > XXXXXXXX ---------
+- when ['users', 'profile']
+  - breadcrumb :profile
+- when ['users', 'logout']
+  - breadcrumb :logout
+
+
+  -# -------- セパレーター --------------------------
+= breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "

@@ -2,8 +2,9 @@ class Product < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-  has_many :images, inverse_of: :product
-  # has_many :images
+  # ↓のinverse_ofの表現は削除、Rails4.1からはデフォルトで設定されているため
+  # productレコード削除時に、一緒に削除したいテーブルに対して、dependent: :destroyが必要
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   validates :pname, :price, :explanation, :status, presence: true
 

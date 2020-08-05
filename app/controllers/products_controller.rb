@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_product, only: [:show, :edit, :update]
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def index
@@ -9,8 +9,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    # @product.images.build
-    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
@@ -18,20 +16,36 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
+      binding.pry
       render :new
     end
   end
 
+  # product#showの画面からedit, destroyアクションを選べる様にする仕様で作成します
   def edit
   end
   
   def update
+    if @product.update(update_params)
+      redirect_to product_path
+    else
+      render :edit
+    end
   end
 
   def show
+    # @items = Item.find(params[:id])
+    @product = Product.find(params[:id])
+    @products = Product.all.limit(3)
   end
 
   def destroy
+    product=Product.find(params[:id])
+    if product.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :edit
+    end
   end
 
   # def confirm
@@ -63,16 +77,29 @@ class ProductsController < ApplicationController
   end
 
   private
-  def product_params  
-      params.require(:product).permit(
-        :pname, :explanation, 
-        :status, :size_id, 
-        :category_id, :brand_id, 
-        :shipping_status, :deliver, 
-        :prefecture, :shipping_dates, 
-        :price, :users_id, 
-        images_attributes: [:image]).merge(user_id: current_user.id)
+  def product_params
+    params.require(:product).permit(
+      :pname, :explanation, 
+      :status, :size_id, 
+      :category_id, :brand_id, 
+      :shipping_status, :deliver, 
+      :prefecture, :shipping_dates, 
+      :price,
+      images_attributes: [:image]).merge(user_id: current_user.id)
   end
+
+  def update_params
+    params.require(:product).permit(
+      :pname, :explanation, 
+      :status, :size_id, 
+      :category_id, :brand_id, 
+      :shipping_status, :deliver, 
+      :prefecture, :shipping_dates, 
+      :price, :users_id, 
+      images_attributes: {image: []})
+  end
+
+
   # いいね機能を取り扱った福本さんの方とパラメータの定義が異なる可能性、ひとまずSHOW画面に表示させるための定義、マージ時確認
   def set_product
     # @product = Product.find(params[:id])
