@@ -15,7 +15,7 @@
           -# 画像挿入時用
           .InputPhoto__DropArea
             = f.fields_for :images do |c|
-              = c.file_field :image, multiple: true
+              = c.file_field :image
         .InputInfo
           .InputInfo__NameForm
             .InputInfo__NameForm__FormLabel 
@@ -34,35 +34,46 @@
             .InputData__CategoryForm__FormLabel
               %label カテゴリー
               %span.red 必須
+            -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
+            .SelectCategory#Level1
+              = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
+            .SelectCategory#Level2
+            .SelectCategory#Level3
+            -# ↓の記述のcssは[select]タグ自体に設定されているので、↑はクラスメイトID名は大文字スネークケースで変更しています。JSもこれで組んでしまいますが問題ある様なら変更します
             -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
-            = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
-          .InputData__BrandForm
+            -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
+            -# = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+            .InputData__SizeForm__FormLabel
+              %label サイズ
+              %span.red 必須
+            #Level4
+              = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, {class:"InputData__SizeForm__FormArea"}
             .InputData__BrandForm__FormLabel
               %label ブランド
               %span.gray 任意
-            = f.text_field :brand_id, class: 'InputData__BrandForm__FormArea', placeholder: '例）シャネル'
+            #Level5
+              = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {class:"InputData__BrandForm__FormArea"}
+            -# = f.text_field :brand_id, class: 'InputData__BrandForm__FormArea', placeholder: '例）シャネル'
           .InputData__StatusSelect
             .InputData__StatusSelect__FormLabel
               %label 商品の状態
               %span.red 必須
-            = f.select :status, [["選択して下さい", 0],["新品・未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]]
-        .InputSipping
+            = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {class:"InputData__StatusForm__FormArea"}
           %p 配送について
           .InputSipping__DeliveryFee
             .InputSipping__DeliveryFee__FormLabel
               %label 配送料の負担
               %span.red 必須
-            = f.select :deliver, [["選択して下さい", 0],["送料込み(出品者負担)", 1],["着払い(購入者負担)", 2]]
-          .InputSipping__ShippingOrigin
+            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
             .InputSipping__ShippingOrigin__FormLabel
               %label 発送元の地域
               %span.red 必須
-            = f.select :prefecture, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+            = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
           .InputSipping__ShippingDays
             .InputSipping__ShippingDays__FormLabel
               %label 発送までの日数
               %span.red 必須
-            = f.select :shipping_dates, [["選択して下さい", 0],["1~2日で発送", 1],["3~4日で発送", 2],["4~7日で発送",3]]
+            = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
         .InputPrice__Price
           %p 価格（¥300〜9,999,999）
           .InputPrice__LabelBox

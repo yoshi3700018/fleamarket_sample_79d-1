@@ -4,7 +4,6 @@
       .furimaImg
         = link_to root_path, class: 'LogoImage' do
           = image_tag '/logo/logo.png', alt: 'FURIMA', height: '40px', width: '140px'
-
       .searchBox
         .searchBox__input
           %input.search{type: 'search', placeholder: 'キーワードから探す'}
@@ -24,3 +23,4 @@
         .newBtn
         = link_to new_user_registration_path  do
           新規会員登録
+    = render 'layouts/breadcrumbs'

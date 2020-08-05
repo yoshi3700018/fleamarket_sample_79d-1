@@ -1,1 +1,63 @@
+.post__header
+  = render partial: 'layouts/header'
 
+.ProductEdit
+  %h1 ここはproduct#edit　商品情報の修正のページです
+  %h2 スタイルは設定していないので、対応お願いいたします。
+  = form_for @product,url:product_path, method: :patch do |f|
+    .PreviewImage
+      %label 出品画像プレビュー
+      %span.red 必須
+    .ProductEdit__Contents 
+      %label 商品名:
+      %span.red 必須
+      = f.text_field :pname, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 商品の説明:
+      %span.red 必須
+      = f.text_area :explanation
+    .ProductEdit__Contents 
+    -# -------product#newに設定されていたCategoryFormクラス以下を指定してJSを作っています。取り出す要素はクラスではなくIDで付け足したものですが
+    -# -------このクラス以下の変更を持って、発火する仕組みのため、クラス名は書き換えないでください。jsとproduct#newも変更する場合に限りOKです
+    -# -------スタイル設定上、どうしても必要な場合は、クラスを２重に設定するか、IDを設定して下さい。
+    .InputData__CategoryForm
+      .InputData__CategoryForm__FormLabel
+        %label カテゴリー
+        %span.red 必須
+      .SelectCategory#Level1
+        = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
+      .SelectCategory#Level2
+      .SelectCategory#Level3
+      -# -------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑クラス名の変更は付加のゾーン↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-----------------------------------------------------
+      %label サイズ:
+      %span.grey 任意
+      = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents
+      %label ブランド:
+      %span.red 必須
+      = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 商品の状態:
+      %span.red 必須
+      = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 発送量の負担:
+      %span.red 必須
+      = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 発送元の地域:
+      %span.red 必須
+      = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 発送までの日数:
+      %span.red 必須
+      = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+    .ProductEdit__Contents 
+      %label 販売価格:
+      %span.red 必須
+      %span.YenMark ¥
+      = f.number_field :price, {id:"SelectFormOption"}
+    .SubmitEdit
+      = f.submit "登録内容を変更する"
+    .CancelEdit
+      = link_to "修正内容を破棄する", :back

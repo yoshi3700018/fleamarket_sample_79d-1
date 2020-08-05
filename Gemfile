@@ -89,3 +89,4 @@ group :production do
 end
 
 gem 'ancestry'
+gem 'gretel'
