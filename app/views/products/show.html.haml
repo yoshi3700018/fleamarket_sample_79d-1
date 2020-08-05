@@ -9,7 +9,7 @@
       .itemBox__image
         .itemBox__image__top
           .img1
-            -# = @product.images[0].image
+            = @product.images[0].image
         %ul.itemBox__image__bottom
           %li.img-left
             -# = @product.images[0].image
@@ -104,7 +104,7 @@
                 .mottoSold__in
                   SOLD
               .img-link
-                -# = product.images[0].image
+                = product.images[0].image
               .productList
                 .name
                   = product.pname
@@ -118,7 +118,7 @@
           - else
             = link_to '#' do
               .img-link
-                -# = product.images[0].image
+                = product.images[0].image
               .productList
                 .name
                   = product.pname
