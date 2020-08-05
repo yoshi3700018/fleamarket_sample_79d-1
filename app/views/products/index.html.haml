@@ -15,10 +15,8 @@
           %br/
           フリマアプリです
         .Introduction__Content--Btn
-          = link_to "#", class: "Apple" do
-            = image_tag "/app-store.svg", class: "Apple"
-          = link_to "#", class: "Google" do
-            = image_tag "/google-play.svg", class: "Google"
+          = link_to image_tag("/icon/app-store.svg", class: 'Apple'), "#"
+          = link_to image_tag("/icon/google-play.svg", class: 'Google'), "#"
     // FURIMAが選ばれる3つの理由      
     .Reason
       .Reason__SubTitle
@@ -70,10 +68,8 @@
           %br/
           ほしかったあの商品に出会えるかもしれません。
         .MemberIntroduction__In--Btn
-          = link_to "#", class: "Apple" do
-            = image_tag "/app-store.svg", class: "Apple"
-          = link_to "#", class: "Google" do
-            = image_tag "/google-play.svg", class: "Google"
+          = link_to image_tag("/icon/app-store.svg", class: 'Apple'), "#"
+          = link_to image_tag("/icon/google-play.svg", class: 'Google'), "#"
     -# FURIMAの特徴
     .Feature
       %h2.Feature__SubTitle
@@ -211,6 +207,6 @@
       %p.Banner__Center--Text
         今すぐ無料ダウンロード！
       .Banner__Center--Btn
-        -# = link_to image_tag("app-store.svg", class: 'Apple'), "#"
-        -# = link_to image_tag("google-play.svg", class: 'Google'), "#"
+        = link_to image_tag("/icon/app-store.svg", class: 'Apple'), "#"
+        = link_to image_tag("/icon/google-play.svg", class: 'Google'), "#"
   = render "layouts/footer"
