@@ -1,6 +1,16 @@
 .post__header
   = render partial: 'layouts/header'
 
+
+-# show画面から、商品を登録したユーザーにのみ表示されるedit/destroyへのパスを作成する
+-# パスをどの位置にレイアウトするか確認お願いいたします。
+-# クラスは設定していないのでスタイル設定をお願いします。
+.ProductRevisedInfo
+  - if user_signed_in? && current_user.id == @product.user_id
+    = link_to "登録した商品の削除", product_path(@product.id), method: :delete
+    = link_to "登録商品の情報修正", edit_product_path(@product.id)
+-# -----------------------------------------------------------------------
+
 .wrapper
   .showMain
     .itemBox
