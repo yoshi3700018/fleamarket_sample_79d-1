@@ -120,7 +120,7 @@
                     .sold
                       .sold--in
                         SOLD
-                  -# = image_tag product.images[0].image.url
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
@@ -138,7 +138,7 @@
               = link_to product_path(product) do
                 .PickupCategorys__Products--List
                   %figure.PickupCategorys__Products--ListPicture
-                  -# = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupCategorys__Products--ListDetails
                     %h3.PickupCategorys__Products--ListDetailsName
                       = product.pname
@@ -170,7 +170,7 @@
                     .sold2
                       .sold2--in2
                         SOLD
-                  -# = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   .PickupBrands__Products--ListDetails
                     %h3.PickupBrands__Products--ListDetailsName
                       = product.pname
@@ -188,7 +188,7 @@
               = link_to "/products/show" do
                 .PickupBrands__Products--List
                   %figure.PickupBrands__Products--ListPicture
-                  -# = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
+                  = image_tag product.images[0].image.url, width: "219.33px", height: "150px", alt: "Product", class: "img"
                   -# = product.images[0]
                   .PickupBrands__Products--ListDetails
                     %h3.PickupBrands__Products--ListDetailsName
