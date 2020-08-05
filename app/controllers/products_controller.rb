@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
       @product.update(shipping_status: 1)
       redirect_to root_path
     else
+      binding.pry
       render :new
     end
   end
