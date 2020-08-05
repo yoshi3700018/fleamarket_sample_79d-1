@@ -9,16 +9,14 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    # @product.images.build
-    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def create
-    # binding.pry
     @product = Product.create(product_params)
     if @product.save
       redirect_to root_path
     else
+      binding.pry
       render :new
     end
   end
@@ -81,7 +79,7 @@ class ProductsController < ApplicationController
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
       :price,
-      images_attributes: {image: []}).merge(user_id: current_user.id)
+      images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def update_params
