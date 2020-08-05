@@ -1,4 +1,13 @@
 class Product < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
+  belongs_to_active_hash :country
+
+  validates :pname, :explanation, :price, :images, :prefecture, presence: true
+  validates :category_id, :status, 
+  :deliver,
+  :shipping_dates, numericality: { other_than: 0}
+
 
   belongs_to :user
   belongs_to :category
@@ -6,7 +15,6 @@ class Product < ApplicationRecord
   # productレコード削除時に、一緒に削除したいテーブルに対して、dependent: :destroyが必要
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  validates :pname, :price, :explanation, :status, presence: true
 
   enum brand_id: {
     "シャネル": 0, "グッチ": 1, "プラダ": 2, "エルメス": 3, "バレンシアガ": 4, "フェンディ": 5, "ボッテガ・ヴェネタ": 6,
@@ -34,7 +42,6 @@ class Product < ApplicationRecord
     "徳島県":36,"香川県":37,"愛媛県":38,"高知県":39,
     "福岡県":40,"佐賀県":41,"長崎県":42,"熊本県":43,"大分県":44,"宮崎県":45,"鹿児島県":46,"沖縄県":47
   }
-
 
 
 end

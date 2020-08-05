@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_30_102849) do
+ActiveRecord::Schema.define(version: 2020_08_02_081443) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2020_07_30_102849) do
     t.string "city", null: false
     t.string "address_line", null: false
     t.string "apartment"
-    t.bigint "user_id", null: false
+    t.bigint "users_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_postals_on_user_id"
+    t.index ["users_id"], name: "index_postals_on_users_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,17 +54,17 @@ ActiveRecord::Schema.define(version: 2020_07_30_102849) do
     t.text "explanation", null: false
     t.integer "status", null: false
     t.integer "size_id"
-    t.integer "brand_id"
     t.integer "category_id"
     t.integer "shipping_status"
     t.integer "deliver"
     t.integer "prefecture"
     t.integer "shipping_dates"
-    t.bigint "user_id"
+    t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "brand"
     t.index ["pname"], name: "index_products_on_pname"
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["users_id"], name: "index_products_on_users_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,12 +80,10 @@ ActiveRecord::Schema.define(version: 2020_07_30_102849) do
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "family_name_kana", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "image"
-    t.date "birthday", null: false
+    t.string "birthday", null: false
     t.text "profile"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

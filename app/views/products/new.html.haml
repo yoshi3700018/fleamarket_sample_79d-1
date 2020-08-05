@@ -1,21 +1,34 @@
--# = javascript_include_tag 'product_new'
+= javascript_include_tag 'product_new'
 
+- if @product.errors.any?
+  .SettingGroupForm__Errors
+    %ul
+      - @product.errors.full_messages.each do |message|
+        %li= message
 .Wrapper
   %header
     = render 'header'
   .Main
     .Contents
-      = form_with model: @product, html: {class: "Form"}, local: true do |f|
+      = form_with model: @product, local: true do |f|
         .InputPhoto
           .InputPhoto__FormLabel
             %label 出品画像
             %span.red 必須
-          %p 最大10枚までアップロードできます
-          -# = image_tag @product.image.url, class: 'Message__image' if message.image.present?
-          -# 画像挿入時用
+          %p 最大5枚までアップロードできます
           .InputPhoto__DropArea
-            = f.fields_for :images do |c|
-              = c.file_field :image
+            .prev-content
+            .label-content
+              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %i.fas.fa-camera
+                %p.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |image|
+                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "item_images_attributes_0_image"
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "item_images_attributes_4_image" }
         .InputInfo
           .InputInfo__NameForm
             .InputInfo__NameForm__FormLabel 
@@ -34,7 +47,6 @@
             .InputData__CategoryForm__FormLabel
               %label カテゴリー
               %span.red 必須
-            -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
             .SelectCategory#Level1
               = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
             .SelectCategory#Level2
@@ -48,12 +60,11 @@
               %span.red 必須
             #Level4
               = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, {class:"InputData__SizeForm__FormArea"}
+          .InputData__BrandForm
             .InputData__BrandForm__FormLabel
               %label ブランド
               %span.gray 任意
-            #Level5
-              = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {class:"InputData__BrandForm__FormArea"}
-            -# = f.text_field :brand_id, class: 'InputData__BrandForm__FormArea', placeholder: '例）シャネル'
+            = f.text_field :brand, class: 'InputData__BrandForm__FormArea', placeholder: '例）シャネル'
           .InputData__StatusSelect
             .InputData__StatusSelect__FormLabel
               %label 商品の状態
@@ -68,7 +79,8 @@
             .InputSipping__ShippingOrigin__FormLabel
               %label 発送元の地域
               %span.red 必須
-            = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+            = f.collection_select :prefecture, Country.all, :id, :name,{prompt: "選択して下さい"}
+            -# = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
           .InputSipping__ShippingDays
             .InputSipping__ShippingDays__FormLabel
               %label 発送までの日数
@@ -83,12 +95,12 @@
             .InputPrice__LabelBox__InputPrice
               %span.YenLabel ￥
               = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--fild", placeholder: "0"
-          .InputPrice__TaxBox
-            .InputPrice__TaxBox__Tax 販売手数料（10%）
-            %span.Tax ー
-          .InputPrice__ProfitBox 
-            .InputPrice__ProfitBox__Profit 販売利益
-            %span.Profit ー
+          -# .InputPrice__TaxBox
+          -#   .InputPrice__TaxBox__Tax 販売手数料（10%）
+          -#   %span.Tax ー
+          -# .InputPrice__ProfitBox 
+          -#   .InputPrice__ProfitBox__Profit 販売利益
+          -#   %span.Profit ー
         .InputSubmit
           = f.submit '出品する', class: 'InputSubmit__Exhibition__Button'
           = f.submit '下書きに保存', class: 'InputSubmit__Save__Button'
@@ -112,11 +124,3 @@
           に同意したことになります。
   %footer
     = render 'footer'
-
-    -# = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
-    -#   .Form__contents
-    -#     = f.text_field :content, class: 'Form__inputContent', placeholder: 'type a message'
-    -#     = f.label :image, class: 'Form__inputImage' do
-    -#       = icon('far', 'image', class: 'Form__icon')
-    -#       = f.file_field :image, class: 'Hidden'
-    -#   = f.submit 'Send', class: 'Form__submit'

@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create(product_params)
     if @product.save
+      @product.update(shipping_status: 1)
       redirect_to root_path
     else
       binding.pry
@@ -72,16 +73,20 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(
-      :pname, :explanation, 
-      :status, :size_id, 
-      :category_id, :brand_id, 
-      :shipping_status, :deliver, 
-      :prefecture, :shipping_dates, 
-      :price,
-      images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:pname,
+    :explanation, :status,
+    :size_id, :category_id,
+    :brand, :shipping_status,
+    :deliver, :prefecture,
+    :shipping_dates, :price,
+    images_attributes: [:image]
+  ).merge(user_id: current_user.id)
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
+  
   def update_params
     params.require(:product).permit(
       :pname, :explanation, 
@@ -91,12 +96,6 @@ class ProductsController < ApplicationController
       :prefecture, :shipping_dates, 
       :price, :users_id, 
       images_attributes: {image: []})
-  end
-
-
-  # いいね機能を取り扱った福本さんの方とパラメータの定義が異なる可能性、ひとまずSHOW画面に表示させるための定義、マージ時確認
-  def set_product
-    @product = Product.find(params[:id])
   end
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
