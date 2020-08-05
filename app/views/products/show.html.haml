@@ -12,7 +12,9 @@
             -# = @product.images[0].image
         %ul.itemBox__image__bottom
           %li.img-left
+            -# = @product.images[0].image
           %li.img-right
+            -# = @product.images[0].image
       .itemBox__price
         ¥
         = @product.price
@@ -64,6 +66,16 @@
         .reportBtn
           = icon('fas', 'flag')
           = link_to '不適切な商品の通報', '#'
+    .productRevisedInfo
+      - if user_signed_in? && current_user.id == @product.user_id
+        .productRevisedInfo__delete
+          = link_to "商品の削除", product_path(@product.id),
+      method: :delete
+        .productRevisedInfo__edit
+          = link_to "商品の修正", edit_product_path(@product.id)
+      - else
+        .productRevisedInfo__buy
+          = link_to "購入画面に進む"
     .commentBox
       .commentBox__contents
         .textarea
