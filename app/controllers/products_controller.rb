@@ -3,13 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    # @product = Product.all.includes(:images)
-    # @product = Product.includes(:images)
-    @product = Product.all
-    # @product = Product.find_by(id: 1)
-    # @image = Image.includes(:product)
-    # binding.pry
-    # @image = Image.new(product_params)
+    @product = Product.all.limit(4).order(created_at: :desc)
   end
 
   def new
@@ -20,6 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @product = Product.create(product_params)
     if @product.save
       redirect_to root_path
