@@ -108,7 +108,7 @@
               新規投稿商品
         .PickupCategorys__Products--Lists
           - @product.each do |product|
-            -if product.shipping_status.present?
+            - if product.shipping_status.present?
               = link_to product_path(product) do
 
                 .PickupCategorys__Products--List
@@ -130,7 +130,7 @@
                           0
                       %p.Tax
                       (税込)
-            -else
+            - else
               = link_to product_path(product) do
                 .PickupCategorys__Products--List
                   %figure.PickupCategorys__Products--ListPicture
