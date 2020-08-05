@@ -6,6 +6,7 @@
 // }
 * {
   box-sizing: border-box;
+  // border: 1px solid black;
 }
 
 .SettingGroupForm__Errors {
@@ -210,21 +211,28 @@
         }
         .InputData__CategoryForm {
           width: 620px;
-          height: 83px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
+          .InputData__CategoryForm__FormLabel { 
+          }
+          .SelectCategory {
+            margin-top: 10px;
+          }
+          #Level3, #Level4, #Level5 {
+            margin-bottom: 5px;
+          }
           select {
             width: 620px;
             height: 48px;
-            padding: 0 56px 0 16px;
+            padding: 0 56px 5px 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
           }
+
         }
         .InputData__BrandForm {
           width: 620px;
-          height: 83px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
@@ -243,7 +251,6 @@
           }
           .InputData__BrandForm__FormArea {
             width: 620px;
-            height: 48px;
             padding: 0 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -251,7 +258,6 @@
         }
         .InputData__StatusSelect {
           width: 620px;
-          height: 83px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
@@ -358,7 +364,7 @@
         }
         .InputPrice__TaxBox {
           width: 620px;
-          height: 70px;
+
           padding: 12px 0;
           color: #333333;
           display: flex;
@@ -489,4 +495,15 @@
     }  
   }
 // -----↑フッター-----
+}
+
+
+// 共通のセレクトフォーム
+#SelectFormOption {
+  width: 620px;
+  height: 48px;
+  padding: 0 56px 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }

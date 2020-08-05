@@ -1,49 +1,72 @@
+.post__header
+  = render partial: 'layouts/header'
+
+
+-# show画面から、商品を登録したユーザーにのみ表示されるedit/destroyへのパスを作成する
+-# パスをどの位置にレイアウトするか確認お願いいたします。
+-# クラスは設定していないのでスタイル設定をお願いします。
+.ProductRevisedInfo
+  - if user_signed_in? && current_user.id == @product.user_id
+    = link_to "登録した商品の削除", product_path(@product.id), method: :delete
+    = link_to "登録商品の情報修正", edit_product_path(@product.id)
+-# -----------------------------------------------------------------------
+
 .wrapper
   .showMain
     .itemBox
       .itemBox__title
-        %span 商品名
+        %span
+          = @product.pname
       .itemBox__image
         .itemBox__image__top
           .img1
-            (img1)
         %ul.itemBox__image__bottom
           %li.img-left
-            (img2)
+            -# = @product.images[0].image
           %li.img-right
-            (img3)
+            -# = @product.images[0].image
       .itemBox__price
-        %span ¥1000
+        ¥
+        = @product.price
       .itemBox__tax
         %span (税込) 送料込み
       .itemBox__detail
-        %span 商品説明、この商品は見本です。hogehogehoge、fugafugafuga、食べることができません。
+        = @product.explanation
       .itemBox__table
         %table
           %tr
             %th 出品者
-            %td hoge
+            %td
+              = @product.user.nickname
+              = link_to '#'
           %tr
             %th カテゴリー
-            %td hoge
+            %td 
+              = @product.category.name
           %tr
             %th ブランド
-            %td hoge
+            %td
+              = @product.brand_id
           %tr
             %th 商品のサイズ
-            %td hoge
+            %td
+              = @product.size_id
           %tr
             %th 商品の状態
-            %td hoge
+            %td
+              = @product.status
           %tr
             %th 配送料の負担
-            %td hoge
+            %td
+              = @product.deliver
           %tr
             %th 発送元の地域
-            %td hoge
+            %td
+              = @product.prefecture
           %tr
             %th 発送日の目安
-            %td hoge
+            %td
+              = @product.shipping_dates
       .itemBox__optionalArea
         .favoriteBtn
           = icon('fas', 'star')
@@ -51,6 +74,16 @@
         .reportBtn
           = icon('fas', 'flag')
           = link_to '不適切な商品の通報', '#'
+    .productRevisedInfo
+      - if user_signed_in? && current_user.id == @product.user_id
+        .productRevisedInfo__delete
+          = link_to "商品の削除", product_path(@product.id),
+      method: :delete
+        .productRevisedInfo__edit
+          = link_to "商品の修正", edit_product_path(@product.id)
+      - else
+        .productRevisedInfo__buy
+          = link_to "購入画面に進む"
     .commentBox
       .commentBox__contents
         .textarea
@@ -61,7 +94,7 @@
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .form
-          %input.form__submit{type: 'submit', value: '　　コメントする'}
+          %input.form__submit{type: 'submit', value: 'コメントする'}
           = icon('fas', 'comment')
     .links
       .front-back
@@ -71,16 +104,39 @@
     .mottoLook
       .mottoLook__link
         = link_to 'もっと見る', '#'
-    .mottoLook2
-      .img-link
-        img
-      .productList
-        .name
-          ポップコーン
-        .center
-          .price
-            800円
-          .ster
-            = icon('fas', 'star')
-            0
-        .tax (税込)
+      .mottoLook2
+        - @products.each do |product|
+          - if product.shipping_status.present?
+            = link_to '#' do
+              .mottoSold
+                .mottoSold__in
+                  SOLD
+              .img-link
+                = product.images[0].image
+              .productList
+                .name
+                  = product.pname
+                .center
+                  .price
+                    = product.price
+                  .ster
+                    = icon('fas', 'star')
+                    0
+                .tax (税込)
+          - else
+            = link_to '#' do
+              .img-link
+                = product.images[0].image
+              .productList
+                .name
+                  = product.pname
+                .center
+                  .price
+                    = product.price
+                  .ster
+                    = icon('fas', 'star')
+                    0
+                .tax (税込)
+
+.post__footer
+  = render partial: 'layouts/footer'
