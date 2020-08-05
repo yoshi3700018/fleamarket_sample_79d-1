@@ -1,15 +1,19 @@
-.Content {
-  text-align: center;
-  &__TopBtn {
-    width: 100%;
-    min-height: 48px;
-    background-color: #3CCACE;
-    color:white;
-    border: none;
-    font-size: 17px;
-    font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 15px 90px;
+.Main-1 {
+  height: 400px;
+  background-color: whitesmoke;
+  .Content {
+    text-align: center;
+    &__TopBtn {
+      width: 100%;
+      min-height: 48px;
+      background-color: #3CCACE;
+      color:white;
+      border: none;
+      font-size: 17px;
+      font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 15px 90px;
+    }
   }
 }
