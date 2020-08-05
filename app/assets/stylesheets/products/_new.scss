@@ -7,6 +7,12 @@
 * {
   box-sizing: border-box;
 }
+
+.SettingGroupForm__Errors {
+  background-color: rgb(245, 245, 245);
+  color: #ff0211;
+}
+
 .Wrapper {
 // -----↓ヘッダー-----
   header {
@@ -25,7 +31,7 @@
     .Contents {
       background-color: white;
       width: 700px;
-      height: 2210px;
+      height: 100%;
       label {
         font-size: 14px;
         font-weight: 600;
@@ -46,7 +52,7 @@
         margin-left: 8px;
       }
       .InputPhoto {
-        height: 300px;
+        height: 100%;
         padding: 40px;
         border-bottom: 1px solid rgb(245, 245, 245);
         p {
@@ -57,13 +63,92 @@
           text-align: left;
         }
         &__DropArea {
-          width: 100%;
-          height: 150px;
-          background-color: #f5f5f5;
-          margin-top: 8px;
-          border: 1px dashed rgb(204,204,204);
-          cursor: pointer;
-          .Hidden {
+          display: block;
+          margin: 16px auto 0;
+          display: flex;
+          flex-wrap: wrap;
+          .prev-content {
+            display: flex;
+            .preview-box {
+              height: 162px;
+              width: 115px;
+              margin: 0 8px 8px 0;
+              background: #f5f5f5;
+              border: 1px solid #eee;
+              .upper-box {
+                height: 112px;
+                width: 100%;
+                text-align: center;
+                img{
+                  width: 112px;
+                  height: 112px;
+                }
+              }
+              .lower-box {
+                display: flex;
+                text-align: center;
+                // .update-box {
+                //   color: #00b0ff;
+                //   width: 50%;
+                //   height: 50px;
+                //   line-height: 50px;
+                //   border: 1px solid #eee;
+                //   background: #f5f5f5;
+                //   cursor: pointer;
+                //   画像編集用
+                // }
+                .delete-box {
+                  color: #00b0ff;
+                  width: 100%;
+                  height: 50px;
+                  line-height: 50px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          .label-content{
+            margin-bottom: 10px;
+            width: 620px;
+            .label-box {
+              display: block;
+              border: 1px dashed #ccc;
+              position: relative;
+              background: #f5f5f5;
+              width: 100%;
+              height: 162px;
+              cursor: pointer;
+              display: flex;
+              flex-direction: column;
+              text-align: center;
+              justify-content: center;
+              .fa-camera {
+                font-size: 20px;
+                margin-bottom: 20px;
+              }
+              &__text-visible {
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                right: 16px;
+                text-align: center;
+                font-size: 14px;
+                line-height: 1.5;
+                -webkit-transform: translate(0, -50%);
+                transform: translate(0, -50%);
+                pointer-events: none;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+              }
+            }
+          }
+          .hidden-content {
+            .hidden-field {
+              display: none;
+            }
+            .hidden-checkbox {
+              display: none;
+            }
           }
         }
       }
@@ -91,8 +176,6 @@
           }
         }
         &__InfoForm {          
-          &__FormLabel {
-          }
           &__FormArea {
             width: 620px;
             height: 154px;
@@ -130,8 +213,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputData__CategoryForm__FormLabel { 
-          }
           select {
             width: 620px;
             height: 48px;
@@ -173,8 +254,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputData__StatusSelect__FormLabel {
-          }
           select {
             width: 620px;
             height: 48px;
@@ -202,8 +281,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputSipping__DeliveryFee__FormLabel {
-          }
           select {
             width: 620px;
             height: 48px;
@@ -218,8 +295,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputSipping__ShippingOrigin__FormLabel {           
-          }
           select {
             width: 620px;
             height: 48px;
@@ -234,8 +309,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputSipping__ShippingDays__FormLabel {
-          }
           select {
             width: 620px;
             height: 48px;
@@ -369,7 +442,7 @@
         display: inline-block;
         width: 620px;
         height: 32px;
-        margin: 0 40px;
+        margin: 0 40px 80px 40px;
         font-size: 12px;
         font-weight: 400;
         color: #333333;
