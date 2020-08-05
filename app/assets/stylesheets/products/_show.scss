@@ -14,6 +14,7 @@
   .itemBox{
     background-color: #fff;
     padding: 24px 40px 40px 40px;
+    margin-bottom: 10px;
     width: 700px;
     height: 1200px;
     &__title{
@@ -123,7 +124,25 @@
       }
     }
   }
-
+  .productRevisedInfo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
+    font-size: 18px;
+    &__delete, &__edit, &__buy{
+      line-height: 48px;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      width: 60%;
+      border-radius: 100px;
+      margin: 5px auto;
+      a{
+        color: #fff;
+      }
+    }
+  }
   .commentBox{
     background-color: #fff;
     padding: 24px;
@@ -155,7 +174,6 @@
           border: 1px solid #3CCACE;
           color: #fff;
           width: 60%;
-          font-size: 18px;
           border-radius: 100px;
         }
         .fas{
@@ -167,7 +185,6 @@
       }
     }
   }
-
   .links{
     display: flex;
     justify-content: space-between;
@@ -196,14 +213,41 @@
 
 .mottoLook2{
   width: 233px;
+  display: flex;
+  position: relative;
   cursor: pointer;
+  a{
+    color: #000;
+  }
+  .mottoSold{
+    width: 0;
+    height: 0;
+    border-top: 40px solid #ea352d;
+    border-right: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #ea352d;
+    position: absolute;
+    &__in{
+      transform: rotate(-45deg);
+      font-size: 15px;
+      margin: -35px 0 100px -55px;
+      padding: 20px 0 0 13px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  }
   .img-link{
+    width: 233px;
+    border-right: 1px solid #f8f8f8;
     display: flex;
     justify-content: center;
     height: 150px;
     background-color: pink;
   }
   .productList{
+    width: 233px;
+    border-right: 1px solid #f8f8f8;
     background-color: #fff;
     height: 95px;
     padding: 16px;
