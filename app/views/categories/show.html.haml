@@ -1,0 +1,18 @@
+.PostHeader
+  -if user_signed_in?
+    = render 'layouts/loginheader'
+  - else
+    = render 'layouts/header'  
+
+.products-container
+  .products-index
+    .title
+      = "#{@category.name}の商品一覧"
+      .title__border
+    - if @products
+      %ul.lists
+        = render "items/item", items: @products
+    = paginate @products
+
+.PostFooter
+  = render partial: 'layouts/footer'

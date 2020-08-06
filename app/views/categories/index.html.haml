@@ -1,0 +1,26 @@
+.PostHeader
+  -if user_signed_in?
+    = render 'layouts/loginheader'
+  - else
+    = render 'layouts/header'  
+    
+.Categories
+  .Categories__Title
+    カテゴリー一覧
+  .Categories__L1
+    - @parents.each do |level1|
+      .Categories__L1__Items
+      = link_to "#{level1.name}", category_path(level1), class: "Level1List"
+
+      .Categories__L2
+        - level1.children.each do |level2|
+          .Categories__L2__Items
+          = link_to "#{level2.name}", category_path(level2), class: "Level2List"
+
+          %div.Categories__L3
+            - level2.children.each do |level3|
+              .Categories__L3__Items
+              = link_to "#{level3.name}", category_path(level3), class: "Level3List"
+
+.PostFooter
+  = render partial: 'layouts/footer'

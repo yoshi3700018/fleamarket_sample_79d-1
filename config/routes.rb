@@ -41,4 +41,5 @@ Rails.application.routes.draw do
   
   resources :registration, only: [:index]
 
+  resources :categories, only: [:index, :show]
 end
