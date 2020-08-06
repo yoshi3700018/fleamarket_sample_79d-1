@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create(product_params)
     if @product.save
-      @product.update(shipping_status: 1)
       redirect_to root_path
     else
       render :new
