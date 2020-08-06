@@ -55,6 +55,7 @@
             -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
             -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
             -# = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+          .InputData__SizeForm
             .InputData__SizeForm__FormLabel
               %label サイズ
               %span.red 必須
@@ -70,12 +71,14 @@
               %label 商品の状態
               %span.red 必須
             = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {class:"InputData__StatusForm__FormArea"}
+        .InputSipping
           %p 配送について
           .InputSipping__DeliveryFee
             .InputSipping__DeliveryFee__FormLabel
               %label 配送料の負担
               %span.red 必須
-            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}
+          .InputSipping__ShippingOrigin
             .InputSipping__ShippingOrigin__FormLabel
               %label 発送元の地域
               %span.red 必須
@@ -86,7 +89,7 @@
               %label 発送までの日数
               %span.red 必須
             = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-        .InputPrice__Price
+        .InputPrice
           %p 価格（¥300〜9,999,999）
           .InputPrice__LabelBox
             .InputPrice__LabelBox__Label
@@ -94,7 +97,7 @@
               %span.red 必須
             .InputPrice__LabelBox__InputPrice
               %span.YenLabel ￥
-              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--fild", placeholder: "0"
+              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--field", placeholder: "0"
           -# .InputPrice__TaxBox
           -#   .InputPrice__TaxBox__Tax 販売手数料（10%）
           -#   %span.Tax ー
