@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
 
   def index
-    @parents = Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil )
   end
 
   def show
     @category = Category.find(params[:id])
-    @products = @category.set_products
-    @products = @products.where(shipping_status: nil).order("created_at_DESC").page(params[:page]).per(9)
+    # @products = @category.set_products
+    # @products = @products.where(shipping_status: nil).order("created_at_DESC").page(params[:page]).per(9)
   end
   
   def set_products

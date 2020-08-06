@@ -4,15 +4,13 @@
   - else
     = render 'layouts/header'  
 
-.products-container
-  .products-index
-    .title
+.ProductsContainer
+  .ProductsIndex
+    .Title
       = "#{@category.name}の商品一覧"
-      .title__border
     - if @products
       %ul.lists
-        = render "items/item", items: @products
-    = paginate @products
+        
 
 .PostFooter
   = render partial: 'layouts/footer'
