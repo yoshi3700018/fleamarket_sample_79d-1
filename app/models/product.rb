@@ -3,10 +3,10 @@ class Product < ApplicationRecord
 
   belongs_to_active_hash :country
 
-  validates :pname, :explanation, :price, :images, presence: true
-  # validates :category_id, :status, 
-  # :deliver,
-  # :shipping_dates, numericality: { other_than: 0}
+  validates :pname, :explanation, :price, :images,
+  :category_id, :status, 
+  :deliver, :prefecture,
+  :shipping_dates, presence: true
 
 
   belongs_to :user
