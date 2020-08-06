@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      binding.pry
+      # binding.pry
       render :new
     end
   end
@@ -89,7 +89,7 @@ class ProductsController < ApplicationController
       :category_id, :brand_id, 
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
-      :price, :users_id, 
+      :price,
       images_attributes: {image: []})
   end
 
