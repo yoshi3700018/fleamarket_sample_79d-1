@@ -101,9 +101,9 @@ class ProductsController < ApplicationController
   end
 
   # いいね機能を取り扱った福本さんの方とパラメータの定義が異なる可能性、ひとまずSHOW画面に表示させるための定義、マージ時確認
-  def set_product
-    # @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   # @product = Product.find(params[:id])
+  # end
 
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
