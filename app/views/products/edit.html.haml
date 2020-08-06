@@ -35,7 +35,7 @@
     .ProductEdit__Contents
       %label ブランド:
       %span.red 必須
-      -# = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+      = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
     .ProductEdit__Contents 
       %label 商品の状態:
       %span.red 必須

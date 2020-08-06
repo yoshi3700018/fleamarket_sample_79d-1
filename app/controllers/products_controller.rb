@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
       @product.update(shipping_status: 1)
       redirect_to root_path
     else
+      binding.pry
       render :new
     end
   end
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
 
   def show
     # @items = Item.find(params[:id])
+    @product = Product.find(params[:id])
     @products = Product.all.limit(3)
   end
 
