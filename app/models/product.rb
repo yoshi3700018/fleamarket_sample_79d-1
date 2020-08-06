@@ -3,10 +3,10 @@ class Product < ApplicationRecord
 
   belongs_to_active_hash :country
 
-  validates :pname, :explanation, :price, :images, :prefecture, presence: true
-  validates :category_id, :status, 
-  :deliver,
-  :shipping_dates, numericality: { other_than: 0}
+  validates :pname, :explanation, :price, :images, presence: true
+  # validates :category_id, :status, 
+  # :deliver,
+  # :shipping_dates, numericality: { other_than: 0}
 
 
   belongs_to :user
@@ -17,21 +17,21 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   enum brand_id: {
-    "シャネル": 0, "グッチ": 1, "プラダ": 2, "エルメス": 3, "バレンシアガ": 4, "フェンディ": 5, "ボッテガ・ヴェネタ": 6,
-    "ヴァレンチノ": 7, "サン・ローラン": 8, "アルマーニ": 9, "その他": 10 
+    "グッチ": 1, "プラダ": 2, "エルメス": 3, "バレンシアガ": 4, "フェンディ": 5, "ボッテガ・ヴェネタ": 6,
+    "ヴァレンチノ": 7, "サン・ローラン": 8, "アルマーニ": 9,  "シャネル": 10, "その他": 11 
     # ブランド名は自由に記載してください
   }
   enum size_id: {
-    "XXS以下": 0, "XS(SS)": 1, "S": 2, "M": 3, "L": 4, "XL(LL)": 5,
-    "2XL(3L)": 6, "3XL(4L)": 7, "4XL(5L)以上": 8, "FREESIZE": 9
+    "XXS以下": 1, "XS(SS)": 2, "S": 3, "M": 4, "L": 5, "XL(LL)": 6,
+    "2XL(3L)": 7, "3XL(4L)": 8, "4XL(5L)以上": 9, "FREESIZE": 10
   }
   # enum size_id: {"23.0cm以下": 10, "23.0cm": 11, "23.5cm": 12, "24.0cm": 13, "24.5cm": 14, 
   #   "25.0cm": 15, "25.5cm": 16, "26.0cm": 17, "26.5cm": 18, "27.0cm": 19, "27.5cm以上": 20
   #   # 子供用サイズは別にするか、一緒にするかjsのコードを作り組む上でも検討したい点
   # }
-  enum status: {"新品・未使用": 0, "未使用に近い": 1,"目立った傷や汚れなし":2,"やや傷や汚れあり":3,"傷や汚れあり":4,"全体的に状態が悪い":5}
-  enum deliver: {"送料込み（出品者負担）":0, "着払い（購入者負担）":1}
-  enum shipping_date: {"1~2日で発送":0,  "2〜3日で発送":1,"4〜7日で発送":2}
+  enum status: {"新品・未使用": 1, "未使用に近い": 2,"目立った傷や汚れなし":3,"やや傷や汚れあり":4,"傷や汚れあり":5,"全体的に状態が悪い":6}
+  enum deliver: {"送料込み（出品者負担）":1, "着払い（購入者負担）":2}
+  enum shipping_date: {"1~2日で発送":1,  "2〜3日で発送":2,"4〜7日で発送":3}
   enum prefecture:{
     "北海道":1,"青森県":2,"岩手県":3,"宮城県":4,"秋田県":5,"山形県":6,"福島県":7,
     "茨城県":8,"栃木県":9,"群馬県":10,"埼玉県":11,"千葉県":12,"東京都":13,"神奈川県":14,
