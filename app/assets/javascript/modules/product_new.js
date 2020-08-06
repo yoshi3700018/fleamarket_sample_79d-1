@@ -1,95 +1,94 @@
-$(function() {
-  // カテゴリーセレクトオプションを作成する
-  function appendOption(category) {
-    let html = 
-      `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
-    return html;
-  };
-  // level2(子)の表示領域を定義する
-  function appendLevel2(insertHTML) {
-    var level2Html
-    level2Html = `<div class="SelectCategory" id="Level2">
-                    <select class="Select_Default" id="Level2_Form">
-                      <option value="---" data-category="---">選択してください</option>
-                      ${insertHTML}
-                    </select>
-                  </div>
-                `;
-    $('#Level2').append(level2Html);
-  };
-  // level3(孫)の表示領域を定義する
-  function appendLevel3(insertHTML) {
-    var level3Html
-    level3Html = `<div class="SelectCategory" id="Level3">
-                    <select class="Select_Default" id="Level3_Form">
-                      <option value="---" data-category="---">選択してください</option>
-                      ${insertHTML}
-                    </select>
-                  </div>
-                `;
-    $('#Level3').append(level3Html);
-  };
+$(document).on('turbolinks:load', function(){
+  $(function(){
 
-  // カテゴリーグループ２層を表示する発火条件を定義
-  $("#Level1_Form").on("change", function() {
-    var value1 = $("#Level1_Form").val();
-    if (value1 != "") {
-      $.ajax({
-        type  : 'GET',
-        url   :  '/products/search_level2',
-        data  : { 
-          level1_id: value1
-        },
-        dataType: 'json'
-      })
-      .done(function(level2) {
-        $("#Level2").empty();
-        $("#Level3").empty();
-        // サイズ表示領域を追加する場合の定義を追加するか？ Active_Hashを使うか?
-        var insertHTML = '';
-        level2.forEach(function(child) {
-          insertHTML += appendOption(child);
-        });
-        appendLevel2(insertHTML);
-        $('#Level1').prop("disabled", false);
-      })
-      .fail(function() {
-        alert("カテゴリーを選択してください");
-      });
-    } else {
-      $('#Level2').remove();
-      $('#Level1').prop("disabled", false);
+    //プレビューのhtmlを定義
+    function buildHTML(count) {
+      var html = `<div class="preview-box" id="preview-box__${count}">
+                    <div class="upper-box">
+                      <img src="" alt="preview">
+                    </div>
+                    <div class="lower-box">
+                      <div class="delete-box" id="delete_btn_${count}">
+                        <span>削除</span>
+                      </div>
+                    </div>
+                  </div>`
+      return html;
     }
+
+    // ラベルのwidth操作
+    function setLabel() {
+      //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
+      var prevContent = $('.label-content').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.label-content').css('width', labelWidth);
+    }
+
+    // プレビューの追加
+    $(document).on('change', '.hidden-field', function() {
+      setLabel();
+      //hidden-fieldのidの数値のみ取得
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      //labelボックスのidとforを更新
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      //選択したfileのオブジェクトを取得
+      var file = this.files[0];
+      var reader = new FileReader();
+      //readAsDataURLで指定したFileオブジェクトを読み込む
+      reader.readAsDataURL(file);
+      //読み込み時に発火するイベント
+      reader.onload = function() {
+        var image = this.result;
+        //プレビューが元々なかった場合はhtmlを追加
+        if ($(`#preview-box__${id}`).length == 0) {
+          var count = $('.preview-box').length;
+          var html = buildHTML(id);
+          //ラベルの直前のプレビュー群にプレビューを追加
+          var prevContent = $('.label-content').prev();
+          $(prevContent).append(html);
+        }
+        //イメージを追加
+        $(`#preview-box__${id} img`).attr('src', `${image}`);
+        var count = $('.preview-box').length;
+        //プレビューが5個あったらラベルを隠す 
+        if (count == 5) { 
+          $('.label-content').hide();
+        }
+
+        //ラベルのwidth操作
+        setLabel();
+        //ラベルのidとforの値を変更
+        if(count < 5){
+          //プレビューの数でラベルのオプションを更新する
+          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+        }
+      }
+    });
+
+    // 画像の削除
+    $(document).on('click', '.delete-box', function() {
+      var count = $('.preview-box').length;
+      setLabel(count);
+      //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      //取得したidに該当するプレビューを削除
+      $(`#preview-box__${id}`).remove();
+      console.log("new")
+      //フォームの中身を削除 
+      $(`#item_images_attributes_${id}_image`).val("");
+
+      //削除時のラベル操作
+      var count = $('.preview-box').length;
+      //5個めが消されたらラベルを表示
+      if (count == 4) {
+        $('.label-content').show();
+      }
+      setLabel(count);
+
+      if(id < 5){
+        //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
+        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      }
+    });
   });
-  // カテゴリーグループ3層を表示する発火条件を定義
-  $(".InputData__CategoryForm").on("change", "#Level2_Form", function() {
-    var value2 = $("#Level2_Form option:selected").data("category");
-    if (value2 != "") {
-      $.ajax({
-        type  : 'GET',
-        url   : '/products/search_level3',
-        data  : {
-          level2_id: value2
-        },
-        dataType: 'json'
-      })
-      .done(function(level3) {
-        var insertHTML = '';
-        level3.forEach(function(level3) {
-          insertHTML += appendOption(level3);
-        });
-        appendLevel3(insertHTML);
-        $('#Level1').prop("disabled", false);
-        $('#Level2').prop("disabled", false);
-      })
-      .fail(function() {
-        alert('第二カテゴリが選択されていません');
-      })
-    } else {
-      $('#Level2').remove();
-      $('#Level3').remove();
-      $('#Level1').prop("disabled", false);
-      $('#Level2').prop("disabled", false);
-    };
-  });
-});
+})
