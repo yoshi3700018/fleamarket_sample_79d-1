@@ -114,7 +114,6 @@
             .label-box {
               display: block;
               border: 1px dashed #ccc;
-              position: relative;
               background: #f5f5f5;
               width: 100%;
               height: 162px;
@@ -125,11 +124,11 @@
               justify-content: center;
               .fa-camera {
                 font-size: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 display: block;
               }
               &__text-visible {
-                position: absolute;
+                display: block;
                 top: 50%;
                 left: 16px;
                 right: 16px;
@@ -198,7 +197,7 @@
         }
       }
       .InputData {
-        height: 444px;
+        height: 100%;
         padding: 40px;
         border-bottom: 1px solid rgb(245, 245, 245);
         display:flex;
@@ -208,14 +207,14 @@
           color: #888888;
           font-size: 14px;
           text-align: left;
+          margin-bottom: 30px;
         }
-        .InputData__CategoryForm {
+        &__CategoryForm {
           width: 620px;
+          margin-bottom: 10px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputData__CategoryForm__FormLabel { 
-          }
           .SelectCategory {
             margin-top: 10px;
           }
@@ -229,14 +228,30 @@
             border: 1px solid #ccc;
             border-radius: 4px;
           }
-
         }
-        .InputData__BrandForm {
+        .InputData__SizeForm {
           width: 620px;
+          height: 83px;
+          margin-bottom: 30px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputData__BrandForm__FormLabel {
+          .InputData__SizeForm__FormArea {
+            width: 620px;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+        .InputData__BrandForm {
+          width: 620px;
+          height: 83px;
+          margin-bottom: 30px;
+          display:flex;
+          flex-flow: column;
+          justify-content:space-between;
+          &__FormLabel {
             .gray {
               background-color: #bfbfbf;
               color: rgb(255, 255, 255);
@@ -251,6 +266,7 @@
           }
           .InputData__BrandForm__FormArea {
             width: 620px;
+            height: 48px;
             padding: 0 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -258,6 +274,7 @@
         }
         .InputData__StatusSelect {
           width: 620px;
+          height: 83px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
@@ -282,7 +299,7 @@
           font-size: 14px;
           text-align: left;
         }
-        .InputSipping__DeliveryFee {
+        &__DeliveryFee {
           width: 620px;
           height: 83px;
           display:flex;
@@ -296,7 +313,7 @@
             border-radius: 4px;
           }
         }
-        .InputSipping__ShippingOrigin {
+        &__ShippingOrigin {
           width: 620px;
           height: 83px;
           display:flex;
@@ -310,7 +327,7 @@
             border-radius: 4px; 
           }
         }
-        .InputSipping__ShippingDays {
+        &__ShippingDays {
           width: 620px;
           height: 83px;
           display:flex;
@@ -325,7 +342,7 @@
           }
         }
       }
-      .InputPrice__Price{
+      .InputPrice {
         height: 270px;
         padding: 40px 40px 0;
         p {
@@ -335,7 +352,7 @@
           margin-bottom: 24px;
           text-align: left;
         }
-        .InputPrice__LabelBox {
+        &__LabelBox {
           width: 620px;
           height: 58px;
           padding-bottom: 12px;
@@ -344,7 +361,7 @@
           &__Label {
             line-height: 48px;
           }
-          .InputPrice__LabelBox__InputPrice {
+          &__InputPrice {
             width: 307px;
             height: 48px;
             .YenLabel {
@@ -352,7 +369,7 @@
               line-height: 48px;
               text-align: right;
             }
-            .InputPrice__LabelBox__InputPrice--fild {
+            .InputPrice__LabelBox__InputPrice--field {
               width: 285px;
               height: 48px;
               padding: 0 16px;
@@ -362,9 +379,8 @@
             }
           }
         }
-        .InputPrice__TaxBox {
+        &__TaxBox {
           width: 620px;
-
           padding: 12px 0;
           color: #333333;
           display: flex;
@@ -379,7 +395,7 @@
             line-height: 46px;
           }
         }
-        .InputPrice__ProfitBox {
+        &__ProfitBox {
           width: 620px;
           height: 58px;
           padding-top: 12px;
@@ -405,7 +421,7 @@
         display:flex;
         flex-flow: column;
         justify-content:space-between;
-        .InputSubmit__Exhibition__Button {
+        &__Exhibition__Button {
           width: 360px;
           height: 48px;
           padding: 0 24px;
@@ -421,7 +437,7 @@
           -moz-appearance: none;
           appearance: none;
         }
-        .InputSubmit__Save__Button {
+        &__Save__Button {
           width: 360px;
           height: 48px;
           padding: 0 24px;
@@ -495,15 +511,4 @@
     }  
   }
 // -----↑フッター-----
-}
-
-
-// 共通のセレクトフォーム
-#SelectFormOption {
-  width: 620px;
-  height: 48px;
-  padding: 0 56px 0 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
 }
