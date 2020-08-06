@@ -95,7 +95,7 @@ class ProductsController < ApplicationController
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
       :price, :users_id, 
-      images_attributes: {image: []})
+      images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 
