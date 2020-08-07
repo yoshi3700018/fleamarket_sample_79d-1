@@ -5,16 +5,15 @@
   .showMain
     .itemBox
       .itemBox__title
-        %span
-          = @product.pname
+        = @product.pname
       .itemBox__image
         .itemBox__image__top
           .img1
-        %ul.itemBox__image__bottom
-          %li.img-left
-            -# = @product.images[0].image
-          %li.img-right
-            -# = @product.images[0].image
+            = image_tag @product.images[0].image.url, size:"560x346"
+        .itemBox__image__bottom
+          .img2-5
+            - @product.images[1..4].each do |img|
+              = image_tag img.image.url, size:"140x87"
       .itemBox__price
         ¥
         = @product.price
@@ -28,11 +27,14 @@
             %th 出品者
             %td
               = @product.user.nickname
-              = link_to '#'
           %tr
             %th カテゴリー
             %td 
               = @product.category.name
+              -# %br
+              -# = @product.category.name
+              -# %br
+              -# = @product.category.name
           %tr
             %th ブランド
             %td
@@ -74,6 +76,7 @@
       - else
         .productRevisedInfo__buy
           = link_to "購入画面に進む"
+          -# 高橋さんお願いします。
     .commentBox
       .commentBox__contents
         .textarea
@@ -84,7 +87,8 @@
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .form
-          %input.form__submit{type: 'submit', value: 'コメントする'}
+          -# '　　'で位置調整しています
+          %input.form__submit{type: 'submit', value: '　　コメントする'}
           = icon('fas', 'comment')
     .links
       .front-back
@@ -93,16 +97,17 @@
         = link_to '後ろの商品 >', '#'
     .mottoLook
       .mottoLook__link
-        = link_to 'もっと見る', '#'
+        = @product.category.name
+        = link_to 'をもっと見る', '#'
       .mottoLook2
         - @products.each do |product|
           - if product.shipping_status.present?
-            = link_to '#' do
+            = link_to product_path(product) do
               .mottoSold
                 .mottoSold__in
                   SOLD
               .img-link
-                = product.images[0].image
+                = image_tag product.images[0].image.url, size:"233x150"
               .productList
                 .name
                   = product.pname
@@ -114,9 +119,9 @@
                     0
                 .tax (税込)
           - else
-            = link_to '#' do
+            = link_to product_path(product) do
               .img-link
-                = product.images[0].image
+                = image_tag product.images[0].image.url, size:"233x150"
               .productList
                 .name
                   = product.pname
