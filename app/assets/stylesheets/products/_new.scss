@@ -79,10 +79,17 @@
               .upper-box {
                 height: 112px;
                 width: 100%;
-                text-align: center;
+                position:relative;
                 img{
-                  width: 112px;
-                  height: 112px;
+                  position:absolute;
+                  top: 50%;
+                  left: 50%;
+                  -webkit-transform : translate(-50%,-50%);
+                  transform : translate(-50%,-50%);
+                  width: auto;
+                  height: auto;
+                  max-width: 112px;
+                  max-height: 112px;
                 }
               }
               .lower-box {
