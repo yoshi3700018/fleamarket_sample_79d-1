@@ -92,7 +92,7 @@ class ProductsController < ApplicationController
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
       :price, :users_id, 
-      images_attributes: {image: []})
+      images_attributes: [:image])
   end
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義

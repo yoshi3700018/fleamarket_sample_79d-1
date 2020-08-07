@@ -52,7 +52,16 @@
         padding: 0 4px;
         margin-left: 8px;
       }
-      .InputPhoto {
+      .Edit-Head {
+        height: 97px;
+        font-size: 22px;
+        font-weight: 1000;
+        line-height: 1.5;
+        text-align: center;
+        padding: 32px 16px;
+        border-bottom: 1px solid rgb(245, 245, 245);
+      }
+      .EditPhoto {
         height: 100%;
         padding: 40px;
         border-bottom: 1px solid rgb(245, 245, 245);
@@ -150,7 +159,7 @@
           }
         }
       }
-      .InputInfo {
+      .EditInfo {
         height: 416px;
         padding: 40px;
         border-bottom: 1px solid rgb(245, 245, 245);
@@ -173,7 +182,7 @@
             border-radius: 4px;
           }
         }
-        &__InfoForm {          
+        &__InfoForm {
           &__FormArea {
             width: 620px;
             height: 154px;
@@ -181,15 +190,6 @@
             padding: 13px 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
-          }
-          p {
-            color: #888888;
-            width: 620px;
-            height: 16px;
-            font-weight: 400;
-            margin-top: 10px;
-            text-align: right;
-            line-height: 1.4em;
           }
         }
       }
@@ -226,14 +226,14 @@
             border-radius: 4px;
           }
         }
-        .InputData__SizeForm {
+        &__SizeForm {
           width: 620px;
           height: 83px;
           margin-bottom: 30px;
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          .InputData__SizeForm__FormArea {
+          &__FormArea {
             width: 620px;
             height: 48px;
             padding: 0 16px;
@@ -241,7 +241,7 @@
             border-radius: 4px;
           }
         }
-        .InputData__BrandForm {
+        &__BrandForm {
           width: 620px;
           height: 83px;
           margin-bottom: 30px;
@@ -284,7 +284,7 @@
           }
         }
       }
-      .InputSipping {
+      .EditSipping {
         height: 444px;
         padding: 40px;
         border-bottom: 1px solid rgb(245, 245, 245);
@@ -339,7 +339,7 @@
           }
         }
       }
-      .InputPrice {
+      .EditPrice {
         height: 270px;
         padding: 40px 40px 0;
         p {
@@ -366,7 +366,7 @@
               line-height: 48px;
               text-align: right;
             }
-            .InputPrice__LabelBox__InputPrice--field {
+            .EditPrice__LabelBox__InputPrice--field {
               width: 285px;
               height: 48px;
               padding: 0 16px;
@@ -410,22 +410,23 @@
           }
         }
       }
-      .InputSubmit {
-        width: 360px;
-        height: 164px;
-        margin: 32px 170px;
+      .EditSubmit {
+        width: 700px;
+        height: 245px;
+        padding: 40px;
         text-align:center;
         display:flex;
         flex-flow: column;
         justify-content:space-between;
         &__Exhibition__Button {
-          width: 360px;
+          width: 620px;
           height: 48px;
           padding: 0 24px;
+          margin-top: 40px;
           border-radius: 4px;
           background-color: #ea352d;
           color: #ffffff;
-          font-size: 17px;
+          font-size: 14px;
           line-height: 48px;
           cursor: pointer;
           border: none;
@@ -435,14 +436,14 @@
           appearance: none;
         }
         &__Save__Button {
-          width: 360px;
-          height: 48px;
+          width: 279px;
+          height: 50px;
           padding: 0 24px;
-          margin-top: 24px;
+          margin: 24px 170.5px 0;
           border-radius: 4px;
-          background-color: #cccccc;
-          color: #222222;
-          font-size: 17px;
+          background-color: #aaaaaa;
+          color: #ffffff;
+          font-size: 14px;
           line-height: 48px;
           cursor: pointer;
           border: none;
@@ -450,12 +451,6 @@
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
-        }
-        a {
-          font-size: 14px;
-          display: block;
-          text-decoration: none;
-          color: #0095ee;
         }
       }
       .Precautions {
