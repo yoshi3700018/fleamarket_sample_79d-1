@@ -16,7 +16,7 @@
     padding: 24px 40px 40px 40px;
     margin-bottom: 10px;
     width: 700px;
-    height: 1200px;
+    height: 1250px;
     &__title{
       display: block;
       text-align: center;
@@ -36,7 +36,6 @@
           justify-content: center;
           width: 560px;
           height: 346px;
-          background-color: #ff7900;
         }
       }
       &__bottom{
@@ -44,18 +43,13 @@
         justify-content: center;
         margin-top: 10px;
         height: 87px;
-        .img-left{
-          display: flex;
-          justify-content: center;
-          margin-right: 10px;
-          width: 140px;
-          background-color: #77ff99;
-        }
-        .img-right{
+        .img2-5{
           display: flex;
           justify-content: center;
           width: 140px;
-          background-color: #0000ff;
+          img{
+            margin: 0 5px;
+          }
         }
       }
     }
@@ -204,10 +198,14 @@
     font-weight: bold;
     font-size: 22px;
     position: relative;
+    color: #3CCACE;
     a{
       color: #3CCACE;
       text-decoration: none;
     }
+  }
+  .mottoLook__link:hover{
+    cursor: pointer;
   }
 }
 
@@ -215,7 +213,6 @@
   width: 233px;
   display: flex;
   position: relative;
-  cursor: pointer;
   a{
     color: #000;
   }
@@ -243,7 +240,6 @@
     display: flex;
     justify-content: center;
     height: 150px;
-    background-color: pink;
   }
   .productList{
     width: 233px;
@@ -261,4 +257,8 @@
       font-weight: bold;
     }
   }
+}
+
+.mottoLook2 a:hover{
+  opacity: 0.6;
 }
