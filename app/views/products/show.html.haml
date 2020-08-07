@@ -13,7 +13,7 @@
         .itemBox__image__bottom
           .img2-5
             - @product.images[1..4].each do |img|
-              = image_tag img.image.url
+              = image_tag img.image.url, size:"140x87"
       .itemBox__price
         ¥
         = @product.price
