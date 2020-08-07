@@ -1,4 +1,3 @@
-// -----↓ヘッダー-----
 header {
   height: 128px;
   width: 100%;
@@ -7,7 +6,6 @@ header {
   align-items: center;
   justify-content: center;
 }
-// -----↑ヘッダー-----
 .Main {
   background-color: rgb(245, 245, 245);
 }
@@ -128,7 +126,6 @@ header {
       -webkit-box-pack: justify;
       justify-content: space-between;
       margin-bottom: 16px;
-      // display: table;
       display: inline;
       &__Method {
         font-size: 14px;
@@ -171,7 +168,6 @@ header {
     }
   }
 }
-// -----↓フッター-----
 footer {
   height: 220px;
   width: 100vw;
@@ -204,4 +200,3 @@ footer {
     color: #333333;
   }  
 }
-// -----↑フッター-----
