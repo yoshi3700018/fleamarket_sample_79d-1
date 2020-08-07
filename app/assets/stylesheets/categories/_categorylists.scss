@@ -1,0 +1,95 @@
+.CategoriesI {
+  padding-bottom: 10px;
+  .Ancestry {
+    position: absolute;
+    height: 650px;
+    width: 250px;
+    background-color:white;
+    border-radius: 8px;
+  }
+
+  .CategoryI {
+    transition: all 3s ease-in-out;
+    &__Level1, &__Level2, &__Level3 {
+      display: none;
+      z-index: 500;
+    }
+    &__Level2--Name {
+      width: 100%;
+      color: black;
+      display: inline-block;
+      padding: 3px 25px;
+      transition: all 0.6s ease-in-out;
+    }
+    
+  }
+}
+.CategoriesI:hover{
+  .CategoryI__Level1 {
+    top: 100px;
+    display: block;
+    z-index: 2147483647;
+    &--Name {
+      width: 100%;
+      color: black;
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 1em;
+      font-weight: 600;
+      transition: all 0.6s ease-in-out;
+    }
+    &--Name:hover {
+      color: black;
+      text-shadow: .8px .8px white;
+      font-weight: bold;
+      padding-left: 30px;
+      background: #e3ae57;
+      opacity: .5;
+      border-radius: 15px;
+    }
+    li:hover {
+      .CategoryI__Level2 {
+        width: 100%;
+        display: block;
+        top: 0;
+        left: 249px;
+        &--Name:hover {
+          color: #333333;
+          text-shadow: .8px .8px white;
+          font-size: 1.1em;
+          font-weight: 800;
+          padding-left: 30px;
+          background: #e3ae57;
+          opacity: .5;
+          border-radius: 15px;
+        }
+        li:hover {
+          .CategoryI__Level3 {
+            width: 300px;
+            display: block;
+            top: 0;
+            left: 249px;
+            &--Name {
+              width: 100%;
+              color: black;
+              display: inline-block;
+              padding: 10px 15px;
+              font-size: 1em;
+              transition: all 0.6s ease-in-out;
+            }
+            &--Name:hover {
+              color: #333333;
+              text-shadow: .8px .8px white;
+              font-size: 1.1em;
+              font-weight: 800;
+              padding-left: 30px;
+              background: #e3ae57;
+              opacity: .5;
+              border-radius: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,13 @@
-.PostHeader
-  -if user_signed_in?
-    = render 'layouts/loginheader'
-  - else
-    = render 'layouts/header'  
+= render 'layouts/header'  
 
-.ProductsContainer
-  .ProductsIndex
-    .Title
+.CategoriesP
+  .Categoriesp__Index
+    .CategoriesP__Index__Title
       = "#{@category.name}の商品一覧"
-    - if @products
-      %ul.lists
-        
-
+    .CategoriesP__Index__Pict
+      = link_to product_path(@product) do
+        .Pict
+        = image_tag @product.images
+    
 .PostFooter
   = render partial: 'layouts/footer'

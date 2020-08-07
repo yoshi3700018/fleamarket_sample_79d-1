@@ -1,0 +1,22 @@
+.CategoriesI
+  %ul
+    %li.catBtn
+      = link_to categories_path, class: "Navigation_Category" do
+        %i.fas.fa-book
+          カテゴリー
+  %ul.CategoryI__Level1.Ancestry
+    - @category_level1.each do |level1| 
+      %li
+        = link_to "#", class: "CategoryI__Level1--Name" do
+          = level1.name
+        %ul.CategoryI__Level2.Ancestry
+          - level1.children.each do |level2|
+            %li
+              = link_to "#", class: "CategoryI__Level2--Name" do
+                = level2.name
+              %ul.CategoryI__Level3.Ancestry
+                - level2.children.each do |level3|
+                  %li
+                    = link_to "#", id: "CategoryI__Level3--Name" do
+                      = level3.name 
+                      
