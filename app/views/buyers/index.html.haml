@@ -16,7 +16,7 @@
           .DetailsBox 
             .PhotoItem
               %figure.Photo
-                %img{ src: "/assets/suits.jpg", alt: "画像", class: "Photo__ProductImg" }
+                = image_tag @product.images[0].image.url, size: '64x64'
             .DentailsItem
               %p.DentailsItem__ItemName 
                 = @product.pname
