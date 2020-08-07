@@ -87,11 +87,11 @@ class ProductsController < ApplicationController
     params.require(:product).permit(
       :pname, :explanation, 
       :status, :size_id, 
-      :category_id, :brand_id, 
+      :category_id, :brand, 
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
-      :price, :users_id, 
-      images_attributes: [:image])
+      :price,
+      images_attributes: [:image, :_destroy, :id])
   end
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
