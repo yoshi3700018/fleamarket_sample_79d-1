@@ -1,7 +1,7 @@
 @import "reset";
 @import "products/new";
+@import "cards/index";
 @import "products/edit";
-@import "products/confirm";
 @import "products/show";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -10,6 +10,8 @@
 @import "users/show";
 @import "layouts/header";
 @import "layouts/footer";
+@import "cards/new";
+@import "cards/show";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -45,9 +45,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def confirm
-  end
-
   def top
   end
 
