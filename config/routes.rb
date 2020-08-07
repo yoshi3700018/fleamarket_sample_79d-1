@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       end
     end
     collection do
-      get 'confirm'
       get 'search_level2', defaults: { format: 'json'}
       get 'search_level3', defaults: { format: 'json'}
     end

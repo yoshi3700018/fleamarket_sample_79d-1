@@ -45,15 +45,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # def confirm
-  #   card = Card.find_by(user_id: current_user.id)
-  #   if card
-  #     Payjp.api_key = Rails.application.credentials.development[:PAYJP_PRIVATE_KEY]
-  #     customer = Payjp::Customer.retrieve(card.customer_id)
-  #     @default_card_information = customer.cards.retrieve(card.card_id)
-  #   end
-  # end
-
   def top
   end
 
@@ -99,12 +90,6 @@ class ProductsController < ApplicationController
       :price, :users_id, 
       images_attributes: [:image]).merge(user_id: current_user.id)
   end
-
-  # いいね機能を取り扱った福本さんの方とパラメータの定義が異なる可能性、ひとまずSHOW画面に表示させるための定義、マージ時確認
-  # def set_product
-  #   # @product = Product.find(params[:id])
-  # end
-
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
   def set_category
