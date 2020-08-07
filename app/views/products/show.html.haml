@@ -107,7 +107,7 @@
                 .mottoSold__in
                   SOLD
               .img-link
-                = image_tag product.images[0].image.url, size:"233x150"
+                = image_tag @product.images[0].image.url, size:"233x150"
               .productList
                 .name
                   = product.pname
@@ -121,7 +121,7 @@
           - else
             = link_to product_path(product) do
               .img-link
-                = image_tag product.images[0].image.url, size:"233x150"
+                = image_tag @product.images[0].image.url, size:"233x150"
               .productList
                 .name
                   = product.pname

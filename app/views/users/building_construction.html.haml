@@ -1,11 +1,126 @@
--if user_signed_in?
-  = render 'layouts/loginheader'
-- else
-  = render 'layouts/header'  
-.Pankuzu
-.Main
-  .Wrapper
-    .Container
-      = render 'sidebar'
-      .MainContents
-        %p このページは未だ作成中となります。ブラウザバックでお戻りください。
+-# = javascript_include_tag 'modules/product_new'
+
+-# - if @product.errors.any?
+  .SettingGroupForm__Errors
+    %ul
+      - @product.errors.full_messages.each do |message|
+        %li= message
+.Wrapper
+  %header
+    -# = render 'header'
+  .Main
+    .Contents
+      = form_with model: @product, local: true do |f|
+        .InputPhoto
+          .InputPhoto__FormLabel
+            %label 出品画像
+            %span.red 必須
+          %p 最大5枚までアップロードできます
+          .InputPhoto__DropArea
+            .prev-content
+            .label-content
+              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                %i.fas.fa-camera
+                %p.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |image|
+                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "item_images_attributes_0_image"
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+        .InputInfo
+          .InputInfo__NameForm
+            .InputInfo__NameForm__FormLabel 
+              %label 商品名
+              %span.red 必須
+            = f.text_field :pname, class: 'InputInfo__NameForm__FormArea', placeholder: '40文字まで'
+          .InputInfo__InfoForm
+            .InputInfo__InfoForm__FormLabel
+              %label 商品の説明
+              %span.red 必須
+            = f.text_area :explanation, class: 'InputInfo__InfoForm__FormArea', placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            %p 0/1000
+        .InputData
+          %p 商品の詳細
+          .InputData__CategoryForm
+            .InputData__CategoryForm__FormLabel
+              %label カテゴリー
+              %span.red 必須
+            .SelectCategory#Level1
+              -# = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
+            .SelectCategory#Level2
+            .SelectCategory#Level3
+            -# ↓の記述のcssは[select]タグ自体に設定されているので、↑はクラスメイトID名は大文字スネークケースで変更しています。JSもこれで組んでしまいますが問題ある様なら変更します
+            -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
+            -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
+            -# = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+            .InputData__SizeForm__FormLabel
+              %label サイズ
+              %span.red 必須
+            #Level4
+              = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, {class:"InputData__SizeForm__FormArea"}
+          .InputData__BrandForm
+            .InputData__BrandForm__FormLabel
+              %label ブランド
+              %span.gray 任意
+            = f.text_field :brand, class: 'InputData__BrandForm__FormArea', placeholder: '例）シャネル'
+          .InputData__StatusSelect
+            .InputData__StatusSelect__FormLabel
+              %label 商品の状態
+              %span.red 必須
+            = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {class:"InputData__StatusForm__FormArea"}
+          %p 配送について
+          .InputSipping__DeliveryFee
+            .InputSipping__DeliveryFee__FormLabel
+              %label 配送料の負担
+              %span.red 必須
+            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+            .InputSipping__ShippingOrigin__FormLabel
+              %label 発送元の地域
+              %span.red 必須
+            -# = f.collection_select :prefecture, Country.all, :id, :name,{prompt: "選択して下さい"}
+            = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+          .InputSipping__ShippingDays
+            .InputSipping__ShippingDays__FormLabel
+              %label 発送までの日数
+              %span.red 必須
+            = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+        .InputPrice__Price
+          %p 価格（¥300〜9,999,999）
+          .InputPrice__LabelBox
+            .InputPrice__LabelBox__Label
+              %label 販売価格
+              %span.red 必須
+            .InputPrice__LabelBox__InputPrice
+              %span.YenLabel ￥
+              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--fild", placeholder: "0"
+          -# .InputPrice__TaxBox
+          -#   .InputPrice__TaxBox__Tax 販売手数料（10%）
+          -#   %span.Tax ー
+          -# .InputPrice__ProfitBox 
+          -#   .InputPrice__ProfitBox__Profit 販売利益
+          -#   %span.Profit ー
+        .InputSubmit
+          = f.submit '変更する', class: 'InputSubmit__Exhibition__Button'
+          = f.submit '下書きに保存', class: 'InputSubmit__Save__Button'
+          %a= link_to "もどる", products_path
+        %p.Precautions
+          禁止されている
+          %a<>
+            = link_to "行為", "#"
+          および
+          %a<>
+            = link_to "出品物", "#"
+          を必ずご確認ください。
+          %a<>
+            = link_to "偽ブランド品", "#"
+          や
+          %a<>
+            = link_to "盗品物", "#"
+          などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+          %a<>
+            = link_to "加盟店規約", "#"
+          に同意したことになります。
+  %footer
+    -# = render 'footer'
