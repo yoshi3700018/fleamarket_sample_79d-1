@@ -75,7 +75,7 @@
           = link_to "商品の修正", edit_product_path(@product.id)
       - else
         .productRevisedInfo__buy
-          = link_to "購入画面に進む"
+          = link_to "購入画面に進む", product_buyers_path(@product.id)
           -# 高橋さんお願いします。
     .commentBox
       .commentBox__contents
