@@ -19,16 +19,16 @@
           .InputPhoto__DropArea
             .prev-content
             .label-content
-              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                 %i.fas.fa-camera
                 %p.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :images do |image|
-                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "item_images_attributes_0_image"
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "product_images_attributes_0_image"
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
         .InputInfo
           .InputInfo__NameForm
             .InputInfo__NameForm__FormLabel 
