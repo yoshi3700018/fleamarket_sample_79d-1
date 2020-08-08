@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # デバイスで処理できない登録部分などをまとめていく
   before_action :set_user, only: [:show, :edit, :profile, :profile_update, :logout]
+  # ユーザー情報登録画面作成時に
   # before_action :set_address, only: [:edit, :update]
 
   
@@ -49,4 +50,6 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
+  
 end

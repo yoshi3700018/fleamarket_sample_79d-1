@@ -1,6 +1,4 @@
-.post__header
-  = render partial: 'layouts/header'
-
+= render 'layouts/header'  
 .wrapper
   .showMain
     .itemBox
@@ -29,12 +27,12 @@
               = @product.user.nickname
           %tr
             %th カテゴリー
-            %td 
+            %td
+              = @product.category.parent.parent.name
+              %br/
+              = @product.category.parent.name
+              %br/
               = @product.category.name
-              -# %br
-              -# = @product.category.name
-              -# %br
-              -# = @product.category.name
           %tr
             %th ブランド
             %td

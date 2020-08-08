@@ -1,7 +1,4 @@
--if user_signed_in?
-  = render 'layouts/loginheader'
-- else
-  = render 'layouts/header'  
+= render 'layouts/header'  
 .Pankuzu
 .Main
   .Wrapper
@@ -11,4 +8,4 @@
         .MainContents__Logout
           = link_to destroy_user_session_path, method: :delete, class: 'LogoutBtn' do
             ログアウト
-            
+= render 'layouts/footer'
