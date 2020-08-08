@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
   before_action :set_category, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :item_sold?, only: [:show]
+
 
   def index
     @product = Product.all.limit(4).order(created_at: :desc)
@@ -47,9 +49,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def confirm
-  end
-
   def top
   end
 
@@ -89,11 +88,11 @@ class ProductsController < ApplicationController
     params.require(:product).permit(
       :pname, :explanation, 
       :status, :size_id, 
-      :category_id, :brand_id, 
+      :category_id, :brand, 
       :shipping_status, :deliver, 
       :prefecture, :shipping_dates, 
-      :price, :users_id, 
-      images_attributes: {image: []})
+      :price,
+      images_attributes: [:image, :_destroy, :id])
   end
 
   # # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
@@ -109,5 +108,11 @@ class ProductsController < ApplicationController
   # def set_category_level3
   #   @category_level3 = Category.find("#{params[:level2_id]}").children
   # end
+
+  def item_sold?
+    if @product.shipping_status.present?
+      redirect_to root_path
+    end
+  end
 
 end

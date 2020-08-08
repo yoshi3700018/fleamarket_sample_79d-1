@@ -1,0 +1,31 @@
+%header
+  = render 'products/header'
+.Main
+  %section.Container-1
+    .Content
+      .Content__Title 
+        %h1.Heading 購入完了しました
+  %section.Container-1
+    .Content
+      .DetailsBox 
+        .PhotoItem
+          %figure.Photo
+            = image_tag @product.images[0].image.url, size: '64x64'
+        .DentailsItem
+          %p.DentailsItem__ItemName 
+            = @product.pname
+          %p.ItemPrice
+            %span.ItemPrice__Tax 送料込み (税込)
+            %span.ItemPrice__Price 
+              ¥
+              = @product.price
+  %section.Container-1
+    .Content
+      .PaymentContent
+        %span.PaymentContent__Payment 支払い金額
+        %span.PaymentContent__PaymentPraice 
+          ¥
+          = @product.price
+      = link_to "トップページに戻る", root_path, class: 'PurchaseContent__BayBtn', type: "button"        
+  %footer
+    = render 'products/footer'

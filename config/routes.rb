@@ -17,9 +17,13 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products do
-
+    resources :buyers, only: [:index] do
+      collection do
+        post 'pay', to: 'buyers#pay'
+        get 'done', to: 'buyers#done'       
+      end
+    end
     collection do
-      get 'confirm'
       get 'search_level2', defaults: { format: 'json'}
       get 'search_level3', defaults: { format: 'json'}
     end
@@ -40,6 +44,10 @@ Rails.application.routes.draw do
   end
   
   resources :registration, only: [:index]
-
   resources :categories, only: [:index, :show]
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
 end

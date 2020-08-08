@@ -1,63 +1,110 @@
-.post__header
-  = render partial: 'layouts/header'
-
-.ProductEdit
-  %h1 ここはproduct#edit　商品情報の修正のページです
-  %h2 スタイルは設定していないので、対応お願いいたします。
-  = form_for @product,url:product_path, method: :patch do |f|
-    .PreviewImage
-      %label 出品画像プレビュー
-      %span.red 必須
-    .ProductEdit__Contents 
-      %label 商品名:
-      %span.red 必須
-      = f.text_field :pname, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 商品の説明:
-      %span.red 必須
-      = f.text_area :explanation
-    .ProductEdit__Contents 
-    -# -------product#newに設定されていたCategoryFormクラス以下を指定してJSを作っています。取り出す要素はクラスではなくIDで付け足したものですが
-    -# -------このクラス以下の変更を持って、発火する仕組みのため、クラス名は書き換えないでください。jsとproduct#newも変更する場合に限りOKです
-    -# -------スタイル設定上、どうしても必要な場合は、クラスを２重に設定するか、IDを設定して下さい。
-    .InputData__CategoryForm
-      .InputData__CategoryForm__FormLabel
-        %label カテゴリー
-        %span.red 必須
-      .SelectCategory#Level1
-        = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
-      .SelectCategory#Level2
-      .SelectCategory#Level3
-      -# -------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑クラス名の変更は付加のゾーン↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-----------------------------------------------------
-      %label サイズ:
-      %span.grey 任意
-      = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents
-      %label ブランド:
-      %span.red 必須
-      -# = f.select :brand_id,Product.brand_ids.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 商品の状態:
-      %span.red 必須
-      = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 発送量の負担:
-      %span.red 必須
-      = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 発送元の地域:
-      %span.red 必須
-      = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 発送までの日数:
-      %span.red 必須
-      = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-    .ProductEdit__Contents 
-      %label 販売価格:
-      %span.red 必須
-      %span.YenMark ¥
-      = f.number_field :price, {id:"SelectFormOption"}
-    .SubmitEdit
-      = f.submit "登録内容を変更する"
-    .CancelEdit
-      = link_to "修正内容を破棄する", :back
+.Wrapper
+  %header
+    = render 'header'
+  .Main
+    .Contents
+      = form_for @product,url:product_path, method: :patch do |f|
+        .Edit-Head
+          %h1 商品情報を入力
+        .EditPhoto
+          .EditPhoto__FormLabel
+            %label 出品画像
+            %span.red 必須
+          %p 最大5枚までアップロードできます
+          .EditPhoto__DropArea
+            .prev-content
+              - @product.images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn
+                        %span 削除
+            .label-content
+              = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |image|
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = image.file_field :image, class: "hidden-field"
+                = image.check_box:_destroy, class: "hidden-checkbox"
+              - @product.images.length.upto(4) do |image|
+                %input{name: "product[images_attributes][#{image}][image]", id: "product_images_attributes_#{image}_image", class:"hidden-field", type:"file"}
+        .EditInfo
+          .EditInfo__NameForm
+            .EditInfo__NameForm__FormLabel 
+              %label 商品名
+              %span.red 必須
+            = f.text_field :pname, class: 'InputInfo__NameForm__FormArea'
+          .EditInfo__InfoForm
+            .EditInfo__InfoForm__FromLabel 
+              %label 商品の説明
+              %span.red 必須
+            = f.text_area :explanation, class: 'EditInfo__InfoForm__FormArea', placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .InputData
+          %p 商品の詳細
+          -# -------product#newに設定されていたCategoryFormクラス以下を指定してJSを作っています。取り出す要素はクラスではなくIDで付け足したものですが
+          -# -------このクラス以下の変更を持って、発火する仕組みのため、クラス名は書き換えないでください。jsとproduct#newも変更する場合に限りOKです
+          -# -------スタイル設定上、どうしても必要な場合は、クラスを２重に設定するか、IDを設定して下さい。
+          .InputData__CategoryForm
+            .InputData__CategoryForm__FormLabel
+              %label カテゴリー
+              %span.red 必須
+            .SelectCategory#Level1
+              = f.collection_select :category_id, @category_level1, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
+            .SelectCategory#Level2
+            .SelectCategory#Level3
+            -# -------↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑クラス名の変更は付加のゾーン↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-----------------------------------------------------
+          .InputData__SizeForm
+            .InputData__SizeForm__FormLabel
+              %label サイズ
+              %span.red 必須
+            = f.select :size_id,Product.size_ids.keys,{prompt: "選択してください"}, class: "InputData__SizeForm__FormArea"
+          .InputData__BrandForm
+            .InputData__BrandForm__FormLabel
+              %label ブランド
+              %span.red 必須
+            = f.select :brand,Product.brand_ids.keys,{prompt: "選択してください"}, class: "InputData__BrandForm__FormArea"
+          .InputData__StatusSelect
+            .InputData__StatusSelect__FormLabel
+              %label 商品の状態
+              %span.red 必須
+            = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+        .EditSipping
+          %p 配送について
+          .EditSipping__DeliveryFee
+            .EditSipping__DeliveryFee__FormLabel
+              %label 配送料の負担:
+              %span.red 必須
+            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+          .EditSipping__ShippingOrigin
+            .EditSipping__ShippingOrigin__FormLabel
+              %label 発送元の地域
+              %span.red 必須
+            = f.select :prefecture,Product.prefectures.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+          .EditSipping__ShippingDays
+            .EditSipping__ShippingDays__FormLabel
+              %label 発送までの日数
+              %span.red 必須
+            = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+        .EditPrice
+          %p 価格（¥300〜9,999,999）
+          .EditPrice__LabelBox
+            .EditPrice__LabelBox__Label
+              %label 販売価格
+              %span.red 必須
+            .EditPrice__LabelBox__InputPrice
+              %span.YenMark ¥
+              = f.number_field :price, class: "EditPrice__LabelBox__InputPrice--field"
+          .EditPrice__TaxBox
+            .EditPrice__TaxBox__Tax 販売手数料（10%）
+            %span.Tax ー
+          .EditPrice__ProfitBox 
+            .EdittPrice__ProfitBox__Profit 販売利益
+            %span.Profit ー
+        .EditSubmit
+          = f.submit "登録内容を変更する", class: 'EditSubmit__Exhibition__Button'
+          = link_to "修正内容を破棄する", :back, class: 'EditSubmit__Save__Button'
+  %footer
+    = render 'footer'

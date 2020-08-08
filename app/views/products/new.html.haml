@@ -19,16 +19,16 @@
           .InputPhoto__DropArea
             .prev-content
             .label-content
-              %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+              %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                 %i.fas.fa-camera
                 %p.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = f.fields_for :images do |image|
-                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "item_images_attributes_0_image"
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                = image.file_field :image, accept: "image/*",class: 'hidden-field', id: "product_images_attributes_0_image"
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+                %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
         .InputInfo
           .InputInfo__NameForm
             .InputInfo__NameForm__FormLabel 
@@ -55,6 +55,7 @@
             -# = f.collection_select :category_ids, @parents, :id, :name,{prompt: "選択して下さい"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]'
             -# -----------------------------------------------------------------------------------------------------------------------------------------------------------
             -# = f.select :category_id, [["選択して下さい", 0],["¥~999", 1],["¥1,000~¥1,999", 2],["¥2,000~¥2,999",3],["¥3,000~",4]]
+          .InputData__SizeForm
             .InputData__SizeForm__FormLabel
               %label サイズ
               %span.red 必須
@@ -70,12 +71,14 @@
               %label 商品の状態
               %span.red 必須
             = f.select :status,Product.statuses.keys,{prompt: "選択してください"}, {class:"InputData__StatusForm__FormArea"}
+        .InputSipping
           %p 配送について
           .InputSipping__DeliveryFee
             .InputSipping__DeliveryFee__FormLabel
               %label 配送料の負担
               %span.red 必須
-            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
+            = f.select :deliver,Product.delivers.keys,{prompt: "選択してください"}
+          .InputSipping__ShippingOrigin
             .InputSipping__ShippingOrigin__FormLabel
               %label 発送元の地域
               %span.red 必須
@@ -86,15 +89,15 @@
               %label 発送までの日数
               %span.red 必須
             = f.select :shipping_dates,Product.shipping_dates.keys,{prompt: "選択してください"}, {id:"SelectFormOption"}
-        .InputPrice__Price
+        .InputPrice
           %p 価格（¥300〜9,999,999）
           .InputPrice__LabelBox
             .InputPrice__LabelBox__Label
               %label 販売価格
               %span.red 必須
             .InputPrice__LabelBox__InputPrice
-              %span.YenLabel
-              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--fild", placeholder: "0"
+              %span.YenLabel ￥
+              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--field", placeholder: "0"
           -# .InputPrice__TaxBox
           -#   .InputPrice__TaxBox__Tax 販売手数料（10%）
           -#   %span.Tax ー
