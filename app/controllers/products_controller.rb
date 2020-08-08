@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+  before_action :item_sold?, only: [:show]
 
   def index
     @product = Product.all.limit(4).order(created_at: :desc)
@@ -103,6 +104,12 @@ class ProductsController < ApplicationController
   # 孫のカテゴリーを設定
   def set_category_level3
     @category_level3 = Category.find("#{params[:level2_id]}").children
+  end
+
+  def item_sold?
+    if @product.shipping_status.present?
+      redirect_to root_path
+    end
   end
 
 end
