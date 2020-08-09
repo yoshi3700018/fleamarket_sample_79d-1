@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   // カテゴリーセレクトオプションを作成する
   function appendOption(category) {
     let html = 
@@ -33,6 +33,7 @@ $(function() {
   // カテゴリーグループ２層を表示する発火条件を定義
   $("#Level1_Form").on("change", function() {
     var value1 = $("#Level1_Form").val();
+    console.log(value1)
     if (value1 != "") {
       $.ajax({
         type  : 'GET',
