@@ -41,7 +41,9 @@
             .EditInfo__InfoForm__FromLabel 
               %label 商品の説明
               %span.red 必須
-            = f.text_area :explanation, class: 'EditInfo__InfoForm__FormArea', placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            = f.text_area :explanation, class: 'EditInfo__InfoForm__FormArea', id: "CountLetters", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            .NumberOfLetters
+              = (@product.explanation.length).to_s + " /1000 文字"
         .InputData
           %p 商品の詳細
           -# -------product#newに設定されていたCategoryFormクラス以下を指定してJSを作っています。取り出す要素はクラスではなくIDで付け足したものですが
