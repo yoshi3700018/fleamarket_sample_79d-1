@@ -9,11 +9,11 @@
       .itemBox__image
         .itemBox__image__top
           .img1
-            = image_tag @product.images[0].image.url, size:"560x346"
+            = image_tag @product.images[0].image.url
         .itemBox__image__bottom
           .img2-5
             - @product.images[1..4].each do |img|
-              = image_tag img.image.url, size:"140x87"
+              = image_tag img.image.url
       .itemBox__price
         ¥
         = @product.price
@@ -106,7 +106,7 @@
                 .mottoSold__in
                   SOLD
               .img-link
-                = image_tag product.images[0].image.url, size:"233x150"
+                = image_tag product.images[0].image.url
               .productList
                 .name
                   = product.pname
@@ -120,7 +120,7 @@
           - else
             = link_to product_path(product) do
               .img-link
-                = image_tag product.images[0].image.url, size:"233x150"
+                = image_tag product.images[0].image.url
               .productList
                 .name
                   = product.pname
