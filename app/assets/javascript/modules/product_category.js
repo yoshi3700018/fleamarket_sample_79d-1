@@ -32,9 +32,7 @@ $(document).on('turbolinks:load', function() {
 
   // カテゴリーグループ２層を表示する発火条件を定義
   $("#Level1_Form").on("change", function() {
-    console.log("checker")
     var value1 = $("#Level1_Form").val();
-    console.log(value1)
     if (value1 != "") {
       $.ajax({
         type  : 'GET',
@@ -64,8 +62,10 @@ $(document).on('turbolinks:load', function() {
     }
   });
   // カテゴリーグループ3層を表示する発火条件を定義
+  // $("#Level2_Form").change(function(){
   $(".InputData__CategoryForm").on("change", "#Level2_Form", function() {
-    var value2 = $("#Level2_Form option:selected").data("category");
+    var value2 = $("#Level2_Form").val();
+    console.log(value2)
     if (value2 != "") {
       $.ajax({
         type  : 'GET',

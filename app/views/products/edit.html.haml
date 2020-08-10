@@ -71,7 +71,7 @@
           .InputData__BrandForm
             .InputData__BrandForm__FormLabel
               %label ブランド
-              %span.red 必須
+              %span.gray 任意
             = f.select :brand,Product.brand_ids.keys,{prompt: "選択してください"}, class: "InputData__BrandForm__FormArea"
           .InputData__StatusSelect
             .InputData__StatusSelect__FormLabel
