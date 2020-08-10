@@ -51,4 +51,8 @@ Rails.application.routes.draw do
     end
   end
 
+  # commentsルーティング
+  resources :items
+  resources :comments, only:[:create,:update,:destroy]
+
 end
