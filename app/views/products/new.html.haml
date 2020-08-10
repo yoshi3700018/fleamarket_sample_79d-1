@@ -50,7 +50,7 @@
               %span.red 必須
             .SelectCategory#Level1
               = f.collection_select :category_id, @category_level1_array, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
-              -# = f.select :category_id, options_for_select(@category_level1_array.map{|c| [c[:name], c[:id]]}), { class: "Select_Default", id: "Level1_Form"}
+              -# = f.select :category_id, options_for_select(@category_level1_array.map{|c| [c[:name], c[:id]]}), {}, {class: "Select_Default", id: "Level1_Form"}
             .SelectCategory#Level2
             .SelectCategory#Level3
             -# ↓の記述のcssは[select]タグ自体に設定されているので、↑はクラスメイトID名は大文字スネークケースで変更しています。JSもこれで組んでしまいますが問題ある様なら変更します

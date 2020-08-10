@@ -32,6 +32,7 @@ $(document).on('turbolinks:load', function() {
 
   // カテゴリーグループ２層を表示する発火条件を定義
   $("#Level1_Form").on("change", function() {
+    console.log("checker")
     var value1 = $("#Level1_Form").val();
     console.log(value1)
     if (value1 != "") {
