@@ -79,13 +79,14 @@
           -# 高橋さんお願いします。
     .commentBox
       .commentBox__contents
-        .textarea
-          %textarea
         .note
           %p
           相手のことを考え丁寧なコメントを心がけましょう。
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .textarea
+          = form_with(model: [@comment], local: true, id: "new-comment") do |form|
+            = form.text_area :comment, class: "textbox",placeholder: "コメントは120文字まで入力できます。"
         .form
           -# '　　'で位置調整しています
           %input.form__submit{type: 'submit', value: '　　コメントする'}

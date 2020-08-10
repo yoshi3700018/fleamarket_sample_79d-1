@@ -18,6 +18,9 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+    # Comment
+    @comment = Comment.create(comment_params)
+    @product = Product.find(params[:product_id])
   end
 
   # product#showの画面からedit, destroyアクションを選べる様にする仕様で作成します
@@ -34,6 +37,9 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.all.limit(3)
+
+    @comment = Comment.new
+    @commentALL = @product.comments
   end
 
   def destroy
@@ -74,6 +80,11 @@ class ProductsController < ApplicationController
     :shipping_dates, :price,
     images_attributes: [:image]
   ).merge(user_id: current_user.id)
+  end
+
+  # Comment
+  def comment_params
+    params.require(:comment).permit(:comment).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def set_product
