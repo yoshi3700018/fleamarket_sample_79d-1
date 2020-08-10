@@ -5,7 +5,7 @@
         %i.fas.fa-book
           カテゴリー
   %ul.CategoryI__Level1.Ancestry
-    - @category_level1.each do |level1| 
+    - @category_level1_array.each do |level1| 
       %li
         = link_to "#", class: "CategoryI__Level1--Name" do
           = level1.name

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
-  before_action :set_category, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :set_category, only: [:index, :edit, :show, :new, :create, :update, :destroy]
   before_action :item_sold?, only: [:show]
 
 
@@ -25,6 +25,14 @@ class ProductsController < ApplicationController
 
   # product#showの画面からedit, destroyアクションを選べる様にする仕様で作成します
   def edit
+    #@productに紐づくカテゴリデータ
+    @level3 = @product.category
+    @level2 = @level3.parent
+    @level1 = @level2.parent
+    #その分類の一覧ary
+    @category_level1 = Category.find(params[:id])
+    @category_level2 = @product.category.parent.parent.children
+    @category_level3 = @product.category.parent.children
   end
   
   def update
@@ -68,6 +76,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  # 子供のカテゴリーを設定、親の名称で検索 => 紐づいた配列を取得
+  # コントロール自体はJSONで行う
+  def set_category_level2
+    @category_level2 = Category.find(params[:level1_id]).children
+  end
+  # 孫のカテゴリーを設定
+  def set_category_level3
+    @category_level3 = Category.find("#{params[:level2_id]}").children
+  end
+
   private
   def product_params
     params.require(:product).permit(:pname,
@@ -95,19 +113,10 @@ class ProductsController < ApplicationController
       images_attributes: [:image, :_destroy, :id])
   end
 
-  # # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
-  # def set_category
-  #   @category_level1 = Category.where(ancestry: nil)
-  # end
-  # # 子供のカテゴリーを設定、親の名称で検索 => 紐づいた配列を取得
-  # # コントロール自体はJSONで行う
-  # def set_category_level2
-  #   @category_level2 = Category.find(params[:level1_id]).children
-  # end
-  # # 孫のカテゴリーを設定
-  # def set_category_level3
-  #   @category_level3 = Category.find("#{params[:level2_id]}").children
-  # end
+  # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
+  def set_category
+    @category_level1_array = Category.where(ancestry: nil)
+  end
 
   def item_sold?
     if @product.shipping_status.present?

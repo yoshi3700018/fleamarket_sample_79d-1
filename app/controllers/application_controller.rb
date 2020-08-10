@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
   def set_category
-    @category_level1 = Category.where(ancestry: nil)
+    @category_level1_array = Category.where(ancestry: nil)
   end
   # 子供のカテゴリーを設定、親の名称で検索 => 紐づいた配列を取得
   # コントロール自体はJSONで行う
