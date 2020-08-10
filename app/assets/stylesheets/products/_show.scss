@@ -36,6 +36,12 @@
           justify-content: center;
           width: 560px;
           height: 346px;
+          .IMG {
+            max-width: 100%;
+            max-height: 100%;
+            width: 560px;
+            height: 346px;
+          }
         }
       }
       &__bottom{
@@ -47,8 +53,18 @@
           display: flex;
           justify-content: center;
           width: 140px;
+          height: 87px;
           img{
             margin: 0 5px;
+            // width: 140px;
+            // height: 87px;
+          }
+          .IMG {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
           }
         }
       }

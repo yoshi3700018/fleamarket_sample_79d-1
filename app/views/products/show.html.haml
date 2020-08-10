@@ -9,11 +9,11 @@
       .itemBox__image
         .itemBox__image__top
           .img1
-            = image_tag @product.images[0].image.url, size:"560x346"
+            = image_tag @product.images[0].image.url, class:"IMG"
         .itemBox__image__bottom
           .img2-5
             - @product.images[1..4].each do |img|
-              = image_tag img.image.url, size:"140x87"
+              = image_tag img.image.url, class:"IMG"
       .itemBox__price
         ¥
         = @product.price

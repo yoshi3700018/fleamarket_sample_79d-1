@@ -12,7 +12,7 @@
       .Introduction {
         height: 560px;
         padding: 0 60px;
-        background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+        background-image: url(/bg-mainVisual-pict_pc.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top center;
@@ -123,7 +123,7 @@
       // 会員数日本一位
       .MemberIntroduction {
         height: 400px;
-        background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+        background-image: url(/bg-topMiddleDl-pict.jpg);
         background-position: bottom right;
         background-size: cover;
         display: flex;
@@ -233,8 +233,10 @@
             justify-content: space-around;
             .PickupCategorys__Products--List {
               width: 220px;
+              height: 150px;
               display: inline-block;
               float: left;
+              object-fit: cover;
               cursor: pointer;
               .PickupCategorys__Products--ListPicture {
                 width: 220px;
@@ -243,6 +245,8 @@
                 position: absolute;
                 overflow: hidden;
                 z-index: auto;
+                max-width: 100%;
+                max-height: 100%;
               }
               .sold {
                 width: 0;
@@ -303,6 +307,12 @@
             }
             .PickupCategorys__Products--List:hover {
               opacity: 0.6;
+            }
+            .ImgPic {
+              width: 220px;
+              height: 150px;
+              max-width:100%;
+              max-height:100%;              
             }
           }
         }
@@ -405,7 +415,7 @@
     }
     // 今すぐ無料ダウンロード！
     .Banner {
-      background-image: url(/assets/bg-appBanner-pict.jpg);
+      background-image: url(/bg-appBanner-pict.jpg);
       padding: 100px 40px;
       position: relative;
       background-size: cover;
