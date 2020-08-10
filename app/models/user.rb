@@ -48,4 +48,8 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  # comment機能のアソシエーション
+  has_many :comments
+  has_many :products
+
 end
