@@ -1,6 +1,4 @@
-.post__header
-  = render partial: 'layouts/header'
-
+= render 'layouts/header'  
 .wrapper
   .showMain
     .itemBox
@@ -9,11 +7,11 @@
       .itemBox__image
         .itemBox__image__top
           .img1
-            = image_tag @product.images[0].image.url, class:"IMG"
+            = image_tag @product.images[0].image.url
         .itemBox__image__bottom
           .img2-5
             - @product.images[1..4].each do |img|
-              = image_tag img.image.url, class:"IMG"
+              = image_tag img.image.url
       .itemBox__price
         ¥
         = @product.price
@@ -29,12 +27,12 @@
               = @product.user.nickname
           %tr
             %th カテゴリー
-            %td 
+            %td
+              = @product.category.parent.parent.name
+              %br/
+              = @product.category.parent.name
+              %br/
               = @product.category.name
-              -# %br
-              -# = @product.category.name
-              -# %br
-              -# = @product.category.name
           %tr
             %th ブランド
             %td
@@ -76,7 +74,6 @@
       - else
         .productRevisedInfo__buy
           = link_to "購入画面に進む", product_buyers_path(@product.id)
-          -# 高橋さんお願いします。
     .commentBox
       .commentBox__contents
         .textarea
@@ -107,7 +104,7 @@
                 .mottoSold__in
                   SOLD
               .img-link
-                = image_tag @product.images[0].image.url, size:"233x150"
+                = image_tag product.images[0].image.url
               .productList
                 .name
                   = product.pname
@@ -121,7 +118,7 @@
           - else
             = link_to product_path(product) do
               .img-link
-                = image_tag @product.images[0].image.url, size:"233x150"
+                = image_tag product.images[0].image.url
               .productList
                 .name
                   = product.pname

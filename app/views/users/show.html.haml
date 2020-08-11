@@ -1,7 +1,4 @@
--if user_signed_in?
-  = render 'layouts/loginheader'
-- else
-  = render 'layouts/header'  
+= render 'layouts/header'  
 .Pankuzu
 .Main
   .Wrapper
@@ -82,8 +79,4 @@
         .NextActions
           = link_to "#" , class: 'NextBtn' do
             一覧を表示する
-
-        -# レスポンス時に使用
-        -# .Contents__Menu
-        -# .Contents__Merupay
-        -# .Contents__Edit
+= render 'layouts/footer'

@@ -44,11 +44,10 @@ Rails.application.routes.draw do
   end
   
   resources :registration, only: [:index]
-
+  resources :categories, only: [:index, :show]
   resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'pay', to: 'cards#pay'
     end
   end
-
 end

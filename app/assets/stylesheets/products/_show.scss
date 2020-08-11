@@ -16,7 +16,6 @@
     padding: 24px 40px 40px 40px;
     margin-bottom: 10px;
     width: 700px;
-    height: 1250px;
     &__title{
       display: block;
       text-align: center;
@@ -34,13 +33,8 @@
         .img1{
           display: flex;
           justify-content: center;
+          img{
           width: 560px;
-          height: 346px;
-          .IMG {
-            max-width: 100%;
-            max-height: 100%;
-            width: 560px;
-            height: 346px;
           }
         }
       }
@@ -48,13 +42,11 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
-        height: 87px;
         .img2-5{
           display: flex;
           justify-content: center;
-          width: 140px;
-          height: 87px;
           img{
+            width: 140px;
             margin: 0 5px;
             // width: 140px;
             // height: 87px;
@@ -229,6 +221,9 @@
   width: 233px;
   display: flex;
   position: relative;
+  img{
+    width: 233px;
+  }
   a{
     color: #000;
   }

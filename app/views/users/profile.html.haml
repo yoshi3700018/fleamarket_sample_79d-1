@@ -1,7 +1,4 @@
--if user_signed_in?
-  = render 'layouts/loginheader'
-- else
-  = render 'layouts/header'  
+= render 'layouts/header'  
 .Pankuzu
 .Main
   .Wrapper
@@ -22,3 +19,4 @@
                 = f.text_area :profile, class: 'InputForm__Profile', placeholder: '例)こんにちは☆ご覧いただきありがとうございます。かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'
               .Actions
                 = f.submit "変更する", class: 'SubmitBtn', url: "profile_update_user_path"
+= render 'layouts/footer'

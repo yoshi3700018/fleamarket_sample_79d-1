@@ -1,0 +1,73 @@
+// ---------Category / Index-----------
+.Categories {
+  margin: auto 50px;
+  text-decoration: none;
+  font-size: 32px;
+  font-family: Meiryo;
+  display: block;
+  &__Title {
+    margin-top: 25px;
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    color:#333333;
+    text-shadow: .8px .8px white;
+
+  }
+  &__L1 {
+    margin-top: 25px;
+    padding: 25px 0px 5px 0px;
+    font-size: .9em;
+    font-weight: 600;
+  }
+  .Level1List {
+    display: block;
+    padding: 5px 20px 5px;
+    border: 1px solid black;
+    border-radius: 15px 15px 0 0;
+    background-color: #3ccace;
+    color: white;
+  }
+  &__L2 {
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 25px;
+    padding: 5px 0 5px 10px;
+    font-size: .7em;
+    font-weight: 550;
+    display: block;
+  }
+  .Level2List {
+    color: black;
+  }
+  &__L3 {
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-size: .8em;
+    font-weight: normal;   
+    display: block;
+    width: 100%;
+
+    &__Items {
+      display: inline-block;
+    }
+    .Level3List {
+      display: inline-block;
+      color: black;
+      width: 260px;
+      height: 35px;
+      line-height: 35px;
+      margin-right: 25px;
+      transition: all 0.6s ease-in-out;
+    }
+    .Level3List:hover {
+      color: #e3ae57;
+      font-weight: bold;
+      padding-left: 5px;
+      background: #cacaca;
+    }
+  }
+}
+
+//----------Category / Show------------
