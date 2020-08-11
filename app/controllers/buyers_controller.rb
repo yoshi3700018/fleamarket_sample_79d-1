@@ -1,6 +1,8 @@
 class BuyersController < ApplicationController
   require 'payjp'#Payjpの読み込み
   before_action :set_card, :set_product
+  before_action :user_in?, only: [:index]
+  before_action :item_sold?, only: [:index]
   
   def index
     if @card.blank?
@@ -42,6 +44,18 @@ class BuyersController < ApplicationController
 
   def set_product
     @product = Product.find(params[:product_id])
+  end
+
+  def user_in?
+    if @product.user_id == @current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def item_sold?
+    if @product.shipping_status.present?
+      redirect_to root_path
+    end
   end
   
 end

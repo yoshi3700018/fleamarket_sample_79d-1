@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
   before_action :set_category, only: [:index, :edit, :show, :new, :create, :update, :destroy]
-  before_action :item_sold?, only: [:show]
+  before_action :item_sold?, only: [:edit]
   before_action :confirm_user_id, only: [:edit, :update, :destroy]
 
 
@@ -42,6 +42,8 @@ class ProductsController < ApplicationController
     @category_level1 = Category.find(params[:id])
     @category_level2 = @product.category.parent.parent.children
     @category_level3 = @product.category.parent.children
+    @tax = @product.price / 10
+    @profit = @product.price - @tax
   end
   
   def update
