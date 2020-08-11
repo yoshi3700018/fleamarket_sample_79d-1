@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
       new_product_path
     else
       redirect_to new_user_session_path
-
     end
   end
 
