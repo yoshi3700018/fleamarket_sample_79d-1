@@ -8,7 +8,7 @@ class BuyersController < ApplicationController
       redirect_to new_card_path
     else
       # Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@card.customer_id) 
@@ -19,7 +19,7 @@ class BuyersController < ApplicationController
 
   def pay
     # Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
-    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => @product.price, #支払金額を引っ張ってくる
