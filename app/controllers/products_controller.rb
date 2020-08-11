@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
   before_action :set_category, only: [:index, :edit, :show, :new, :create, :update, :destroy]
   before_action :item_sold?, only: [:show]
+  before_action :confirm_user_id, only: [:edit, :update, :destroy]
 
 
   def index
@@ -123,6 +124,12 @@ class ProductsController < ApplicationController
 
   def item_sold?
     if @product.shipping_status.present?
+      redirect_to root_path
+    end
+  end
+
+  def confirm_user_id
+    if current_user.id != @product.user_id
       redirect_to root_path
     end
   end
