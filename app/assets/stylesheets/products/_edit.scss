@@ -179,8 +179,6 @@
           display:flex;
           flex-flow: column;
           justify-content:space-between;
-          &__FormLabel {
-          }
           &__FormArea {
             width: 620px;
             height: 48px;
@@ -197,6 +195,16 @@
             padding: 13px 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+          }
+          .NumberOfLetters {
+            color: #888888;
+            width: 620px;
+            height: 16px;
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 10px;
+            text-align: right;
+            line-height: 1.4em;
           }
         }
       }
@@ -397,6 +405,7 @@
           }
           .Tax {
             line-height: 46px;
+            font-size: 14px;
           }
         }
         &__ProfitBox {
@@ -414,6 +423,7 @@
           }
           .Profit {
             line-height: 46px;
+            font-size: 14px;
           }
         }
       }

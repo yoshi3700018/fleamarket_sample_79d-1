@@ -136,9 +136,9 @@ $(document).on('turbolinks:load', function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `product_images_attributes_${id}_image`});
         }
       }
-      //=============================================================================
     });
-    // 手数料・利益の自動計算
+    // 手数料・利益の自動計算＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    // 新規投稿時
     $('#InputPrice').change(function() {
       var a = $('#InputPrice').val();
       var b = a * 0.1
@@ -153,5 +153,19 @@ $(document).on('turbolinks:load', function(){
       $('#profit').html("¥" + profit)
     });
 
+    // 商品編集時
+    $('#InputPrice').change(function() {
+      var a = $('#InputPrice').val();
+      var b = a * 0.1
+      var tax = b.toLocaleString();
+      $('#tax').html("¥" + tax)
+    });
+    $('#InputPrice').change(function() {
+      var c = $('#InputPrice').val();
+      var d = c * 0.1
+      var f = c - d
+      var profit = f.toLocaleString();
+      $('#profit').html("¥" + profit)
+    });
   });
 })

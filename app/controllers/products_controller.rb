@@ -39,6 +39,8 @@ class ProductsController < ApplicationController
     @category_level1 = Category.find(params[:id])
     @category_level2 = @product.category.parent.parent.children
     @category_level3 = @product.category.parent.children
+    @tax = @product.price / 10
+    @profit = @product.price - @tax
   end
   
   def update
