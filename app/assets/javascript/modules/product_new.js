@@ -138,6 +138,22 @@ $(document).on('turbolinks:load', function(){
       }
       //=============================================================================
 
+      // $('#sample2').change(function() {
+      //   // var s = $(#sample1).val();
+      //   var a = $(#sample2).val();
+      //   // var si = parseInt(s);
+      //   var sa = parseInt(a);
+      
+      //   var ss = sa * 2
+      
+      //   var sb = parseStr(ss);
+
+      //   $('#result').html(sb)
+      // });
+
+
+
+
     });
   });
 })
