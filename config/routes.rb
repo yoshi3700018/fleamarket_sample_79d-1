@@ -52,7 +52,9 @@ Rails.application.routes.draw do
   end
 
   # commentsルーティング
-  resources :items
-  resources :comments, only:[:create,:update,:destroy]
-
+  # root to: 'products#index'
+  resources :users
+  resources :products, except: [:index] do
+    resources :comments, only: :create
+  end
 end
