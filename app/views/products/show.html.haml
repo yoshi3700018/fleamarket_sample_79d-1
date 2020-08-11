@@ -88,9 +88,9 @@
           = form_with(model: [@product, @comment], local: true, id: "new-comment") do |form|
             = form.text_area :comment, class: "textbox",placeholder: "コメントは120文字まで入力できます。"
         .form
-          -# '　　'で位置調整しています
+          -# '　　'で位置調整していますproduct_buyers_path(@product.id)
           = button_tag type: 'submit', class: "form__submit"do
-            %i.fa.fa-comment コメントする, product_buyers_path(@product.id)
+            %i.fa.fa-comment コメントする
           -# %input.form__submit{type: 'submit', value: '　　コメントする'}
           -# = icon('fas', 'comment')
     .links
