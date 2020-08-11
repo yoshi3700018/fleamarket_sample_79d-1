@@ -233,8 +233,10 @@
             justify-content: space-around;
             .PickupCategorys__Products--List {
               width: 220px;
+              height: 150px;
               display: inline-block;
               float: left;
+              object-fit: cover;
               cursor: pointer;
               .PickupCategorys__Products--ListPicture {
                 width: 220px;
@@ -243,6 +245,8 @@
                 position: absolute;
                 overflow: hidden;
                 z-index: auto;
+                max-width: 100%;
+                max-height: 100%;
               }
               .sold {
                 width: 0;
@@ -303,6 +307,12 @@
             }
             .PickupCategorys__Products--List:hover {
               opacity: 0.6;
+            }
+            .ImgPic {
+              width: 220px;
+              height: 150px;
+              max-width:100%;
+              max-height:100%;              
             }
           }
         }
