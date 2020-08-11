@@ -1,3 +1,8 @@
+- if @product.errors.any?
+  .SettingGroupForm__Errors
+    %ul
+      - @product.errors.full_messages.each do |message|
+        %li= message
 .Wrapper
   %header
     = render 'header'

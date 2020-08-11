@@ -1,5 +1,3 @@
--# = javascript_include_tag 'modules/product_new'
-
 - if @product.errors.any?
   .SettingGroupForm__Errors
     %ul
@@ -99,13 +97,13 @@
               %span.red 必須
             .InputPrice__LabelBox__InputPrice
               %span.YenLabel ￥
-              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--field", placeholder: "0"
-          -# .InputPrice__TaxBox
-          -#   .InputPrice__TaxBox__Tax 販売手数料（10%）
-          -#   %span.Tax ー
-          -# .InputPrice__ProfitBox 
-          -#   .InputPrice__ProfitBox__Profit 販売利益
-          -#   %span.Profit ー
+              = f.number_field :price, class: "InputPrice__LabelBox__InputPrice--field", placeholder: "0", id: "sample2"
+          .InputPrice__TaxBox
+            .InputPrice__TaxBox__Tax 販売手数料（10%）
+            %span.Tax ー
+          .InputPrice__ProfitBox 
+            .InputPrice__ProfitBox__Profit 販売利益
+            %span.Profit#result
         .InputSubmit
           = f.submit '出品する', class: 'InputSubmit__Exhibition__Button'
           = f.submit '下書きに保存', class: 'InputSubmit__Save__Button'
