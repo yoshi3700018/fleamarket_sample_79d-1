@@ -137,23 +137,21 @@ $(document).on('turbolinks:load', function(){
         }
       }
       //=============================================================================
-
-      // $('#sample2').change(function() {
-      //   // var s = $(#sample1).val();
-      //   var a = $(#sample2).val();
-      //   // var si = parseInt(s);
-      //   var sa = parseInt(a);
-      
-      //   var ss = sa * 2
-      
-      //   var sb = parseStr(ss);
-
-      //   $('#result').html(sb)
-      // });
-
-
-
-
     });
+    // 手数料・利益の自動計算
+    $('#InputPrice').change(function() {
+      var a = $('#InputPrice').val();
+      var b = a * 0.1
+      var tax = b.toLocaleString();
+      $('#tax').html("¥" + tax)
+    });
+    $('#InputPrice').change(function() {
+      var c = $('#InputPrice').val();
+      var d = c * 0.1
+      var f = c - d
+      var profit = f.toLocaleString();
+      $('#profit').html("¥" + profit)
+    });
+
   });
 })

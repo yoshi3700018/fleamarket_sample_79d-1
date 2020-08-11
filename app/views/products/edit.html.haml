@@ -108,13 +108,13 @@
               %span.red 必須
             .EditPrice__LabelBox__InputPrice
               %span.YenMark ¥
-              = f.number_field :price, class: "EditPrice__LabelBox__InputPrice--field"
+              = f.number_field :price, class: "EditPrice__LabelBox__InputPrice--field", id: "InputPrice"
           .EditPrice__TaxBox
             .EditPrice__TaxBox__Tax 販売手数料（10%）
-            %span.Tax ー
+            %span.Tax#tax ー
           .EditPrice__ProfitBox 
             .EdittPrice__ProfitBox__Profit 販売利益
-            %span.Profit ー
+            %span.Profit#profit ー
         .EditSubmit
           = f.submit "登録内容を変更する", class: 'EditSubmit__Exhibition__Button'
           = link_to "修正内容を破棄する", :back, class: 'EditSubmit__Save__Button'
