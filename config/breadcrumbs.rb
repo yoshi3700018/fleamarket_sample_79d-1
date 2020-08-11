@@ -23,3 +23,6 @@ crumb :new_product do
   parent :mypage
 end
 
+# ホーム > カテゴリーLEVEL 1
+# ホーム > カテゴリーLEVEL 2
+# ホーム > カテゴリーLEVEL 3

@@ -1,9 +1,5 @@
 // user sign_in後に描画されるデータのCSSをこのファイルにまとめる(show/edit/logout/profileなど）
 
-* {
-  box-sizing: border-box;
-
-}
 
 .Pankuzu {
   text-align: center;
@@ -34,21 +30,25 @@
             &__Item {
               margin: auto 0px;
               display: inline-block;
-              background: #cdcdcd;
+              background: #8d8a8a;
+              opacity: .9;
               width: 280px;
               height: 58px;
               line-height: 58px;
               vertical-align: center;
               border: 1px solid #eeeeee;
               border-radius: 3px;
-              color: #777777;
+              color: white;
               font-weight: 200;
               font-size: 18px;
               transition: all 0.6s ease-in-out;
             }
             &__Item:hover {
-              color: #e3ae57;
-              background: #cacaca;
+              color: #5a4420;
+              background: #c7e0fe;
+              opacity: .8;
+              padding-left: 10px;
+              font-weight: bold;
             }
             .fa-angle-right  {
               width: 9px;
@@ -225,14 +225,14 @@
             text-align: center;
             font-weight: bold;
             &__Doing {
-              width: 350px;
+              width: 50%;
               height: 74px;
               display: inline-block;
               line-height: 72px;
               border-top: 2px solid red;
             }
             &__After {
-              width: 350px;
+              width: 50%;
               height: 74px;
               display: inline-block;
               line-height: 74px;

@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update]
-  before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_category, only: [:index, :edit, :show, :new, :create, :update, :destroy]
+  before_action :item_sold?, only: [:show]
+  before_action :confirm_user_id, only: [:edit, :update, :destroy]
+
 
   def index
     @product = Product.all.limit(4).order(created_at: :desc)
@@ -9,6 +12,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+
     if user_signed_in?
       new_product_path
     else
@@ -30,12 +34,23 @@ class ProductsController < ApplicationController
 
   # product#showの画面からedit, destroyアクションを選べる様にする仕様で作成します
   def edit
+    #@productに紐づくカテゴリデータ
+    @level3 = @product.category
+    @level2 = @level3.parent
+    @level1 = @level2.parent
+    #その分類の一覧ary
+    @category_level1 = Category.find(params[:id])
+    @category_level2 = @product.category.parent.parent.children
+    @category_level3 = @product.category.parent.children
   end
   
   def update
+    # binding.pry
     if @product.update(update_params)
       redirect_to product_path
     else
+      @category_level2 = @product.category.parent.parent.children
+      @category_level3 = @product.category.parent.children
       render :edit
     end
   end
@@ -75,6 +90,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  # 子供のカテゴリーを設定、親の名称で検索 => 紐づいた配列を取得
+  # コントロール自体はJSONで行う
+  def set_category_level2
+    @category_level2 = Category.find(params[:level1_id]).children
+  end
+  # 孫のカテゴリーを設定
+  def set_category_level3
+    @category_level3 = Category.find("#{params[:level2_id]}").children
+  end
+
   private
   def product_params
     params.require(:product).permit(:pname,
@@ -110,16 +135,19 @@ class ProductsController < ApplicationController
 
   # デフォルトで設定するセレクトドロップダウンリストに入れる値(親要素の値)を定義
   def set_category
-    @category_level1 = Category.where(ancestry: nil)
+    @category_level1_array = Category.where(ancestry: nil)
   end
-  # 子供のカテゴリーを設定、親の名称で検索 => 紐づいた配列を取得
-  # コントロール自体はJSONで行う
-  def set_category_level2
-    @category_level2 = Category.find(params[:level1_id]).children
+
+  def item_sold?
+    if @product.shipping_status.present?
+      redirect_to root_path
+    end
   end
-  # 孫のカテゴリーを設定
-  def set_category_level3
-    @category_level3 = Category.find("#{params[:level2_id]}").children
+
+  def confirm_user_id
+    if current_user.id != @product.user_id
+      redirect_to root_path
+    end
   end
 
 end
