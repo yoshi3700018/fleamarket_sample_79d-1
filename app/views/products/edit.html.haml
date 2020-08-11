@@ -111,10 +111,12 @@
               = f.number_field :price, class: "EditPrice__LabelBox__InputPrice--field", id: "InputPrice"
           .EditPrice__TaxBox
             .EditPrice__TaxBox__Tax 販売手数料（10%）
-            %span.Tax#tax ー
+            %span.Tax#tax
+              = "¥" + @tax.to_s(:delimited)
           .EditPrice__ProfitBox 
             .EdittPrice__ProfitBox__Profit 販売利益
-            %span.Profit#profit ー
+            %span.Profit#profit
+              = "¥" + @profit.to_s(:delimited)
         .EditSubmit
           = f.submit "登録内容を変更する", class: 'EditSubmit__Exhibition__Button'
           = link_to "修正内容を破棄する", :back, class: 'EditSubmit__Save__Button'
