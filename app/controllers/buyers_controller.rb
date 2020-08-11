@@ -7,8 +7,8 @@ class BuyersController < ApplicationController
       #登録された情報がない場合にカード登録画面に移動
       redirect_to new_card_path
     else
-      Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
-      # Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+      # Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(@card.customer_id) 
@@ -18,8 +18,8 @@ class BuyersController < ApplicationController
   end
 
   def pay
-    Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
-    # Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    # Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     # Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       :amount => @product.price, #支払金額を引っ張ってくる
