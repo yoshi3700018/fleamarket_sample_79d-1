@@ -45,7 +45,6 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.all.limit(3)
-    # binding.pry
   end
 
   def destroy

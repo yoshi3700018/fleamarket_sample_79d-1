@@ -5,13 +5,21 @@
       .itemBox__title
         = @product.pname
       .itemBox__image
-        .itemBox__image__top
-          .img1
-            = image_tag @product.images[0].image.url
-        .itemBox__image__bottom
-          .img2-5
-            - @product.images[1..4].each do |img|
-              = image_tag img.image.url
+        - if @product.shipping_status.present?
+          .topSold
+            .topSold__in
+              SOLD
+          .itemBox__image__top
+            .img1
+              = image_tag @product.images[0].image.url
+        - else
+          .itemBox__image__top
+            .img1
+              = image_tag @product.images[0].image.url
+      .itemBox__image__bottom
+        .img2-5
+          - @product.images[1..4].each do |img|
+            = image_tag img.image.url
       .itemBox__price
         ¥
         = @product.price
@@ -66,14 +74,14 @@
           = link_to '不適切な商品の通報', '#'
     .productRevisedInfo
       - if user_signed_in? && current_user.id == @product.user_id
-        .productRevisedInfo__delete
-          = link_to "商品の削除", product_path(@product.id),
-      method: :delete
-        .productRevisedInfo__edit
-          = link_to "商品の修正", edit_product_path(@product.id)
+        = link_to product_path(@product.id), class: 'productRevisedInfo__delete', method: :delete do
+          商品の削除
+        = link_to edit_product_path(@product.id), class: 'productRevisedInfo__edit' do
+          商品の修正
+      - elsif user_signed_in?
+        = link_to product_buyers_path(@product.id), class: 'productRevisedInfo__buy' do
+          購入画面に進む
       - else
-        .productRevisedInfo__buy
-          = link_to "購入画面に進む", product_buyers_path(@product.id)
     .commentBox
       .commentBox__contents
         .textarea
