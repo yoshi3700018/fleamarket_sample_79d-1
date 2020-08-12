@@ -4,12 +4,15 @@
 5人チームでメルカリのクローンサイトを作成する  
 制作期間：2020年7月22日ー8月14日  
 本番環境: http://54.248.22.135/  
+  
 Basic認証  
 - ID: admin_d
 - PASS: firms_i
+  
 確認用ログインアカウント1  
 - EMAIL: user_001@gmail.com
 - PASS: Furima5555
+  
 確認用ログインアカウント2  
 - EMAIL: furima77@gmail.com
 - PASS: Furima7777
