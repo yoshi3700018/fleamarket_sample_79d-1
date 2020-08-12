@@ -157,14 +157,16 @@ $(document).on('turbolinks:load', function(){
     $('#InputPrice').change(function() {
       var a = $('#InputPrice').val();
       var b = a * 0.1
-      var tax = b.toLocaleString();
+      var c = Math.round(b)
+      var tax = c.toLocaleString();
       $('#tax').html("¥" + tax)
     });
     $('#InputPrice').change(function() {
-      var c = $('#InputPrice').val();
-      var d = c * 0.1
-      var f = c - d
-      var profit = f.toLocaleString();
+      var d = $('#InputPrice').val();
+      var f = d * 0.1
+      var g = Math.round(f)
+      var h = d - g
+      var profit = h.toLocaleString();
       $('#profit').html("¥" + profit)
     });
   });
