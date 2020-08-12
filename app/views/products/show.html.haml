@@ -36,11 +36,19 @@
           %tr
             %th カテゴリー
             %td
-              = @product.category.parent.parent.name
-              %br/
-              = @product.category.parent.name
-              %br/
-              = @product.category.name
+              - if @product.category.ancestry == nil
+                = @product.category.name
+              - elsif @product.category.parent.ancestry == nil
+                = @product.category.parent.name
+                %br/
+                = @product.category.name
+                %br/
+              - else
+                = @product.category.parent.parent.name
+                %br/
+                = @product.category.parent.name
+                %br/
+                = @product.category.name
           %tr
             %th ブランド
             %td
