@@ -46,12 +46,13 @@ class ProductsController < ApplicationController
   end
   
   def update
-    # binding.pry
     if @product.update(update_params)
       redirect_to product_path
     else
       @category_level2 = @product.category.parent.parent.children
       @category_level3 = @product.category.parent.children
+      @tax = @product.price / 10
+      @profit = @product.price - @tax
       render :edit
     end
   end
