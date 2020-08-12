@@ -1,69 +1,46 @@
 # README
 
 # 79期生teamD 最終課題
-- 5人チームでメルカリのクローンサイトを作成する
-- 制作期間：2020年7月22日ー8月14日（予定）
+5人チームでメルカリのクローンサイトを作成する
+制作期間：2020年7月22日ー8月14日
+本番環境（http://54.248.22.135/）
+Basic認証
+- ID: admin_d
+- PASS: firms_i
+確認用ログインアカウント1
+- EMAIL: user_001@gmail.com
+- PASS: Furima5555
+確認用ログインアカウント2
+- EMAIL: furima77@gmail.com
+- PASS: Furima7777
 
 # メンバー紹介
 ## 高橋
 - スクラムマスター
 - 商品購入確認ページ作成
+- PAYJPによる購入機能の実装
+- 購入機能の異常系調整(URL直飛び禁止)
 ## 富田
 - 商品出品ページ作成
+- 画像投稿機能の実装
+- 商品出品機能の実装
+- 商品削除機能の実装
 ## 橋本
-- トップページ
+- トップページ作成
 - ヘッダー、フッター作成
+- 商品一覧表示作成
 ## 福元
 - 商品詳細ページ作成
+- 商品表示の異常系調整（リンク表示調整）
 ## 佐野
 - デプロイ担当
 - DB設計、ER図
-- ReadMe編集
-- ユーザー登録、ログイン、マイページ作成
+- ユーザー管理機能作成
+- マイページ、ログイン、サインインページ作成
+- SNS認証によるサインアップ、ログイン機能（ローカルのみ）
+- パンくずリスト導入
 
-# GEM
-- ruby '2.6.5'
-- rails, '~> 6.0.0'
-- mysql2, '>= 0.4.4'
-- puma, '~> 3.11'
-- sass-rails, '~> 5'
-- webpacker, '~> 4.0'
-- turbolinks, '~> 5'
-- jbuilder, '~> 2.7'
-- bootsnap, '>= 1.4.2'
-- byebug', platforms: [:mri, :mingw, :x64_mingw]
-- web-console', '>= 3.3.0'
-- listen', '>= 3.0.5', '< 3.2'
-- spring
-- spring-watcher-listen
-- capybara', '>= 2.15'
-- selenium-webdriver'
-- webdrivers
-- tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-- pry-rails
-- haml-rails", ">= 1.0", '<= 2.0.1'
-- font-awesome-sass'
-- devise
-- carrierwave
-- mini_magick
-- jquery-rails
-- fog-aws
-
-## 多分必要なGEM（view実装しながら検討-未実装)
-- payjp
-- ransack
-- ancestry
-- gretel
-- omniauth-facebook
-- omniauth-google-oauth2
-- omniauth-twitter
-- factory_bot
-- faker
-- unicorn
-
-# ER図
-![ER図(暫定)](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
-[DB設計完了後、画像ファイル挿入予定](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
+# [ER図](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
 
 # DB設計（暫定：ビューファイル作成しながら仕上げる）
 
@@ -78,7 +55,6 @@
 |image|string|||
 |birthday|string|||
 |profile|text|||
-|その他|あれば追加|なければ削除||
 
 Association
 - has_many: products
@@ -98,7 +74,6 @@ Association
 |city|string|null: false||
 |address_line|string|null: false||
 |apartment|string|||
-|その他|あれば追加|なければ削除||
 
 Association
 - belongs_to :user
@@ -136,7 +111,7 @@ Association
 Association
 - belongs_to: products
 
-## creditcardsテーブル
+## cardsテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
 |user_id|references|foreign_key||
@@ -154,14 +129,13 @@ Note
 |products_id|references|foreign_key||
 |category_name|string|||
 |ancestry|string|||
-|その他|あれば追加|なければ削除||
 
 Association
 - has_many :products
 Note
 - gem 'ancestry'の内容を洗い出してから作成する
 
-## ordersテーブル
+## ordersテーブル(8月14日時点で未実装：管理者画面作成時の販売一覧管理用)
 |column|type|options|validations|
 |------|----|-------|-----------|
 |user_id|references|foreign_key||
@@ -170,9 +144,6 @@ Note
 Association
 - has_many :products
 - has_many :users
-
-
-# 以下、応用実装時検討
 
 ## credentialテーブル
 |column|type|options|validations|
@@ -202,7 +173,7 @@ Association
 Note
 - コメント機能、商品ーユーザーの間に作る
 
-## likesテーブル
+## likesテーブル(8月14日時点で未実装：商品評価機能)
 |column|type|options|validations|
 |------|----|-------|-----------|
 |product_id|references|foreign_key||
