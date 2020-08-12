@@ -78,7 +78,7 @@
           商品の削除
         = link_to edit_product_path(@product.id), class: 'productRevisedInfo__edit' do
           商品の修正
-      - elsif user_signed_in?
+      - elsif user_signed_in? && @product.shipping_status != 1
         = link_to product_buyers_path(@product.id), class: 'productRevisedInfo__buy' do
           購入画面に進む
       - else
