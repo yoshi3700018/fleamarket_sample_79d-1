@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   before_action :confirm_user_id, only: [:edit, :update]
 
 
+
+
   def index
     @product = Product.all.limit(4).order(created_at: :desc)
   end
