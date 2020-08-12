@@ -45,8 +45,6 @@ Basic認証
 
 # [ER図](https://app.diagrams.net/#G1Yr1YNttI8S3F-aIMpAhlUtLIWoQHrSVL)
 
-# DB設計（暫定：ビューファイル作成しながら仕上げる）
-
 ## usersテーブル
 |column|type|options|validations|
 |------|----|-------|-----------|
@@ -154,7 +152,6 @@ Association
 |user_id|references|foreign_key||
 |provider|string|||
 |uid|string|||
-|その他|あれば追加|なければ削除||
 
 Associtaion
 - belongs_to :user
@@ -168,7 +165,6 @@ Note
 |product_id|references|foreign_key||
 |user_id|references|foreign_key||
 |comment|text|||
-|その他|あれば追加|なければ削除||
 
 Association
 - belongs_to :user
@@ -181,7 +177,6 @@ Note
 |------|----|-------|-----------|
 |product_id|references|foreign_key||
 |user_id|references|foreign_key||
-|その他|あれば追加|なければ削除||
 
 Association
 - belongs_to :user
