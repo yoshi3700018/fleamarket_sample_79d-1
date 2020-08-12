@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function() {
   function appendLevel2(insertHTML) {
     var level2Html
     level2Html = `<div class="SelectCategory" id="Level2">
-                    <select class="Select_Default" id="Level2_Form" >
+                    <select class="Select_Default" id="Level2_Form" name="product[category_id]">
                       <option value="---" data-category="---">選択してください</option>
                       ${insertHTML}
                     </select>

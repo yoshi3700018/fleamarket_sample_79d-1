@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to_active_hash :country
-
+  # validate :wrong_category_id_argument
   validates :pname, :explanation, :price, :images,
   :category_id, :status, 
   :deliver, :prefecture,
@@ -15,6 +15,13 @@ class Product < ApplicationRecord
   # productレコード削除時に、一緒に削除したいテーブルに対して、dependent: :destroyが必要
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  # def wrong_category_id_argument
+  #   if Category.find_by(:category_id).ancestry == nil
+  #     errors.add(:category_id, "最後までカテゴリーを設定してください")
+  #   end
+  # end
+
 
   enum brand_id: {
     "グッチ": 1, "プラダ": 2, "エルメス": 3, "バレンシアガ": 4, "フェンディ": 5, "ボッテガ・ヴェネタ": 6,

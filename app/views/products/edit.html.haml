@@ -60,14 +60,14 @@
               %span.red 必須
             .SelectCategory#Level1
               -# = f.collection_select :category_id, @category_level1_array, :id, :name,{prompt:"選択してください"},{class:"Select_Default", id: "Level1_Form"}
-              = f.collection_select :category_id, @category_level1_array, :id, :name,{include_blank:"選択してください", selected: @product.category.root_id},{class:"Select_Default", id: "Level1_Form"}
+              = f.collection_select :category_id, Category.roots, :id, :name,{include_blank:"選択してください", selected: @product.category&.root_id},{class:"Select_Default", id: "Level1_Form"}
               -# = f.select :category_id, @category_level1, {selected: @level1}, { class: "Select_Default", id: "Level1_Form"}
               -# = f.select :category_id, @category_level1
               - if @product.category.present?
                 .SelectCategory#Level2
-                  = f.collection_select :category_id, @category_level2, :id, :name, {include_blank: "選択してください", selected: @product.category.parent_id}, {class: "Select_Defaults", id: "Level2_Form"}
+                  = f.collection_select :category_id, @product.category.parent.siblings, :id, :name, {include_blank: "選択してください", selected: @product.category.parent_id}, {class: "Select_Defaults", id: "Level2_Form"}
                 .SelectCategory#Level3
-                  = f.collection_select :category_id, @category_level3, :id, :name, {include_blank: "選択してください", selected: @product.category_id}, {class: "Select_Defaults", id: "Level3_Form"}
+                  = f.collection_select :category_id, @product.category.siblings, :id, :name, {include_blank: "選択してください", selected: @product.category_id}, {class: "Select_Defaults", id: "Level3_Form"}
           .InputData__SizeForm
             .InputData__SizeForm__FormLabel
               %label サイズ

@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   has_many :products
   has_ancestry
+  # validates :name, presence:true
 
   def set_products
     # ancestry固有のインスタンスメソッドを使用する

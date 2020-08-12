@@ -33,14 +33,14 @@ class ProductsController < ApplicationController
 
   # product#showの画面からedit, destroyアクションを選べる様にする仕様で作成します
   def edit
-    #@productに紐づくカテゴリデータ
-    @level3 = @product.category
-    @level2 = @level3.parent
-    @level1 = @level2.parent
-    #その分類の一覧ary
-    @category_level1 = Category.find(params[:id])
-    @category_level2 = @product.category.parent.parent.children
-    @category_level3 = @product.category.parent.children
+    # #@productに紐づくカテゴリデータ
+    # @level3 = @product.category
+    # @level2 = @level3.parent
+    # @level1 = @level2.parent
+    # #その分類の一覧ary
+    # @category_level1 = Category.find(params[:id])
+    # @category_level2 = @product.category.parent.parent.children
+    # @category_level3 = @product.category.parent.children
     @tax = @product.price / 10
     @profit = @product.price - @tax
   end
@@ -49,8 +49,8 @@ class ProductsController < ApplicationController
     if @product.update(update_params)
       redirect_to product_path
     else
-      @category_level2 = @product.category.parent.parent.children
-      @category_level3 = @product.category.parent.children
+      # @category_level2 = @product.category.parent.parent.children
+      # @category_level3 = @product.category.parent.children
       @tax = @product.price / 10
       @profit = @product.price - @tax
       render :edit
