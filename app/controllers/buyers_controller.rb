@@ -2,7 +2,7 @@ class BuyersController < ApplicationController
   require 'payjp'#Payjpの読み込み
   before_action :set_card, :set_product
   before_action :user_in?, only: [:index]
-  before_action :item_sold?, only: [:index]
+  before_action :item_sold?, only: [:index, :pay]
   
   def index
     if @card.blank?
