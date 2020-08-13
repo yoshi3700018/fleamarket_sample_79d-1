@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
     else
       # @category_level2 = @product.category.parent.parent.children
       # @category_level3 = @product.category.parent.children
+      @product = Product.find(params[:id])
       @tax = @product.price / 10
       @profit = @product.price - @tax
       render :edit
